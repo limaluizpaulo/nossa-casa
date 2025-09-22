@@ -1,6 +1,10 @@
-# Nossa Casa - Projeto React
+# Nossa Casa - Centro Cultural
 
-Site institucional do projeto Nossa Casa, desenvolvido em React com Vite.
+Site institucional do centro cultural Nossa Casa, desenvolvido em React com React Router para navegação multi-página.
+
+## 🏛️ Sobre o Projeto
+
+A Nossa Casa é um centro cultural independente localizado em Guarulhos-SP, dedicado à arte, educação e transformação social comunitária. Este é o site institucional que apresenta todas as atividades, eventos e formas de participação.
 
 ## 🎨 Design e Acessibilidade
 
@@ -42,36 +46,81 @@ npm run preview
 
 ```
 src/
-├── components/          # Componentes React
-│   ├── Header.jsx      # Navegação principal com skip-link
-│   ├── Hero.jsx        # Seção hero com métricas
-│   ├── About.jsx       # Sobre o projeto
-│   ├── Programs.jsx    # Grade de programas
-│   ├── Gallery.jsx     # Galeria de imagens
-│   ├── CreateSection.jsx # Como participar
-│   ├── FAQ.jsx         # Perguntas frequentes
-│   ├── Contact.jsx     # CTA final
-│   ├── Footer.jsx      # Rodapé
-│   ├── Button.jsx      # Componente de botão
-│   └── Card.jsx        # Componente de card
-├── styles/             # Arquivos CSS organizados
-│   ├── components.css  # Estilos base dos componentes
-│   ├── header.css      # Estilos do header
-│   ├── hero.css        # Estilos da seção hero
-│   ├── sections.css    # Estilos das seções
-│   ├── footer.css      # Estilos do footer
+├── components/              # Componentes React reutilizáveis
+│   ├── Header.jsx          # Navegação principal
+│   ├── Footer.jsx          # Rodapé do site
+│   ├── Button.jsx          # Componente de botão
+│   ├── Card.jsx            # Componente de card
+│   ├── Hero.jsx            # Seção hero
+│   ├── HeroNew.jsx         # Nova versão do hero
+│   ├── About.jsx           # Seção sobre
+│   ├── QuemSomos.jsx       # Seção quem somos
+│   ├── Programs.jsx        # Grade de programas
+│   ├── OficinasVivencias.jsx # Oficinas e vivências
+│   ├── Agenda.jsx          # Componente de agenda
+│   ├── AluguelEspaco.jsx   # Aluguel de espaços
+│   ├── Loja.jsx            # Loja solidária
+│   ├── Doe.jsx             # Doações
+│   ├── Voluntarie.jsx      # Voluntariado
+│   ├── FaciliteOficina.jsx # Facilitar oficinas
+│   ├── Blog.jsx            # Blog/notícias
+│   ├── Transparencia.jsx   # Transparência
+│   ├── Gallery.jsx         # Galeria de imagens
+│   ├── CreateSection.jsx   # Como participar
+│   ├── FAQ.jsx             # Perguntas frequentes
+│   ├── Contact.jsx         # Contato
+│   └── Contato.jsx         # Formulário de contato
+├── pages/                  # Páginas da aplicação
+│   ├── Home.jsx           # Página inicial
+│   ├── Sobre.jsx          # Página sobre
+│   ├── AgendaPage.jsx     # Página da agenda
+│   ├── OficinasPage.jsx   # Página de oficinas
+│   ├── AluguelPage.jsx    # Página de aluguel
+│   ├── LojaPage.jsx       # Página da loja
+│   ├── DoePage.jsx        # Página de doações
+│   ├── VoluntariadoPage.jsx # Página de voluntariado
+│   ├── FacilitarPage.jsx  # Página para facilitadores
+│   ├── BlogPage.jsx       # Página do blog
+│   ├── TransparenciaPage.jsx # Página de transparência
+│   └── ContatoPage.jsx    # Página de contato
+├── styles/                # Arquivos CSS organizados
+│   ├── components.css     # Estilos base dos componentes
+│   ├── header.css         # Estilos do header
+│   ├── hero.css           # Estilos da seção hero
+│   ├── sections.css       # Estilos das seções
+│   ├── enhanced-sections.css # Seções aprimoradas
+│   ├── new-sections.css   # Novas seções
+│   ├── pages.css          # Estilos das páginas
+│   ├── footer.css         # Estilos do footer
 │   └── accessibility.css # Melhorias de acessibilidade
-├── App.jsx             # Componente principal
-├── main.jsx           # Entrada da aplicação
-└── index.css          # Estilos globais
+├── assets/                # Recursos estáticos
+├── App.jsx               # Componente principal com roteamento
+├── main.jsx             # Entrada da aplicação
+└── index.css            # Estilos globais
 ```
 
-## 🎯 Funcionalidades
+## � Páginas do Site
 
+- **Home** (`/`) - Página inicial com visão geral
+- **Sobre** (`/sobre`) - História e missão da Nossa Casa
+- **Agenda** (`/agenda`) - Eventos e atividades
+- **Oficinas** (`/oficinas`) - Oficinas culturais oferecidas
+- **Aluguel** (`/aluguel`) - Espaços disponíveis para locação
+- **Loja** (`/loja`) - Produtos da economia criativa
+- **Doações** (`/doe`) - Como apoiar financeiramente
+- **Voluntariado** (`/voluntariado`) - Como se voluntariar
+- **Facilitar** (`/facilitar`) - Para facilitadores de oficinas
+- **Blog** (`/blog`) - Notícias e atualizações
+- **Transparência** (`/transparencia`) - Prestação de contas
+- **Contato** (`/contato`) - Formulário de contato
+
+## �🎯 Funcionalidades
+
+- ✅ Site multi-página com React Router
 - ✅ Design responsivo e acessível
-- ✅ Navegação suave entre seções
+- ✅ Navegação entre páginas
 - ✅ Componentes reutilizáveis
-- ✅ Otimização de imagens
+- ✅ Estrutura modular organizada
 - ✅ Skip-links para navegação por teclado
 - ✅ Estrutura semântica apropriada
 - ✅ Contraste adequado (AA/AAA)
@@ -79,10 +128,27 @@ src/
 
 ## 🛠️ Tecnologias
 
-- **React** - Biblioteca JavaScript para UI
-- **Vite** - Build tool e dev server
+- **React 19.1.1** - Biblioteca JavaScript para UI
+- **React Router DOM 7.9.1** - Roteamento para aplicações React
+- **Vite 7.1.6** - Build tool e dev server
 - **CSS3** - Estilização com CSS Variables
-- **Google Fonts** - Space Grotesk e Inter
+- **ESLint** - Linting de código
+
+## 🎨 Principais Seções
+
+### Home Page
+- Hero section com call-to-action
+- Apresentação das atividades principais
+- Estatísticas de impacto (1200+ pessoas, 48 oficinas, 3 anos)
+- Cards de ação para doação e voluntariado
+- Últimas notícias do blog
+
+### Funcionalidades por Página
+- **Oficinas**: Apresentação das atividades culturais
+- **Agenda**: Calendário de eventos
+- **Aluguel**: Espaços disponíveis para locação
+- **Loja**: Produtos da economia criativa
+- **Transparência**: Prestação de contas da organização
 
 ## 📝 Próximos passos
 
@@ -91,18 +157,10 @@ src/
 - [ ] Sistema de calendário para eventos
 - [ ] Performance e SEO otimizados
 - [ ] Testes automatizados
+- [ ] Sistema de gerenciamento de blog
+- [ ] Integração com gateway de pagamento
+- [ ] Sistema de reservas online
 
 ---
 
-Desenvolvido com ❤️ para o projeto Nossa Casa+ Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Desenvolvido com ❤️ para o centro cultural Nossa Casa
