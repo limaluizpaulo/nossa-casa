@@ -1,0 +1,97 @@
+/* Acessibilidade e Skip Links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--ink);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Melhor contraste para acessibilidade AA/AAA */
+:root {
+  /* Ajustando cores para melhor contraste */
+  --ink-high-contrast: #000000;
+  --bg-high-contrast: #ffffff;
+  --link-color: #0066cc;
+  --link-hover: #004499;
+  --focus-ring: #005fcc;
+}
+
+/* Foco visível aprimorado */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Melhor contraste para botões e links importantes */
+.btn--fill {
+  background: var(--ink-high-contrast);
+  color: var(--bg-high-contrast);
+  border-color: var(--ink-high-contrast);
+}
+
+.btn--brand {
+  background: #f0c400; /* Amarelo com melhor contraste */
+  color: #000000;
+  border-color: transparent;
+}
+
+.btn--brand:hover,
+.btn--brand:focus {
+  background: #d4a700;
+  transform: translateY(-1px);
+}
+
+/* Links com melhor contraste */
+a:not(.btn):not(.brand) {
+  color: var(--link-color);
+}
+
+a:not(.btn):not(.brand):hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Navegação com melhor acessibilidade */
+nav a {
+  color: var(--ink-high-contrast);
+  border: 2px solid transparent;
+}
+
+nav a:focus-visible {
+  border-color: var(--focus-ring);
+  outline: none;
+}
+
+/* Estados hover mais suaves */
+.card {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Reduzir animações para usuários sensíveis */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .btn,
+  nav a {
+    transition: none;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+}

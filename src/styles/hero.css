@@ -1,0 +1,110 @@
+/* Hero Section */
+.hero {
+  padding: 100px 0 80px;
+  background: linear-gradient(135deg, var(--creme-acolhedor) 0%, rgba(252, 211, 77, 0.1) 100%);
+}
+
+.hero__content {
+  max-width: 100%;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--roxo-ancestral), var(--roxo-claro));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--roxo-ancestral);
+  font-weight: 700;
+}
+
+.hero__caption {
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* Chips temáticos */
+.chip--arte {
+  background: rgba(107, 70, 193, 0.1);
+  color: var(--roxo-ancestral);
+  border-color: var(--roxo-claro);
+}
+
+.chip--terapia {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--verde-folha);
+  border-color: var(--verde-vida);
+}
+
+.chip--comunidade {
+  background: rgba(252, 211, 77, 0.1);
+  color: var(--amarelo-dourado);
+  border-color: var(--amarelo-sol);
+}
+
+.chip--ancestral {
+  background: rgba(31, 41, 55, 0.1);
+  color: var(--preto-resistencia);
+  border-color: var(--cinza-escuro);
+}
+
+.hero__cta {
+  display: flex; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+  margin-top: 20px;
+}
+
+.hero__meta {
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0,1fr)); 
+  gap: 12px; 
+  margin-top: 32px; 
+  max-width: 520px;
+}
+
+.metric {
+  background: white; 
+  border: 1px solid var(--stroke); 
+  border-radius: var(--radius-lg); 
+  padding: 16px 18px; 
+  box-shadow: var(--shadow);
+}
+
+.metric b {
+  font-family: 'Space Grotesk', sans-serif; 
+  font-size: 28px;
+  display: block;
+}
+
+.partners {
+  display: flex; 
+  gap: 18px; 
+  flex-wrap: wrap; 
+  align-items: center; 
+  margin-top: 32px;
+}
+
+.hero__media {
+  border-radius: var(--radius-lg); 
+  overflow: hidden; 
+  border: 1px solid var(--stroke); 
+  box-shadow: var(--shadow);
+}
+
+.hero__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .hero .wrap {
+    display: grid; 
+    grid-template-columns: 1.2fr .9fr; 
+    gap: 36px; 
+    align-items: end;
+  }
+}
