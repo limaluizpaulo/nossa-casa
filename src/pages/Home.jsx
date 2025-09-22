@@ -16,7 +16,7 @@ const Home = () => {
                   <span className="highlight">arte</span> e <span className="highlight">comunidade</span>
                 </h1>
                 <p className="hero-description">
-                  Um centro cultural independente no coração de Guarulhos-SP, 
+                  Um centro cultural independente no coração de Guarulhos, 
                   onde arte, educação e transformação social caminham juntas 
                   para fortalecer nossa comunidade.
                 </p>

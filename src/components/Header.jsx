@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/header.css';
 import '../styles/accessibility.css';
+import logoImage from '../assets/file.jpeg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,7 +81,11 @@ const Header = () => {
       <header className="site">
         <div className="wrap site__bar">
           <Link className="brand" to="/" aria-label="Nossa Casa Artes e Terapias — página inicial">
-            <span className="brand__logo" aria-hidden="true"></span>
+            <img 
+              src={logoImage} 
+              alt="Nossa Casa Artes e Terapias" 
+              className="brand__logo-image"
+            />
             <span className="brand__text">
               <strong>Nossa Casa</strong>
               <small>Artes e Terapias</small>
