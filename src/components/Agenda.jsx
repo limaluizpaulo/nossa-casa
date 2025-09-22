@@ -220,7 +220,7 @@ const Agenda = () => {
           <h3>Quer propor uma atividade?</h3>
           <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
           <div className="cta-buttons mt-24">
-            <Button variant="accent" href="#facilite">Facilite uma oficina</Button>
+            <Button variant="accent" href="/facilitar">Facilite uma oficina</Button>
             <Button href="#contato">Entre em contato</Button>
           </div>
         </div>
