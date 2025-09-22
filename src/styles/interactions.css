@@ -1,0 +1,438 @@
+
+
+
+a:not(.btn):not(.card):not(.nav__link):not(.nav__dropdown-link) {
+  transition: all var(--transition-base);
+}
+
+a:not(.btn):not(.card):not(.nav__link):not(.nav__dropdown-link):hover {
+  text-decoration: underline;
+  text-decoration-color: var(--brand-yellow-dark);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* Hover sutil para cards */
+.card:hover,
+.event-card:hover,
+.product-card:hover,
+.blog-card:hover,
+.oficina-card:hover,
+.terapia-card:hover,
+.program:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Zoom de imagens nos cards */
+.card:hover img,
+.event-card:hover img,
+.product-card:hover img,
+.blog-card:hover img,
+.oficina-card:hover .oficina-image img,
+.program:hover img {
+  transform: scale(1.03);
+}
+
+/* === FOCUS VISÍVEL === */
+
+/* Focus padrão para todos os elementos interativos */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--brand-yellow-dark);
+  outline-offset: 2px;
+  border-radius: var(--radius-base);
+}
+
+/* Focus especial para botões CTA */
+.btn-cta:focus-visible,
+.nav__link--cta:focus-visible {
+  outline-color: white;
+  outline-offset: 2px;
+}
+
+/* Focus para cards - contorno ao redor do card inteiro */
+.card:focus-within,
+.event-card:focus-within,
+.product-card:focus-within,
+.blog-card:focus-within,
+.oficina-card:focus-within,
+.terapia-card:focus-within,
+.program:focus-within {
+  outline: 2px solid var(--brand-yellow-dark);
+  outline-offset: 2px;
+}
+
+/* === ESTADOS DE INTERAÇÃO === */
+
+/* Estados para botões */
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-cta:hover {
+  background-color: #c4001f; /* Vermelho mais escuro */
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline:hover {
+  border-color: var(--ink);
+  background-color: var(--gray-50);
+}
+
+/* Estados para inputs */
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--brand-yellow-dark);
+  box-shadow: 0 0 0 3px rgba(228, 0, 43, 0.1);
+}
+
+/* === TRANSIÇÕES SUAVES === */
+
+/* Transições para elementos que mudam de estado */
+.tab-btn,
+.nav__link,
+.nav__dropdown-toggle,
+.nav__dropdown-link,
+.link-cta,
+.card-cta,
+.event-cta,
+.blog-cta {
+  transition: all var(--transition-base);
+}
+
+/* Transições para imagens */
+img {
+  transition: transform var(--transition-slow);
+}
+
+/* === REDUCED MOTION === */
+
+/* Respeitar preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remover transformações em hover quando motion é reduzido */
+  .card:hover,
+  .event-card:hover,
+  .product-card:hover,
+  .blog-card:hover,
+  .oficina-card:hover,
+  .terapia-card:hover,
+  .program:hover,
+  .btn:hover {
+    transform: none;
+  }
+  
+  /* Manter zoom de imagens mesmo com motion reduzido (é sutil) */
+  .card:hover img,
+  .event-card:hover img,
+  .product-card:hover img,
+  .blog-card:hover img,
+  .oficina-card:hover .oficina-image img,
+  .program:hover img {
+    transform: none;
+  }
+}
+
+/* === NAVEGAÇÃO POR TECLADO === */
+
+/* Skip link - primeiro elemento focável */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--brand-yellow-dark);
+  color: white;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-base);
+  text-decoration: none;
+  font-family: var(--font-grotesk);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  z-index: var(--z-modal);
+  transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Indicadores visuais para navegação por teclado */
+.nav__link:focus-visible,
+.nav__dropdown-toggle:focus-visible {
+  background: var(--gray-50);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-yellow-dark);
+  text-underline-offset: 3px;
+}
+
+/* === FEEDBACK VISUAL === */
+
+/* Estados de loading */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn.loading {
+  position: relative;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Estados de erro */
+.error {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+.success {
+  border-color: var(--success) !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* === TOOLTIPS SIMPLES === */
+
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: white;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-base);
+  font-family: var(--font-grotesk);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+  z-index: var(--z-tooltip);
+  margin-bottom: var(--space-1);
+}
+
+[data-tooltip]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--ink);
+  z-index: var(--z-tooltip);
+}
+
+/* === MICROINTERAÇÕES ESPECÍFICAS === */
+
+/* Pulse para elementos que precisam de atenção */
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Fade in para elementos que aparecem */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === ACESSIBILIDADE ADICIONAL === */
+
+/* Esconder conteúdo visualmente mas manter para screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mostrar apenas para screen readers em foco */
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: var(--space-2) var(--space-3);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--brand-yellow-dark);
+  color: white;
+  border-radius: var(--radius-base);
+}
+
+/* Indicação de conteúdo obrigatório */
+.required::after {
+  content: ' *';
+  color: var(--error);
+}
+
+/* === CONTRASTE E CORES === */
+
+/* Garantir contraste adequado para texto sobre backgrounds */
+.text-on-light {
+  color: var(--ink);
+}
+
+.text-on-dark {
+  color: white;
+}
+
+/* Indicadores de estado que não dependem apenas de cor */
+.status-indicator {
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+.status-indicator::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: 50%;
+}
+
+.status-indicator.success::before {
+  background: var(--success);
+}
+
+.status-indicator.error::before {
+  background: var(--error);
+}
+
+.status-indicator.warning::before {
+  background: var(--warning);
+}
+
+.status-indicator.info::before {
+  background: var(--info);
+}
+
+/* === RESPONSIVIDADE PARA TOUCH === */
+
+/* Aumentar área de toque em dispositivos móveis */
+@media (max-width: 768px) {
+  .btn,
+  .nav__link,
+  .nav__dropdown-toggle,
+  .tab-btn {
+    min-height: 44px; /* Mínimo recomendado para touch */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Espaçamento maior entre elementos clicáveis */
+  .nav__list {
+    gap: var(--space-2);
+  }
+  
+  .hero__cta {
+    gap: var(--space-4);
+  }
+}
+
+/* === PRINT STYLES === */
+
+@media print {
+  /* Esconder elementos desnecessários na impressão */
+  .nav,
+  .btn,
+  .hero__cta,
+  .newsletter-section,
+  .social-links {
+    display: none !important;
+  }
+  
+  /* Ajustar cores para impressão */
+  .hero,
+  .section {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Quebras de página adequadas */
+  .section {
+    page-break-inside: avoid;
+  }
+  
+  .card,
+  .program,
+  .oficina-card {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}

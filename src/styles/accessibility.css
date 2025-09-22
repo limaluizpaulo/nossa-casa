@@ -22,9 +22,9 @@
   /* Ajustando cores para melhor contraste */
   --ink-high-contrast: #000000;
   --bg-high-contrast: #ffffff;
-  --link-color: #0066cc;
-  --link-hover: #004499;
-  --focus-ring: #005fcc;
+  --link-color: #333333; 
+  --link-hover:  #000000;
+  --focus-ring: #ffbf47; 
 }
 
 /* Foco visível aprimorado */

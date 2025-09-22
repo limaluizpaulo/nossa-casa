@@ -1,64 +1,75 @@
-/* Header */
+/* === HEADER ESTILO NOSSA CASA === */
+
+/* Header sticky com borda inferior discreta */
 .site {
   position: sticky; 
   top: 0; 
-  z-index: 100; 
-  backdrop-filter: blur(12px);
-  background: rgba(254, 247, 237, 0.95);
-  border-bottom: 1px solid var(--stroke);
-  box-shadow: 0 2px 20px rgba(107, 70, 193, 0.1);
+  z-index: var(--z-sticky);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
 }
 
 .site__bar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
-  height: 80px;
+  height: 72px;
   position: relative;
 }
 
+/* === BRAND === */
 .brand {
   display: flex; 
   align-items: center; 
-  gap: 12px; 
-  font-weight: 700; 
-  letter-spacing: .3px;
+  gap: var(--space-3); /* 12px */
+  font-weight: var(--font-semibold); 
   text-decoration: none;
   color: var(--ink);
+  transition: opacity var(--transition-base);
+}
+
+.brand:hover {
+  opacity: 0.8;
 }
 
 .brand__logo {
-  width: 40px; 
-  height: 40px; 
-  border-radius: 12px; 
-  background: linear-gradient(135deg, var(--roxo-ancestral), var(--roxo-claro)); 
+  width: 32px; 
+  height: 32px; 
+  border-radius: var(--radius-md); 
+  background: var(--brand-yellow);
   display: grid; 
   place-items: center; 
-  box-shadow: 0 4px 20px rgba(107, 70, 193, 0.3);
   position: relative;
 }
 
 .brand__logo:after {
   content: "NC"; 
-  font: 700 14px 'Space Grotesk', sans-serif; 
-  color: var(--branco-puro);
+  font-family: var(--font-grotesk);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--brand-yellow-contrast);
 }
 
 .brand__text {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: var(--leading-tight);
 }
 
 .brand__text strong {
-  font-size: 18px;
-  color: var(--preto-resistencia);
+  font-size: var(--text-lg);
+  color: var(--ink);
+  font-weight: var(--font-semibold);
 }
 
 .brand__text small {
-  font-size: 12px;
+  font-size: var(--text-sm);
   color: var(--muted);
-  font-weight: 500;
+  font-weight: var(--font-normal);
 }
 
 /* Menu Toggle (Mobile) */
@@ -76,7 +87,7 @@
 }
 
 .menu-toggle:hover {
-  background: rgba(107, 70, 193, 0.1);
+  background: var(--yellow-accent);
 }
 
 .menu-toggle span {
@@ -134,8 +145,8 @@
 .nav__link:hover,
 .nav__link--active {
   background: var(--creme-quente);
-  border-color: var(--roxo-claro);
-  color: var(--roxo-profundo);
+  border-color: var(--brand-yellow-dark);
+  color: var(--preto-resistencia);
 }
 
 /* Dropdown Styles */
@@ -162,8 +173,8 @@
 .nav__dropdown-toggle:hover,
 .nav__dropdown-toggle.active {
   background: var(--creme-quente);
-  border-color: var(--roxo-claro);
-  color: var(--roxo-profundo);
+  border-color: var(--brand-yellow-dark);
+  color: var(--preto-resistencia);
 }
 
 .dropdown-arrow {
@@ -212,27 +223,27 @@
 .nav__dropdown-link:hover,
 .nav__dropdown-link.active {
   background: var(--creme-quente);
-  color: var(--roxo-profundo);
+  color: var(--preto-resistencia);
 }
 
 .nav__link:hover {
-  background: rgba(107, 70, 193, 0.1);
-  color: var(--roxo-ancestral);
+  background: var(--yellow-accent);
+  color: var(--preto-resistencia);
   transform: translateY(-1px);
 }
 
 .nav__link--highlight {
-  background: var(--roxo-ancestral);
-  color: var(--branco-puro);
+  background: var(--brand-yellow);
+  color: var(--brand-yellow-contrast);
   font-weight: 600;
 }
 
 .nav__link--highlight:hover {
-  background: var(--roxo-claro);
+  background: var(--brand-yellow-dark);
 }
 
 .nav__link:focus-visible {
-  border-color: var(--roxo-ancestral);
+  border-color: var(--brand-yellow-dark);
   outline: none;
 }
 
@@ -264,7 +275,7 @@
     align-items: stretch;
     padding: 20px 20px 40px;
     gap: 4px;
-    box-shadow: 0 8px 30px rgba(107, 70, 193, 0.15);
+    box-shadow: 0 8px 30px rgba(212, 196, 15, 0.15);
     transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
@@ -312,7 +323,7 @@
     position: static;
     box-shadow: none;
     border: none;
-    background: rgba(107, 70, 193, 0.05);
+    background: rgba(248, 238, 19, 0.05);
     border-radius: 0;
     margin: 0;
     transform: none;
@@ -330,6 +341,6 @@
   .nav__dropdown-link {
     padding: 14px 40px;
     font-size: 15px;
-    border-bottom: 1px solid rgba(107, 70, 193, 0.1);
+    border-bottom: 1px solid rgba(212, 196, 15, 0.1);
   }
 }

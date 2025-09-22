@@ -40,7 +40,7 @@ const Header = () => {
       label: 'Atividades',
       dropdown: 'atividades',
       items: [
-        { label: 'Agenda de Eventos', path: '/agenda' },
+        { label: 'Agenda de Eventos', path: '/agenda', cta: true },
         { label: 'Oficinas & Vivências', path: '/oficinas' },
         { label: 'Facilitar Oficina', path: '/facilitar' }
       ]
@@ -133,7 +133,7 @@ const Header = () => {
                             <Link 
                               to={subItem.path} 
                               onClick={closeMenu}
-                              className={`nav__dropdown-link ${isActiveRoute(subItem.path) ? 'active' : ''}`}
+                              className={`nav__dropdown-link ${isActiveRoute(subItem.path) ? 'active' : ''} ${subItem.cta ? 'nav__link--cta' : ''}`}
                             >
                               {subItem.label}
                             </Link>

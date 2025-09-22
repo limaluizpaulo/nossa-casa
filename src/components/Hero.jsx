@@ -17,8 +17,8 @@ const Hero = () => {
               🌻 <strong>Sejam bem-vindes à Nossa Casa</strong>, onde ancestralidade, diversidade e autocuidado se encontram para transformar vidas. Um coletivo independente que há 6 anos fortalece vínculos, celebra a diversidade e incentiva a arte, a saúde integrativa e os direitos humanos.
             </p>
             <div className="hero__cta">
-              <Button variant="fill" href="#agenda">Confira nossa agenda</Button>
-              <Button variant="secondary" href="#quem-somos">Conheça nossa história</Button>
+              <Button variant="fill" href="#agenda" className="btn-cta">Confira nossa agenda</Button>
+              <Button variant="outline" href="#quem-somos" className="btn-outline">Conheça nossa história</Button>
             </div>
             
             <div className="hero__meta" role="region" aria-label="Nosso impacto em números">
