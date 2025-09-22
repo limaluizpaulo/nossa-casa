@@ -24,7 +24,7 @@ const Home = () => {
                   <Button variant="fill" size="large" as={Link} to="/agenda">
                     Ver agenda de eventos
                   </Button>
-                  <Button variant="outline" size="large" as={Link} to="/sobre">
+                  <Button variant="fill" size="large" as={Link} to="/sobre">
                     Conheça nossa história
                   </Button>
                 </div>
