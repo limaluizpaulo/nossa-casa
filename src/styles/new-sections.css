@@ -54,7 +54,8 @@
 
 .mission-card {
   background: linear-gradient(135deg, var(--roxo-ancestral), var(--roxo-profundo));
-  color: var(--branco-puro);
+  color: black;
+  background-color: var(--brand-yellow);
   padding: 48px;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-brand);
