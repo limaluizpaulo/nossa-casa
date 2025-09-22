@@ -82,7 +82,7 @@ const Contato = () => {
     },
     {
       rede: "Facebook",
-      usuario: "Nossa Casa Planaltina",
+      usuario: "Nossa Casa ",
       url: "https://facebook.com/nossacasaplanaltina",
       icone: "📘",
       seguidores: "1.8k"
@@ -343,7 +343,7 @@ const Contato = () => {
               {/* Aqui seria integrado um mapa real (Google Maps, OpenStreetMap, etc.) */}
               <div className="mapa-info">
                 <h4>Nossa Casa - Centro Cultural</h4>
-                <p>Rua das Artes, 123 - Planaltina, DF</p>
+                <p>Rua das Artes, 123 - Guarulhos, SP</p>
                 <p>CEP: 73000-000</p>
                 <Button variant="fill">
                   Abrir no Google Maps
