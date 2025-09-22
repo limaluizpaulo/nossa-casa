@@ -262,7 +262,7 @@
     background: var(--creme-acolhedor);
     flex-direction: column;
     align-items: stretch;
-    padding: 20px;
+    padding: 20px 20px 40px;
     gap: 4px;
     box-shadow: 0 8px 30px rgba(107, 70, 193, 0.15);
     transform: translateX(-100%);
@@ -271,6 +271,7 @@
     transition: all 0.3s ease;
     overflow-y: auto;
     z-index: 999;
+    min-height: calc(100vh - 80px);
   }
   
   .nav--open {
@@ -319,15 +320,15 @@
     visibility: visible;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
   }
   
   .nav__dropdown-menu.show {
-    max-height: 300px;
+    max-height: 500px;
   }
   
   .nav__dropdown-link {
-    padding: 12px 40px;
+    padding: 14px 40px;
     font-size: 15px;
     border-bottom: 1px solid rgba(107, 70, 193, 0.1);
   }
