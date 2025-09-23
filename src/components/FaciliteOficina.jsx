@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { AnimateOnScroll } from '../hooks/useAnimations';
 import { TargetIcon, BookOpenIcon, AccessibilityIcon, BuildingIcon, SeedlingIcon, LightbulbIcon, StarIcon, HandshakeIcon, TrendingUpIcon, HeartIcon, HomeIcon, CalendarIcon, DollarSignIcon } from './Icons';
 
 const FaciliteOficina = () => {
@@ -114,104 +115,113 @@ const FaciliteOficina = () => {
   return (
     <section id="facilite-oficina" className="section facilite-section" aria-labelledby="facilite-title">
       <div className="wrap">
-        <div className="kicker">
-          <span className="rule" aria-hidden="true"></span>
-          Facilite uma Oficina
-        </div>
-        <h2 id="facilite-title" className="section__title">
-          Compartilhe seu conhecimento!
-        </h2>
-        
-        <p className="lead">
-          Você tem um conhecimento, uma paixão ou uma habilidade que gostaria de compartilhar? 
-          A Nossa Casa é o espaço ideal para você facilitar oficinas e contribuir para a formação 
-          de uma comunidade mais criativa e conectada.
-        </p>
+        <AnimateOnScroll animation="fade-up" delay={100}>
+          <div className="kicker">
+            <span className="rule" aria-hidden="true"></span>
+            Facilite uma Oficina
+          </div>
+          <h2 id="facilite-title" className="section__title">
+            Compartilhe seu conhecimento!
+          </h2>
+          
+          <p className="lead">
+            Você tem um conhecimento, uma paixão ou uma habilidade que gostaria de compartilhar? 
+            A Nossa Casa é o espaço ideal para você facilitar oficinas e contribuir para a formação 
+            de uma comunidade mais criativa e conectada.
+          </p>
+        </AnimateOnScroll>
 
         {/* Porque facilitar na Nossa Casa */}
-        <div className="porque-facilitar mt-32">
-          <h3>Por que facilitar na Nossa Casa?</h3>
-          <div className="beneficios-facilitador">
-            <div className="beneficio-item">
-              <span className="beneficio-icone"><StarIcon size={24} /></span>
-              <div>
-                <h4>Impacto social real</h4>
-                <p>Suas oficinas chegam a quem mais precisa, transformando vidas através do conhecimento</p>
-              </div>
-            </div>
-            <div className="beneficio-item">
-              <span className="beneficio-icone"><HandshakeIcon size={24} /></span>
-              <div>
-                <h4>Rede de apoio</h4>
-                <p>Conte com nossa estrutura e equipe para o sucesso da sua oficina</p>
-              </div>
-            </div>
-            <div className="beneficio-item">
-              <span className="beneficio-icone"><TrendingUpIcon size={24} /></span>
-              <div>
-                <h4>Crescimento profissional</h4>
-                <p>Desenvolva suas habilidades pedagógicas e amplie seu portfólio</p>
-              </div>
-            </div>
-            <div className="beneficio-item">
-              <span className="beneficio-icone"><HeartIcon size={24} /></span>
-              <div>
-                <h4>Comunidade acolhedora</h4>
-                <p>Faça parte de um espaço que valoriza a diversidade e a inclusão</p>
-              </div>
-            </div>
-            <div className="beneficio-item">
-              <span className="beneficio-icone"><TargetIcon size={24} /></span>
-              <div>
-                <h4>Público engajado</h4>
-                <p>Trabalhe com pessoas genuinamente interessadas em aprender e crescer</p>
-              </div>
-            </div>
-            <div className="beneficio-item">
-              <span className="beneficio-icone"><HomeIcon size={24} /></span>
-              <div>
-                <h4>Espaço equipado</h4>
-                <p>Utilize nossa infraestrutura completa para suas atividades</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Critérios de seleção */}
-        <div className="criterios-selecao mt-48">
-          <h3>O que buscamos nas propostas</h3>
-          <div className="criterios-grid">
-            {criteriosSelecao.map((criterio, index) => (
-              <div key={index} className="criterio-card">
-                <div className="criterio-icone">{criterio.icone}</div>
-                <h4>{criterio.titulo}</h4>
-                <p>{criterio.descricao}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Processo de seleção */}
-        <div className="processo-selecao mt-48">
-          <h3>Como funciona o processo</h3>
-          <div className="processo-timeline">
-            {processoProposta.map((etapa, index) => (
-              <div key={index} className="processo-step">
-                <div className="step-number">{index + 1}</div>
-                <div className="step-content">
-                  <h4>{etapa.etapa}</h4>
-                  <p>{etapa.descricao}</p>
-                  <span className="step-prazo">{etapa.prazo}</span>
+        <AnimateOnScroll animation="fade-up" delay={200}>
+          <div className="porque-facilitar mt-32">
+            <h3>Por que facilitar na Nossa Casa?</h3>
+            <div className="beneficios-facilitador">
+              <div className="beneficio-item">
+                <span className="beneficio-icone"><StarIcon size={24} /></span>
+                <div>
+                  <h4>Impacto social real</h4>
+                  <p>Suas oficinas chegam a quem mais precisa, transformando vidas através do conhecimento</p>
                 </div>
               </div>
-            ))}
+              <div className="beneficio-item">
+                <span className="beneficio-icone"><HandshakeIcon size={24} /></span>
+                <div>
+                  <h4>Rede de apoio</h4>
+                  <p>Conte com nossa estrutura e equipe para o sucesso da sua oficina</p>
+                </div>
+              </div>
+              <div className="beneficio-item">
+                <span className="beneficio-icone"><TrendingUpIcon size={24} /></span>
+                <div>
+                  <h4>Crescimento profissional</h4>
+                  <p>Desenvolva suas habilidades pedagógicas e amplie seu portfólio</p>
+                </div>
+              </div>
+              <div className="beneficio-item">
+                <span className="beneficio-icone"><HeartIcon size={24} /></span>
+                <div>
+                  <h4>Comunidade acolhedora</h4>
+                  <p>Faça parte de um espaço que valoriza a diversidade e a inclusão</p>
+                </div>
+              </div>
+              <div className="beneficio-item">
+                <span className="beneficio-icone"><TargetIcon size={24} /></span>
+                <div>
+                  <h4>Público engajado</h4>
+                  <p>Trabalhe com pessoas genuinamente interessadas em aprender e crescer</p>
+                </div>
+              </div>
+              <div className="beneficio-item">
+                <span className="beneficio-icone"><HomeIcon size={24} /></span>
+                <div>
+                  <h4>Espaço equipado</h4>
+                  <p>Utilize nossa infraestrutura completa para suas atividades</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
+
+        {/* Critérios de seleção */}
+        <AnimateOnScroll animation="fade-up" delay={300}>
+          <div className="criterios-selecao mt-48">
+            <h3>O que buscamos nas propostas</h3>
+            <div className="criterios-grid">
+              {criteriosSelecao.map((criterio, index) => (
+                <div key={index} className="criterio-card shimmer">
+                  <div className="criterio-icone">{criterio.icone}</div>
+                  <h4>{criterio.titulo}</h4>
+                  <p>{criterio.descricao}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Processo de seleção */}
+        <AnimateOnScroll animation="fade-up" delay={400}>
+          <div className="processo-selecao mt-48">
+            <h3>Como funciona o processo</h3>
+            <div className="processo-timeline">
+              {processoProposta.map((etapa, index) => (
+                <div key={index} className="processo-step">
+                  <div className="step-number">{index + 1}</div>
+                  <div className="step-content">
+                    <h4>{etapa.etapa}</h4>
+                    <p>{etapa.descricao}</p>
+                    <span className="step-prazo">{etapa.prazo}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimateOnScroll>
 
         {/* Formulário de proposta */}
-        <div className="proposta-form mt-48">
-          <h3>Envie sua proposta de oficina</h3>
-          <form onSubmit={handleSubmit} className="form-proposta">
+        <AnimateOnScroll animation="fade-up" delay={500}>
+          <div className="proposta-form mt-48">
+            <h3>Envie sua proposta de oficina</h3>
+            <form onSubmit={handleSubmit} className="form-proposta">
             <div className="form-section">
               <h4>Sobre você</h4>
               <div className="form-row">
@@ -470,30 +480,33 @@ const FaciliteOficina = () => {
               </p>
             </div>
           </form>
-        </div>
+          </div>
+        </AnimateOnScroll>
 
         {/* Informações adicionais */}
-        <div className="info-facilitador mt-32">
-          <h3>Informações importantes</h3>
-          <div className="info-cards">
-            <div className="info-card">
-              <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Investimento</h4>
-              <p>Buscamos equilibrar remuneração justa para facilitadores com acessibilidade para participantes.</p>
-            </div>
-            <div className="info-card">
-              <h4><CalendarIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Agendamento</h4>
-              <p>As oficinas são agendadas conforme disponibilidade do espaço e demanda da comunidade.</p>
-            </div>
-            <div className="info-card">
-              <h4><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Parceria</h4>
-              <p>Apoiamos na divulgação, gestão de inscrições e oferecemos suporte durante toda a oficina.</p>
-            </div>
-            <div className="info-card">
-              <h4><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Inclusão</h4>
-              <p>Incentivamos propostas que promovam acessibilidade e incluam pessoas em situação de vulnerabilidade.</p>
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="info-facilitador mt-32">
+            <h3>Informações importantes</h3>
+            <div className="info-cards">
+              <div className="info-card">
+                <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Investimento</h4>
+                <p>Buscamos equilibrar remuneração justa para facilitadores com acessibilidade para participantes.</p>
+              </div>
+              <div className="info-card">
+                <h4><CalendarIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Agendamento</h4>
+                <p>As oficinas são agendadas conforme disponibilidade do espaço e demanda da comunidade.</p>
+              </div>
+              <div className="info-card">
+                <h4><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Parceria</h4>
+                <p>Apoiamos na divulgação, gestão de inscrições e oferecemos suporte durante toda a oficina.</p>
+              </div>
+              <div className="info-card">
+                <h4><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Inclusão</h4>
+                <p>Incentivamos propostas que promovam acessibilidade e incluam pessoas em situação de vulnerabilidade.</p>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
