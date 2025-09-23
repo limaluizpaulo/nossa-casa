@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import { PaletteIcon, CalendarIcon, HomeIcon, ShoppingBagIcon, HeartIcon, HandshakeIcon } from '../components/Icons';
 import { AnimateOnScroll, ScrollProgress } from '../hooks/useAnimations';
+import bgImage from '../assets/bg.png';
 
 const Home = () => {
   return (
@@ -10,6 +11,10 @@ const Home = () => {
       
       {/* Hero Section */}
       <section className="hero-section">
+        {/* Overlay image placed above the yellow background but behind content */}
+        <div className="hero-overlay" aria-hidden="true">
+          <img src={bgImage} alt="" />
+        </div>
         <div className="hero-content">
           <div className="wrap">
             <div className="hero-grid">

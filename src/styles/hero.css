@@ -244,3 +244,59 @@
     font-size: var(--text-xl);
   }
 }
+
+/* === HERO OVERLAY: transparent vectors above yellow bg, behind content === */
+.hero-section, .hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* above pseudo backgrounds, behind main content */
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay img {
+  width: 110%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.95;
+  mix-blend-mode: multiply;
+  transform-origin: center center;
+}
+
+/* Ensure pseudo backgrounds sit under overlay and content sits above */
+.hero-section::before {
+  z-index: 0;
+}
+
+.hero-content, .hero-grid, .hero-text, .hero-visual {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .hero-overlay img {
+    width: 140%;
+    transform: translateY(-6%) scale(1.05);
+    mix-blend-mode: normal;
+    opacity: 0.98;
+  }
+  /* Hide overlay on mobile to avoid visual clutter and improve performance */
+  .hero-overlay {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-overlay img {
+    width: 180%;
+    transform: translateY(-10%) scale(1.15);
+  }
+}

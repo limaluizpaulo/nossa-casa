@@ -20,6 +20,7 @@ import ContatoPage from './pages/ContatoPage';
 
 import './index.css';
 import './styles/scroll-effects.css';
+import './styles/hero.css';
 
 function App() {
   return (
