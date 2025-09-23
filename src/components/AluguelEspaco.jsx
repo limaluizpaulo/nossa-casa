@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from './Button';
 import { TheaterIcon, VolumeIcon, ProjectorIcon, ChefHatIcon, LeafIcon, CheckIcon, CreditCardIcon, HandshakeIcon, HeartIcon } from './Icons';
+import { AnimateOnScroll } from '../hooks/useAnimations';
 
 const AluguelEspaco = () => {
   const [selectedPackage, setSelectedPackage] = useState('basico');
@@ -94,260 +95,274 @@ const AluguelEspaco = () => {
   return (
     <section id="aluguel" className="section aluguel-section" aria-labelledby="aluguel-title">
       <div className="wrap">
-        <div className="kicker">
-          <span className="rule" aria-hidden="true"></span>
-          Aluguel do Espaço
-        </div>
-        <h2 id="aluguel-title" className="section__title">
-          Nosso espaço é território de afeto, cultura e ancestralidade
-        </h2>
-        
-        <p className="lead">
-          Aqui já aconteceram saraus, festivais, oficinas, terapias e encontros comunitários. 
-          Agora você também pode realizar seu evento conosco e fazer parte dessa história de transformação.
-        </p>
+        <AnimateOnScroll>
+          <div className="kicker">
+            <span className="rule" aria-hidden="true"></span>
+            Aluguel do Espaço
+          </div>
+          <h2 id="aluguel-title" className="section__title">
+            Nosso espaço é território de afeto, cultura e ancestralidade
+          </h2>
+          
+          <p className="lead">
+            Aqui já aconteceram saraus, festivais, oficinas, terapias e encontros comunitários. 
+            Agora você também pode realizar seu evento conosco e fazer parte dessa história de transformação.
+          </p>
+        </AnimateOnScroll>
 
         {/* Galeria de fotos */}
-        <div className="espaco-galeria mt-32">
-          <h3>Conheça nosso espaço</h3>
-          <div className="galeria-grid">
-            {fotos.map((foto, index) => (
-              <figure key={index} className="galeria-item">
-                <img src={foto.src} alt={foto.alt} loading="lazy" />
-              </figure>
-            ))}
+        <AnimateOnScroll delay={200}>
+          <div className="espaco-galeria mt-32">
+            <h3>Conheça nosso espaço</h3>
+            <div className="galeria-grid">
+              {fotos.map((foto, index) => (
+                <figure key={index} className="galeria-item">
+                  <img src={foto.src} alt={foto.alt} loading="lazy" />
+                </figure>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Estrutura disponível */}
-        <div className="espaco-estrutura mt-48">
-          <h3>Estrutura disponível</h3>
-          <div className="estrutura-grid">
-            <div className="estrutura-item">
-              <span className="estrutura-icon"><TheaterIcon size={24} /></span>
-              <h4>Palco</h4>
-              <p>Espaço para apresentações e performances</p>
-            </div>
-            <div className="estrutura-item">
-              <span className="estrutura-icon"><VolumeIcon size={24} /></span>
-              <h4>Sistema de Som</h4>
-              <p>Equipamento completo com microfones</p>
-            </div>
-            <div className="estrutura-item">
-              <span className="estrutura-icon">🪑</span>
-              <h4>Mobiliário</h4>
-              <p>Cadeiras, mesas e espaços flexíveis</p>
-            </div>
-            <div className="estrutura-item">
-              <span className="estrutura-icon"><ProjectorIcon size={24} /></span>
-              <h4>Projeção</h4>
-              <p>Projetor e tela para apresentações</p>
-            </div>
-            <div className="estrutura-item">
-              <span className="estrutura-icon"><ChefHatIcon size={24} /></span>
-              <h4>Cozinha</h4>
-              <p>Espaço equipado para preparo de alimentos</p>
-            </div>
-            <div className="estrutura-item">
-              <span className="estrutura-icon"><LeafIcon size={24} /></span>
-              <h4>Ambiente Acolhedor</h4>
-              <p>Decoração que inspira criatividade e bem-estar</p>
+        <AnimateOnScroll delay={400}>
+          <div className="espaco-estrutura mt-48">
+            <h3>Estrutura disponível</h3>
+            <div className="estrutura-grid">
+              <div className="estrutura-item">
+                <span className="estrutura-icon"><TheaterIcon size={24} /></span>
+                <h4>Palco</h4>
+                <p>Espaço para apresentações e performances</p>
+              </div>
+              <div className="estrutura-item">
+                <span className="estrutura-icon"><VolumeIcon size={24} /></span>
+                <h4>Sistema de Som</h4>
+                <p>Equipamento completo com microfones</p>
+              </div>
+              <div className="estrutura-item">
+                <span className="estrutura-icon">🪑</span>
+                <h4>Mobiliário</h4>
+                <p>Cadeiras, mesas e espaços flexíveis</p>
+              </div>
+              <div className="estrutura-item">
+                <span className="estrutura-icon"><ProjectorIcon size={24} /></span>
+                <h4>Projeção</h4>
+                <p>Projetor e tela para apresentações</p>
+              </div>
+              <div className="estrutura-item">
+                <span className="estrutura-icon"><ChefHatIcon size={24} /></span>
+                <h4>Cozinha</h4>
+                <p>Espaço equipado para preparo de alimentos</p>
+              </div>
+              <div className="estrutura-item">
+                <span className="estrutura-icon"><LeafIcon size={24} /></span>
+                <h4>Ambiente Acolhedor</h4>
+                <p>Decoração que inspira criatividade e bem-estar</p>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Pacotes e preços */}
-        <div className="espaco-pacotes mt-48">
-          <h3>Escolha seu pacote</h3>
-          <div className="pacotes-grid">
-            {pacotes.map(pacote => (
-              <div 
-                key={pacote.id} 
-                className={`pacote-card ${selectedPackage === pacote.id ? 'selected' : ''}`}
-                onClick={() => setSelectedPackage(pacote.id)}
-              >
-                <h4>{pacote.nome}</h4>
-                <div className="pacote-preco">
-                  <span className="preco">{pacote.preco}</span>
-                  <span className="periodo">{pacote.periodo}</span>
-                </div>
-                <ul className="pacote-inclusos">
-                  {pacote.inclusos.map((item, index) => (
-                    <li key={index}><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> {item}</li>
-                  ))}
-                </ul>
-                <Button 
-                  variant={selectedPackage === pacote.id ? "fill" : "default"}
-                  className="w-full"
+        <AnimateOnScroll delay={600}>
+          <div className="espaco-pacotes mt-48">
+            <h3>Escolha seu pacote</h3>
+            <div className="pacotes-grid">
+              {pacotes.map(pacote => (
+                <div 
+                  key={pacote.id} 
+                  className={`pacote-card ${selectedPackage === pacote.id ? 'selected' : ''}`}
+                  onClick={() => setSelectedPackage(pacote.id)}
                 >
-                  {selectedPackage === pacote.id ? "Selecionado" : "Selecionar"}
-                </Button>
-              </div>
-            ))}
+                  <h4>{pacote.nome}</h4>
+                  <div className="pacote-preco">
+                    <span className="preco">{pacote.preco}</span>
+                    <span className="periodo">{pacote.periodo}</span>
+                  </div>
+                  <ul className="pacote-inclusos">
+                    {pacote.inclusos.map((item, index) => (
+                      <li key={index}><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> {item}</li>
+                    ))}
+                  </ul>
+                  <Button 
+                    variant={selectedPackage === pacote.id ? "fill" : "default"}
+                    className="w-full"
+                  >
+                    {selectedPackage === pacote.id ? "Selecionado" : "Selecionar"}
+                  </Button>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Formulário de reserva */}
-        <div className="reserva-form mt-48">
-          <h3>Faça sua reserva</h3>
-          <form onSubmit={handleSubmit} className="form-grid">
-            <div className="form-row">
+        <AnimateOnScroll delay={800}>
+          <div className="reserva-form mt-48">
+            <h3>Faça sua reserva</h3>
+            <form onSubmit={handleSubmit} className="form-grid">
+              <div className="form-row">
+                <div className="form-field">
+                  <label htmlFor="nome">Nome completo *</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    value={formData.nome}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="email">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-field">
+                  <label htmlFor="telefone">Telefone/WhatsApp *</label>
+                  <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    value={formData.telefone}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="tipoEvento">Tipo de evento *</label>
+                  <select
+                    id="tipoEvento"
+                    name="tipoEvento"
+                    value={formData.tipoEvento}
+                    onChange={handleInputChange}
+                    required
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="oficina">Oficina/Workshop</option>
+                    <option value="sarau">Sarau/Apresentação</option>
+                    <option value="festa">Festa/Celebração</option>
+                    <option value="reuniao">Reunião/Encontro</option>
+                    <option value="curso">Curso/Formação</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-field">
+                  <label htmlFor="data">Data preferencial *</label>
+                  <input
+                    type="date"
+                    id="data"
+                    name="data"
+                    value={formData.data}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="horario">Horário *</label>
+                  <input
+                    type="time"
+                    id="horario"
+                    name="horario"
+                    value={formData.horario}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              </div>
+
               <div className="form-field">
-                <label htmlFor="nome">Nome completo *</label>
+                <label htmlFor="numerosPessoas">Número aproximado de pessoas *</label>
                 <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  value={formData.nome}
+                  type="number"
+                  id="numerosPessoas"
+                  name="numerosPessoas"
+                  value={formData.numerosPessoas}
                   onChange={handleInputChange}
+                  min="1"
+                  max="100"
                   required
                 />
               </div>
-              <div className="form-field">
-                <label htmlFor="email">Email *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
 
-            <div className="form-row">
               <div className="form-field">
-                <label htmlFor="telefone">Telefone/WhatsApp *</label>
-                <input
-                  type="tel"
-                  id="telefone"
-                  name="telefone"
-                  value={formData.telefone}
+                <label htmlFor="observacoes">Observações adicionais</label>
+                <textarea
+                  id="observacoes"
+                  name="observacoes"
+                  value={formData.observacoes}
                   onChange={handleInputChange}
-                  required
-                />
+                  rows="4"
+                  placeholder="Conte-nos mais sobre seu evento, necessidades especiais, etc."
+                ></textarea>
               </div>
-              <div className="form-field">
-                <label htmlFor="tipoEvento">Tipo de evento *</label>
-                <select
-                  id="tipoEvento"
-                  name="tipoEvento"
-                  value={formData.tipoEvento}
-                  onChange={handleInputChange}
-                  required
-                >
-                  <option value="">Selecione...</option>
-                  <option value="oficina">Oficina/Workshop</option>
-                  <option value="sarau">Sarau/Apresentação</option>
-                  <option value="festa">Festa/Celebração</option>
-                  <option value="reuniao">Reunião/Encontro</option>
-                  <option value="curso">Curso/Formação</option>
-                  <option value="outro">Outro</option>
-                </select>
+
+              <div className="form-actions">
+                <Button type="submit" variant="fill" className="submit-btn">
+                  Solicitar Reserva
+                </Button>
+                <p className="form-note">
+                  * Entraremos em contato em até 24h para confirmar disponibilidade e detalhes de pagamento
+                </p>
               </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-field">
-                <label htmlFor="data">Data preferencial *</label>
-                <input
-                  type="date"
-                  id="data"
-                  name="data"
-                  value={formData.data}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-field">
-                <label htmlFor="horario">Horário *</label>
-                <input
-                  type="time"
-                  id="horario"
-                  name="horario"
-                  value={formData.horario}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="form-field">
-              <label htmlFor="numerosPessoas">Número aproximado de pessoas *</label>
-              <input
-                type="number"
-                id="numerosPessoas"
-                name="numerosPessoas"
-                value={formData.numerosPessoas}
-                onChange={handleInputChange}
-                min="1"
-                max="100"
-                required
-              />
-            </div>
-
-            <div className="form-field">
-              <label htmlFor="observacoes">Observações adicionais</label>
-              <textarea
-                id="observacoes"
-                name="observacoes"
-                value={formData.observacoes}
-                onChange={handleInputChange}
-                rows="4"
-                placeholder="Conte-nos mais sobre seu evento, necessidades especiais, etc."
-              ></textarea>
-            </div>
-
-            <div className="form-actions">
-              <Button type="submit" variant="fill" className="submit-btn">
-                Solicitar Reserva
-              </Button>
-              <p className="form-note">
-                * Entraremos em contato em até 24h para confirmar disponibilidade e detalhes de pagamento
-              </p>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
+        </AnimateOnScroll>
 
         {/* Informações de pagamento */}
-        <div className="pagamento-info mt-32">
-          <h3>Formas de pagamento</h3>
-          <div className="pagamento-opcoes">
-            <div className="pagamento-opcao">
-              <span className="pagamento-icon"><CreditCardIcon size={24} /></span>
-              <div>
-                <h4>Pix</h4>
-                <p>Desconto de 5% para pagamento à vista</p>
+        <AnimateOnScroll delay={1000}>
+          <div className="pagamento-info mt-32">
+            <h3>Formas de pagamento</h3>
+            <div className="pagamento-opcoes">
+              <div className="pagamento-opcao">
+                <span className="pagamento-icon"><CreditCardIcon size={24} /></span>
+                <div>
+                  <h4>Pix</h4>
+                  <p>Desconto de 5% para pagamento à vista</p>
+                </div>
               </div>
-            </div>
-            <div className="pagamento-opcao">
-              <span className="pagamento-icon"><CreditCardIcon size={24} /></span>
-              <div>
-                <h4>Cartão de Crédito</h4>
-                <p>Parcelamento em até 3x sem juros</p>
+              <div className="pagamento-opcao">
+                <span className="pagamento-icon"><CreditCardIcon size={24} /></span>
+                <div>
+                  <h4>Cartão de Crédito</h4>
+                  <p>Parcelamento em até 3x sem juros</p>
+                </div>
               </div>
-            </div>
-            <div className="pagamento-opcao">
-              <span className="pagamento-icon"><HandshakeIcon size={24} /></span>
-              <div>
-                <h4>Evento Colaborativo</h4>
-                <p>Para eventos comunitários, podemos conversar sobre parcerias</p>
+              <div className="pagamento-opcao">
+                <span className="pagamento-icon"><HandshakeIcon size={24} /></span>
+                <div>
+                  <h4>Evento Colaborativo</h4>
+                  <p>Para eventos comunitários, podemos conversar sobre parcerias</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Impacto social */}
-        <div className="impacto-social mt-32">
-          <div className="impacto-card">
-            <h3><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Ao alugar nosso espaço, você apoia a manutenção da Nossa Casa</h3>
-            <p>
-              Cada locação contribui para mantermos nossa programação de oficinas gratuitas, 
-              atendimentos em saúde mental e eventos culturais para a comunidade.
-            </p>
+        <AnimateOnScroll delay={1200}>
+          <div className="impacto-social mt-32">
+            <div className="impacto-card">
+              <h3><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Ao alugar nosso espaço, você apoia a manutenção da Nossa Casa</h3>
+              <p>
+                Cada locação contribui para mantermos nossa programação de oficinas gratuitas, 
+                atendimentos em saúde mental e eventos culturais para a comunidade.
+              </p>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
