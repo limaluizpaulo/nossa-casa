@@ -1,4 +1,5 @@
 import '../styles/footer.css';
+import { Link } from 'react-router-dom';
 import { MailIcon, HeartIcon, CameraIcon, BookOpenIcon, SmartphoneIcon, MapPinIcon, InboxIcon } from './Icons';
 
 const Footer = () => {
@@ -37,30 +38,30 @@ const Footer = () => {
               <div className="nav-column">
                 <h4>Navegação</h4>
                 <ul>
-                  <li><a href="#home">Início</a></li>
-                  <li><a href="#quem-somos">Quem Somos</a></li>
-                  <li><a href="#agenda">Agenda</a></li>
-                  <li><a href="#oficinas">Oficinas & Vivências</a></li>
+                  <li><Link to="/">Início</Link></li>
+                  <li><Link to="/sobre">Quem Somos</Link></li>
+                  <li><Link to="/agenda">Agenda</Link></li>
+                  <li><Link to="/oficinas">Oficinas & Vivências</Link></li>
                 </ul>
               </div>
               
               <div className="nav-column">
                 <h4>Participe</h4>
                 <ul>
-                  <li><a href="#doe">Doe</a></li>
-                  <li><a href="#voluntarie">Voluntarie-se</a></li>
-                  <li><a href="#facilite">Facilite uma Oficina</a></li>
-                  <li><a href="#aluguel">Aluguel do Espaço</a></li>
+                  <li><Link to="/doe">Doe</Link></li>
+                  <li><Link to="/voluntariado">Voluntarie-se</Link></li>
+                  <li><Link to="/facilitar">Facilite uma Oficina</Link></li>
+                  <li><Link to="/aluguel">Aluguel do Espaço</Link></li>
                 </ul>
               </div>
               
               <div className="nav-column">
                 <h4>Informações</h4>
                 <ul>
-                  <li><a href="#transparencia">Transparência</a></li>
-                  <li><a href="#noticias">Notícias</a></li>
-                  <li><a href="#contato">Contato</a></li>
-                  <li><a href="#loja">Loja</a></li>
+                  <li><Link to="/transparencia">Transparência</Link></li>
+                  <li><Link to="/blog">Notícias</Link></li>
+                  <li><Link to="/contato">Contato</Link></li>
+                  <li><Link to="/loja">Loja</Link></li>
                 </ul>
               </div>
             </div>
