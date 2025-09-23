@@ -12,7 +12,7 @@ a:not(.btn):not(.card):not(.nav__link):not(.nav__dropdown-link):hover {
   text-decoration-thickness: 1px;
 }
 
-/* Hover sutil para cards */
+/* Hover avançado para cards */
 .card:hover,
 .event-card:hover,
 .product-card:hover,
@@ -20,18 +20,80 @@ a:not(.btn):not(.card):not(.nav__link):not(.nav__dropdown-link):hover {
 .oficina-card:hover,
 .terapia-card:hover,
 .program:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Zoom de imagens nos cards */
+/* Zoom de imagens nos cards com transições suaves */
 .card:hover img,
 .event-card:hover img,
 .product-card:hover img,
 .blog-card:hover img,
 .oficina-card:hover .oficina-image img,
 .program:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Efeito shimmer para elementos interativos */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.6s ease;
+}
+
+.shimmer:hover::after {
+  left: 100%;
+}
+
+/* Pulsação suave para elementos de destaque */
+.pulse-soft {
+  animation: pulseSoft 3s ease-in-out infinite;
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+}
+
+/* Efeito glow para botões importantes */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--brand-yellow), var(--brand-yellow-dark), var(--brand-yellow));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::before {
+  opacity: 0.7;
 }
 
 /* === FOCUS VISÍVEL === */

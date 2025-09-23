@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Páginas
 import Home from './pages/Home';
@@ -18,6 +19,7 @@ import TransparenciaPage from './pages/TransparenciaPage';
 import ContatoPage from './pages/ContatoPage';
 
 import './index.css';
+import './styles/scroll-effects.css';
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <ScrollToTopButton />
       </div>
     </Router>
   );
