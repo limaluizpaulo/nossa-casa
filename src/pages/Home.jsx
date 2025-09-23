@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import { PaletteIcon, CalendarIcon, HomeIcon, ShoppingBagIcon, HeartIcon, HandshakeIcon } from '../components/Icons';
 import { AnimateOnScroll, ScrollProgress } from '../hooks/useAnimations';
 import bgImage from '../assets/bg.png';
+import ncImage from '../assets/nc.jpg';
 
 const Home = () => {
   return (
@@ -45,7 +46,7 @@ const Home = () => {
                 <div className="hero-visual">
                   <div className="hero-image shimmer">
                     <img 
-                      src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop" 
+                      src={ncImage} 
                       alt="Atividade comunitária na Nossa Casa"
                     />
                   </div>
