@@ -1,8 +1,10 @@
 import Contato from '../components/Contato';
+import { ScrollProgress } from '../hooks/useAnimations';
 
 const ContatoPage = () => {
   return (
-    <div className="page-container">
+    <div className="page">
+      <ScrollProgress />
       <Contato />
     </div>
   );
