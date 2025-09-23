@@ -1,5 +1,6 @@
 import Card from './Card';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -21,7 +22,7 @@ const About = () => {
             <div>
               <h3>Arte & Oficinas</h3>
               <p>Programas contínuos de artes visuais, música e escrita. Mostras, residências e uma galeria viva para o bairro.</p>
-              <Button className="mt-24" href="#programas" aria-label="Explorar programas de arte e oficinas">Explorar</Button>
+              <Button className="mt-24" as={Link} to="/oficinas" aria-label="Explorar programas de arte e oficinas">Explorar</Button>
             </div>
           </Card>
           <Card>
@@ -34,7 +35,7 @@ const About = () => {
             <div>
               <h3>Terapias & Cuidado</h3>
               <p>Rede de terapeutas e práticas integrativas com foco em bem‑estar, saúde mental e prevenção.</p>
-              <Button className="mt-24" href="#programas" aria-label="Conhecer programas de terapias e cuidado">Conhecer</Button>
+              <Button className="mt-24" as={Link} to="/oficinas" aria-label="Conhecer programas de terapias e cuidado">Conhecer</Button>
             </div>
           </Card>
         </div>
@@ -44,7 +45,7 @@ const About = () => {
             <strong id="support-title">Participe como apoiador(a)</strong>
             <div className="note">Ajude a manter bolsas e materiais para oficinas gratuitas.</div>
           </div>
-          <Button variant="brand" href="#contato" aria-label="Quero apoiar financeiramente o projeto">Quero apoiar</Button>
+          <Button variant="brand" as={Link} to="/contato" aria-label="Quero apoiar financeiramente o projeto">Quero apoiar</Button>
         </aside>
       </div>
     </section>

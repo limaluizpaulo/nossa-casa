@@ -1,4 +1,5 @@
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import Card from './Card';
 
 const CreateSection = () => {
@@ -42,7 +43,7 @@ const CreateSection = () => {
                 </div>
               ))}
             </div>
-            <Button variant="brand" className="mt-32" href="#contato">
+            <Button variant="brand" className="mt-32" as={Link} to="/contato">
               Enviar proposta
             </Button>
           </div>

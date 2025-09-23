@@ -1,4 +1,5 @@
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import { AnimateOnScroll } from '../hooks/useAnimations';
 
 const QuemSomos = () => {
@@ -127,8 +128,8 @@ const QuemSomos = () => {
             <h3>Faça parte dessa história</h3>
             <p>Junte-se a nós na construção de um futuro mais acolhedor e diverso</p>
             <div className="cta-buttons mt-24">
-              <Button variant="fill" href="#voluntarie">Quero ser voluntárie</Button>
-              <Button variant="accent" href="#doe">Apoiar nossa luta</Button>
+              <Button variant="fill" as={Link} to="/voluntariado">Quero ser voluntárie</Button>
+              <Button variant="accent" as={Link} to="/doe">Apoiar nossa luta</Button>
             </div>
           </div>
         </AnimateOnScroll>

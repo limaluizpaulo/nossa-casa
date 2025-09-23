@@ -1,4 +1,5 @@
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
@@ -12,8 +13,8 @@ const Contact = () => {
           Agenda aberta para 2025. Se você é artista, terapeuta, educador(a) ou coletivo, vamos construir essa programação juntos.
         </p>
         <div className="hero__cta">
-          <Button variant="fill" href="#">Inscrever‑se na newsletter</Button>
-          <Button variant="brand" href="#">Falar no WhatsApp</Button>
+          <Button variant="fill" as={Link} to="/blog">Inscrever‑se na newsletter</Button>
+          <Button variant="brand" href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</Button>
         </div>
       </div>
     </section>

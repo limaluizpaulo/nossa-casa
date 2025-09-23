@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import { ShoppingBagIcon, PaletteIcon, BookOpenIcon, ShirtIcon, BagIcon, PlantIcon, LaptopIcon, HandshakeIcon, CreditCardIcon, TruckIcon } from './Icons';
 import { AnimateOnScroll } from '../hooks/useAnimations';
 
@@ -293,8 +294,8 @@ const Loja = () => {
             <h3>Quer vender seus produtos na nossa loja?</h3>
             <p>Se você é artista ou artesã e tem produtos alinhados com nossos valores, vamos conversar!</p>
             <div className="cta-buttons mt-24">
-              <Button variant="accent" href="#contato">Seja um fornecedor</Button>
-              <Button href="#facilite">Saiba mais</Button>
+              <Button variant="accent" as={Link} to="/contato">Seja um fornecedor</Button>
+              <Button as={Link} to="/facilitar">Saiba mais</Button>
             </div>
           </div>
         </AnimateOnScroll>

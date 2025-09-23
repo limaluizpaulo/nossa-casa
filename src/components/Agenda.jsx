@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import { AnimateOnScroll } from '../hooks/useAnimations';
 import { RainbowIcon, PaletteIcon, HeartIcon, PartyIcon, BookOpenIcon, ShoppingBagIcon, CalendarIcon, ClipboardIcon, ClockIcon, UsersIcon, ShareIcon } from './Icons';
 
@@ -233,8 +234,8 @@ const Agenda = () => {
             <h3>Quer propor uma atividade?</h3>
             <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
             <div className="cta-buttons mt-24">
-              <Button variant="accent" href="/facilitar">Facilite uma oficina</Button>
-              <Button href="#contato">Entre em contato</Button>
+              <Button variant="accent" as={Link} to="/facilitar">Facilite uma oficina</Button>
+              <Button as={Link} to="/contato">Entre em contato</Button>
             </div>
           </div>
         </AnimateOnScroll>

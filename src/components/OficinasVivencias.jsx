@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import { AnimateOnScroll } from '../hooks/useAnimations';
 import { PaletteIcon, HeartIcon, DollarSignIcon, CalendarIcon, BagIcon, AccessibilityIcon, SeedlingIcon } from './Icons';
 
@@ -299,7 +300,7 @@ const OficinasVivencias = () => {
           <div className="facilitadores-cta mt-48 glow-effect">
             <h3>Quer facilitar uma oficina na Nossa Casa?</h3>
             <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
-            <Button variant="accent" href="#facilite" className="mt-24">
+            <Button variant="accent" as={Link} to="/facilitar" className="mt-24">
               Facilite uma oficina
             </Button>
           </div>
