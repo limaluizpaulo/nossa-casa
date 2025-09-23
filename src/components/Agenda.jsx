@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { RainbowIcon, PaletteIcon, HeartIcon, PartyIcon, BookOpenIcon, ShoppingBagIcon, CalendarIcon, ClipboardIcon, ClockIcon, UsersIcon, ShareIcon } from './Icons';
 
 const Agenda = () => {
   const [viewMode, setViewMode] = useState('month');
@@ -75,12 +76,12 @@ const Agenda = () => {
   ];
 
   const categorias = [
-    { key: 'all', label: 'Todas', icon: '🌈' },
-    { key: 'oficinas', label: 'Oficinas', icon: '🎨' },
-    { key: 'terapias', label: 'Terapias', icon: '💜' },
-    { key: 'festivais', label: 'Festivais', icon: '🎉' },
-    { key: 'saraus', label: 'Saraus', icon: '📖' },
-    { key: 'feiras', label: 'Feiras', icon: '🛍️' }
+    { key: 'all', label: 'Todas', icon: <RainbowIcon size={20} /> },
+    { key: 'oficinas', label: 'Oficinas', icon: <PaletteIcon size={20} /> },
+    { key: 'terapias', label: 'Terapias', icon: <HeartIcon size={20} /> },
+    { key: 'festivais', label: 'Festivais', icon: <PartyIcon size={20} /> },
+    { key: 'saraus', label: 'Saraus', icon: <BookOpenIcon size={20} /> },
+    { key: 'feiras', label: 'Feiras', icon: <ShoppingBagIcon size={20} /> }
   ];
 
   const atividadesFiltradas = selectedFilter === 'all' 
@@ -136,13 +137,13 @@ const Agenda = () => {
               className={`view-btn ${viewMode === 'month' ? 'active' : ''}`}
               onClick={() => setViewMode('month')}
             >
-              📅 Mês
+              <CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Mês
             </button>
             <button 
               className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
               onClick={() => setViewMode('list')}
             >
-              📋 Lista
+              <ClipboardIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Lista
             </button>
           </div>
 
@@ -163,13 +164,13 @@ const Agenda = () => {
                   
                   <div className="atividade-info">
                     <div className="info-item">
-                      <strong>📅 Data:</strong> {formatarData(atividade.data)}
+                      <strong><CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Data:</strong> {formatarData(atividade.data)}
                     </div>
                     <div className="info-item">
-                      <strong>🕐 Horário:</strong> {atividade.horario}
+                      <strong><ClockIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Horário:</strong> {atividade.horario}
                     </div>
                     <div className="info-item">
-                      <strong>👥 Vagas:</strong> {atividade.vagas} pessoas
+                      <strong><UsersIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Vagas:</strong> {atividade.vagas} pessoas
                     </div>
                   </div>
                   
@@ -180,7 +181,7 @@ const Agenda = () => {
                       Inscreva-se
                     </Button>
                     <button className="btn-share" aria-label="Compartilhar atividade">
-                      📤 Compartilhar
+                      <ShareIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Compartilhar
                     </button>
                   </div>
                 </article>
@@ -205,7 +206,7 @@ const Agenda = () => {
                   <div className="calendar-days">
                     {/* Aqui seria implementado um calendário real */}
                     <div className="calendar-note">
-                      📅 Calendário interativo em desenvolvimento<br/>
+                      <CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Calendário interativo em desenvolvimento<br/>
                       <small>Por enquanto, use a visualização em lista para ver todas as atividades</small>
                     </div>
                   </div>

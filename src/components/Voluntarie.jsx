@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { TheaterIcon, SparklesIcon, HeartIcon, PaletteIcon, SmartphoneIcon, BarChartIcon, WrenchIcon, SeedlingIcon, HandshakeIcon, BookOpenIcon, MuscleIcon, TargetIcon, ClockIcon, ClipboardIcon, GraduationCapIcon } from './Icons';
 
 const Voluntarie = () => {
   const [formData, setFormData] = useState({
@@ -19,32 +20,32 @@ const Voluntarie = () => {
     {
       titulo: "Apoio em Oficinas",
       descricao: "Auxiliar facilitadores durante as atividades, organizar materiais e acolher participantes",
-      icone: "🎨"
+      icone: <PaletteIcon size={24} />
     },
     {
       titulo: "Comunicação",
       descricao: "Redes sociais, design gráfico, fotografia, produção de conteúdo",
-      icone: "📱"
+      icone: <SmartphoneIcon size={24} />
     },
     {
       titulo: "Gestão e Administração",
       descricao: "Organização financeira, captação de recursos, planejamento estratégico",
-      icone: "📊"
+      icone: <BarChartIcon size={24} />
     },
     {
       titulo: "Eventos e Produção",
       descricao: "Organização de saraus, festivais, feiras e encontros comunitários",
-      icone: "🎭"
+      icone: <TheaterIcon size={24} />
     },
     {
       titulo: "Cuidado e Acolhimento",
       descricao: "Recepção, escuta qualificada, apoio emocional aos participantes",
-      icone: "💜"
+      icone: <HeartIcon size={24} />
     },
     {
       titulo: "Manutenção do Espaço",
       descricao: "Limpeza, organização, pequenos reparos, jardinagem",
-      icone: "🔧"
+      icone: <WrenchIcon size={24} />
     }
   ];
 
@@ -80,7 +81,7 @@ const Voluntarie = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Dados do voluntário:', formData);
-    alert('Inscrição enviada! Em breve entraremos em contato. Bem-vinde à família Nossa Casa! 💜');
+    alert('Inscrição enviada! Em breve entraremos em contato. Bem-vinde à família Nossa Casa!');
   };
 
   return (
@@ -118,42 +119,42 @@ const Voluntarie = () => {
           <h3>O que você ganha sendo voluntárie</h3>
           <div className="beneficios-grid">
             <div className="beneficio-item">
-              <span className="beneficio-icone">🌱</span>
+              <span className="beneficio-icone"><SeedlingIcon size={24} /></span>
               <div>
                 <h4>Crescimento pessoal</h4>
                 <p>Desenvolva novas habilidades e descubra talentos que você nem sabia que tinha</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">🤝</span>
+              <span className="beneficio-icone"><HandshakeIcon size={24} /></span>
               <div>
                 <h4>Rede de conexões</h4>
                 <p>Conheça pessoas incríveis e construa relacionamentos verdadeiros</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">📚</span>
+              <span className="beneficio-icone"><BookOpenIcon size={24} /></span>
               <div>
                 <h4>Aprendizado constante</h4>
                 <p>Acesso gratuito a todas as nossas oficinas e eventos</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">💪</span>
+              <span className="beneficio-icone"><MuscleIcon size={24} /></span>
               <div>
                 <h4>Impacto social</h4>
                 <p>Faça parte da transformação real da sua comunidade</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">🎯</span>
+              <span className="beneficio-icone"><TargetIcon size={24} /></span>
               <div>
                 <h4>Propósito</h4>
                 <p>Encontre significado no que faz e contribua para um mundo mais justo</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">✨</span>
+              <span className="beneficio-icone"><SparklesIcon size={24} /></span>
               <div>
                 <h4>Reconhecimento</h4>
                 <p>Certificados de voluntariado e referências para seu currículo</p>
@@ -333,7 +334,7 @@ const Voluntarie = () => {
                 Quero ser voluntárie!
               </Button>
               <p className="form-note">
-                * Entraremos em contato em até 48h para agendar uma conversa inicial 💜
+                * Entraremos em contato em até 48h para agendar uma conversa inicial
               </p>
             </div>
           </form>
@@ -344,15 +345,15 @@ const Voluntarie = () => {
           <h3>Informações importantes</h3>
           <div className="info-cards">
             <div className="info-card">
-              <h4>🕐 Compromisso</h4>
+              <h4><ClockIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Compromisso</h4>
               <p>Pedimos um compromisso mínimo de 3 meses para garantir continuidade nos projetos.</p>
             </div>
             <div className="info-card">
-              <h4>📋 Processo</h4>
+              <h4><ClipboardIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Processo</h4>
               <p>Após a inscrição, fazemos uma conversa para alinhar expectativas e definir atividades.</p>
             </div>
             <div className="info-card">
-              <h4>🎓 Capacitação</h4>
+              <h4><GraduationCapIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Capacitação</h4>
               <p>Oferecemos orientação inicial e capacitações específicas para cada área.</p>
             </div>
           </div>

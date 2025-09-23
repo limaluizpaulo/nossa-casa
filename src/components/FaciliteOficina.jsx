@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { TargetIcon, BookOpenIcon, AccessibilityIcon, BuildingIcon, SeedlingIcon, LightbulbIcon, StarIcon, HandshakeIcon, TrendingUpIcon, HeartIcon, HomeIcon, CalendarIcon, DollarSignIcon } from './Icons';
 
 const FaciliteOficina = () => {
   const [formData, setFormData] = useState({
@@ -44,32 +45,32 @@ const FaciliteOficina = () => {
     {
       titulo: "Alinhamento com nossa missão",
       descricao: "Oficinas que promovam inclusão, diversidade e transformação social",
-      icone: "🎯"
+      icone: <TargetIcon size={24} />
     },
     {
       titulo: "Qualidade pedagógica",
       descricao: "Metodologia clara, objetivos bem definidos e experiência do facilitador",
-      icone: "📚"
+      icone: <BookOpenIcon size={24} />
     },
     {
       titulo: "Acessibilidade",
       descricao: "Atividades que sejam acessíveis financeiramente e fisicamente",
-      icone: "♿"
+      icone: <AccessibilityIcon size={24} />
     },
     {
       titulo: "Relevância comunitária",
       descricao: "Conteúdos que respondam às necessidades e interesses da comunidade",
-      icone: "🏘️"
+      icone: <BuildingIcon size={24} />
     },
     {
       titulo: "Sustentabilidade",
       descricao: "Projetos que possam se manter ao longo do tempo",
-      icone: "🌱"
+      icone: <SeedlingIcon size={24} />
     },
     {
       titulo: "Inovação",
       descricao: "Propostas criativas que tragam novas perspectivas",
-      icone: "💡"
+      icone: <LightbulbIcon size={24} />
     }
   ];
 
@@ -107,7 +108,7 @@ const FaciliteOficina = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Proposta de oficina:', formData);
-    alert('Proposta enviada com sucesso! Analisaremos sua proposta e entraremos em contato em breve. Obrigado por querer fazer parte da Nossa Casa! 💜');
+    alert('Proposta enviada com sucesso! Análisaremos sua proposta e entraremos em contato em breve. Obrigado por querer fazer parte da Nossa Casa!');
   };
 
   return (
@@ -132,42 +133,42 @@ const FaciliteOficina = () => {
           <h3>Por que facilitar na Nossa Casa?</h3>
           <div className="beneficios-facilitador">
             <div className="beneficio-item">
-              <span className="beneficio-icone">🌟</span>
+              <span className="beneficio-icone"><StarIcon size={24} /></span>
               <div>
                 <h4>Impacto social real</h4>
                 <p>Suas oficinas chegam a quem mais precisa, transformando vidas através do conhecimento</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">🤝</span>
+              <span className="beneficio-icone"><HandshakeIcon size={24} /></span>
               <div>
                 <h4>Rede de apoio</h4>
                 <p>Conte com nossa estrutura e equipe para o sucesso da sua oficina</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">📈</span>
+              <span className="beneficio-icone"><TrendingUpIcon size={24} /></span>
               <div>
                 <h4>Crescimento profissional</h4>
                 <p>Desenvolva suas habilidades pedagógicas e amplie seu portfólio</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">💜</span>
+              <span className="beneficio-icone"><HeartIcon size={24} /></span>
               <div>
                 <h4>Comunidade acolhedora</h4>
                 <p>Faça parte de um espaço que valoriza a diversidade e a inclusão</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">🎯</span>
+              <span className="beneficio-icone"><TargetIcon size={24} /></span>
               <div>
                 <h4>Público engajado</h4>
                 <p>Trabalhe com pessoas genuinamente interessadas em aprender e crescer</p>
               </div>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icone">🏠</span>
+              <span className="beneficio-icone"><HomeIcon size={24} /></span>
               <div>
                 <h4>Espaço equipado</h4>
                 <p>Utilize nossa infraestrutura completa para suas atividades</p>
@@ -465,7 +466,7 @@ const FaciliteOficina = () => {
                 Enviar proposta
               </Button>
               <p className="form-note">
-                * Analisaremos sua proposta e entraremos em contato em até 7 dias úteis 💜
+                * Analisaremos sua proposta e entraremos em contato em até 7 dias úteis
               </p>
             </div>
           </form>
@@ -476,19 +477,19 @@ const FaciliteOficina = () => {
           <h3>Informações importantes</h3>
           <div className="info-cards">
             <div className="info-card">
-              <h4>💰 Investimento</h4>
+              <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Investimento</h4>
               <p>Buscamos equilibrar remuneração justa para facilitadores com acessibilidade para participantes.</p>
             </div>
             <div className="info-card">
-              <h4>📅 Agendamento</h4>
+              <h4><CalendarIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Agendamento</h4>
               <p>As oficinas são agendadas conforme disponibilidade do espaço e demanda da comunidade.</p>
             </div>
             <div className="info-card">
-              <h4>🤝 Parceria</h4>
+              <h4><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Parceria</h4>
               <p>Apoiamos na divulgação, gestão de inscrições e oferecemos suporte durante toda a oficina.</p>
             </div>
             <div className="info-card">
-              <h4>🎯 Inclusão</h4>
+              <h4><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Inclusão</h4>
               <p>Incentivamos propostas que promovam acessibilidade e incluam pessoas em situação de vulnerabilidade.</p>
             </div>
           </div>

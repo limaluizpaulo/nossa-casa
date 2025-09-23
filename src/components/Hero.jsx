@@ -1,5 +1,6 @@
 import Button from './Button';
 import '../styles/hero.css';
+import { FlowerIcon } from './Icons';
 
 const Hero = () => {
   return (
@@ -14,7 +15,11 @@ const Hero = () => {
               em Guarulhos
             </h1>
             <p className="lead">
-              🌻 <strong>Sejam bem-vindes à Nossa Casa</strong>, onde ancestralidade, diversidade e autocuidado se encontram para transformar vidas. Um coletivo independente que há 6 anos fortalece vínculos, celebra a diversidade e incentiva a arte, a saúde integrativa e os direitos humanos.
+import { FlowerIcon } from './Icons';
+
+// ... resto do código ...
+
+                            <FlowerIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> <strong>Sejam bem-vindes à Nossa Casa</strong>, onde ancestralidade, diversidade e autocuidado se encontram para transformar vidas. Um coletivo independente que há 6 anos fortalece vínculos, celebra a diversidade e incentiva a arte, a saúde integrativa e os direitos humanos.
             </p>
             <div className="hero__cta">
               <Button variant="fill" href="#agenda" className="btn-cta">Confira nossa agenda</Button>

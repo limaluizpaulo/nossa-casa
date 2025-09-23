@@ -1,5 +1,22 @@
 import { useState } from 'react';
 import Button from './Button';
+import { 
+  SearchIcon, 
+  HandshakeIcon, 
+  BarChartIcon, 
+  TargetIcon, 
+  TrendingUpIcon, 
+  MailIcon, 
+  DollarSignIcon, 
+  CheckIcon, 
+  AlertTriangleIcon, 
+  DownloadIcon, 
+  BuildingGovIcon, 
+  ClipboardIcon, 
+  MegaphoneIcon, 
+  SmartphoneIcon, 
+  InboxIcon 
+} from './Icons';
 
 const Transparencia = () => {
   const [anoSelecionado, setAnoSelecionado] = useState('2023');
@@ -88,22 +105,22 @@ const Transparencia = () => {
     {
       titulo: "Transparência Total",
       descricao: "Todas as nossas informações financeiras e atividades são públicas e acessíveis",
-      icone: "🔍"
+      icone: <SearchIcon size={24} />
     },
     {
       titulo: "Gestão Participativa",
       descricao: "Decisões importantes são tomadas coletivamente com participação da comunidade",
-      icone: "🤝"
+      icone: <HandshakeIcon size={24} />
     },
     {
       titulo: "Prestação de Contas",
       descricao: "Relatórios regulares sobre uso de recursos e resultados alcançados",
-      icone: "📊"
+      icone: <BarChartIcon size={24} />
     },
     {
       titulo: "Auditoria Externa",
       descricao: "Avaliações independentes garantem a veracidade de nossas informações",
-      icone: "🔎"
+      icone: <SearchIcon size={24} />
     }
   ];
 
@@ -172,7 +189,7 @@ const Transparencia = () => {
           <div className="dashboard-grid">
             {/* Receitas */}
             <div className="dashboard-card receitas">
-              <h4>💰 Receitas {anoSelecionado}</h4>
+              <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Receitas {anoSelecionado}</h4>
               <div className="valor-principal">{formatarMoeda(dados.receitas.total)}</div>
               <div className="detalhes-lista">
                 <div className="detalhe-item">
@@ -196,7 +213,7 @@ const Transparencia = () => {
 
             {/* Despesas */}
             <div className="dashboard-card despesas">
-              <h4>💸 Despesas {anoSelecionado}</h4>
+              <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px', transform: 'rotate(180deg)'}} /> Despesas {anoSelecionado}</h4>
               <div className="valor-principal">{formatarMoeda(dados.despesas.total)}</div>
               <div className="detalhes-lista">
                 <div className="detalhe-item">
@@ -224,22 +241,22 @@ const Transparencia = () => {
 
             {/* Resultado */}
             <div className="dashboard-card resultado">
-              <h4>📈 Resultado {anoSelecionado}</h4>
+              <h4><TrendingUpIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Resultado {anoSelecionado}</h4>
               <div className={`valor-principal ${dados.receitas.total - dados.despesas.total >= 0 ? 'positivo' : 'negativo'}`}>
                 {formatarMoeda(dados.receitas.total - dados.despesas.total)}
               </div>
               <div className="resultado-info">
                 {dados.receitas.total - dados.despesas.total >= 0 ? (
-                  <p>✅ Recursos disponíveis para novos projetos</p>
+                  <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Recursos disponíveis para novos projetos</p>
                 ) : (
-                  <p>⚠️ Déficit coberto por reservas</p>
+                  <p><AlertTriangleIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Déficit coberto por reservas</p>
                 )}
               </div>
             </div>
 
             {/* Impacto */}
             <div className="dashboard-card impacto">
-              <h4>🎯 Impacto {anoSelecionado}</h4>
+              <h4><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Impacto {anoSelecionado}</h4>
               <div className="impacto-stats">
                 <div className="stat-item">
                   <span className="stat-numero">{dados.beneficiarios}</span>
@@ -279,7 +296,7 @@ const Transparencia = () => {
                   </div>
                 </div>
                 <Button variant="outline" size="small">
-                  📄 Download
+                  <DownloadIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Download
                 </Button>
               </div>
             ))}
@@ -291,21 +308,21 @@ const Transparencia = () => {
           <h3>Auditoria e certificações</h3>
           <div className="audit-grid">
             <div className="audit-card">
-              <h4>🏛️ Registro no CNPJ</h4>
+              <h4><BuildingGovIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Registro no CNPJ</h4>
               <p>CNPJ: 12.345.678/0001-90</p>
               <p>Situação: Ativa</p>
               <p>Natureza: Associação Privada</p>
             </div>
             
             <div className="audit-card">
-              <h4>📋 Certificações</h4>
-              <p>✅ OSCIP - Organização da Sociedade Civil de Interesse Público</p>
-              <p>✅ Utilidade Pública Municipal</p>
-              <p>✅ Cadastro Municipal de Entidades</p>
+              <h4><ClipboardIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Certificações</h4>
+              <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> OSCIP - Organização da Sociedade Civil de Interesse Público</p>
+              <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Utilidade Pública Municipal</p>
+              <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Cadastro Municipal de Entidades</p>
             </div>
             
             <div className="audit-card">
-              <h4>🔍 Auditoria Externa</h4>
+              <h4><SearchIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Auditoria Externa</h4>
               <p>Empresa: Auditores Associados Ltda</p>
               <p>Última auditoria: Janeiro 2024</p>
               <p>Resultado: Aprovada sem ressalvas</p>
@@ -342,15 +359,15 @@ const Transparencia = () => {
         {/* Canal de denúncias */}
         <div className="canal-denuncias mt-32">
           <div className="denuncias-card">
-            <h3>📢 Canal de Transparência</h3>
+            <h3><MegaphoneIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Canal de Transparência</h3>
             <p>
               Tem alguma dúvida sobre nossos processos ou quer fazer uma denúncia? 
               Entre em contato conosco de forma anônima ou identificada.
             </p>
             <div className="contatos-transparencia">
-              <p>📧 transparencia@nossacasaat.org.br</p>
-              <p>📱 WhatsApp: (61) 9999-9999</p>
-              <p>📮 Caixa de sugestões física no nosso espaço</p>
+              <p><MailIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> transparencia@nossacasaat.org.br</p>
+              <p><SmartphoneIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> WhatsApp: (61) 9999-9999</p>
+              <p><InboxIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Caixa de sugestões física no nosso espaço</p>
             </div>
             <Button variant="fill">
               Enviar mensagem

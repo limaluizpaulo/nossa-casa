@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { SparklesIcon, HeartIcon, TheaterIcon, DollarSignIcon, HomeIcon, TargetIcon, MailIcon, CheckIcon } from './Icons';
 
 const Doe = () => {
   const [selectedValue, setSelectedValue] = useState(50);
@@ -35,23 +36,23 @@ const Doe = () => {
             <div className="donation-impact mt-32">
               <h3>Com a sua doação, mantemos:</h3>
               <ul className="impact-list">
-                <li>✨ Oficinas culturais e de bem-estar gratuitas</li>
-                <li>💜 Atendimentos em saúde mental acessíveis</li>
-                <li>🎭 Festivais que valorizam artistas independentes</li>
-                <li>💰 Ações de economia criativa que geram renda para a periferia</li>
-                <li>🏠 Um espaço seguro de acolhimento e resistência</li>
+                <li><SparklesIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> Oficinas culturais e de bem-estar gratuitas</li>
+                <li><HeartIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> Atendimentos em saúde mental acessíveis</li>
+                <li><TheaterIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> Festivais que valorizam artistas independentes</li>
+                <li><DollarSignIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> Ações de economia criativa que geram renda para a periferia</li>
+                <li><HomeIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> Um espaço seguro de acolhimento e resistência</li>
               </ul>
             </div>
 
             <div className="donation-cta-text mt-32">
-              <h3>✨ Sua ajuda mantém viva a Nossa Casa.</h3>
+              <h3><SparklesIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Sua ajuda mantém viva a Nossa Casa.</h3>
               <p><strong>Doe e faça parte dessa transformação coletiva!</strong></p>
             </div>
           </div>
           
           <div className="donation-widget">
             <div className="progress-section">
-              <h3>🎯 Meta do mês: Manter oficinas gratuitas</h3>
+              <h3><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Meta do mês: Manter oficinas gratuitas</h3>
               <div className="progress-bar">
                 <div 
                   className="progress-fill" 
@@ -64,7 +65,7 @@ const Doe = () => {
                 ></div>
               </div>
               <div className="progress-info">
-                <span className="current">💚 R$ {currentAmount.toLocaleString()}</span>
+                <span className="current"><CheckIcon size={16} style={{display: 'inline', marginRight: '4px', color: 'green'}} /> R$ {currentAmount.toLocaleString()}</span>
                 <span className="target">Meta: R$ {targetAmount.toLocaleString()}</span>
               </div>
             </div>
@@ -111,7 +112,7 @@ const Doe = () => {
                 <h5>Chave Pix oficial:</h5>
                 <div className="pix-options">
                   <div className="pix-key">
-                    <strong>📧 nossacasaat@gmail.com</strong>
+                    <strong><MailIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> nossacasaat@gmail.com</strong>
                     <small>Nossa Casa Artes e Terapias</small>
                   </div>
                   <div className="qr-code">
@@ -132,12 +133,12 @@ const Doe = () => {
           <h3>Quem já apoia nossa luta</h3>
           <p>Pessoas e organizações que acreditam na transformação através da arte e do cuidado</p>
           <div className="supporters-grid">
-            <div className="supporter">💜 Ana Silva - Doadora mensal</div>
-            <div className="supporter">💜 Coletivo Flores Periféricas</div>
-            <div className="supporter">💜 Maria Santos - Apoiadora fiel</div>
-            <div className="supporter">💜 Instituto Diversidade</div>
-            <div className="supporter">💜 Júlia Oliveira - Voluntária</div>
-            <div className="supporter">💜 E muitas outras pessoas incríveis!</div>
+            <div className="supporter"><HeartIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Ana Silva - Doadora mensal</div>
+            <div className="supporter"><HeartIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Coletivo Flores Periféricas</div>
+            <div className="supporter"><HeartIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Maria Santos - Apoiadora fiel</div>
+            <div className="supporter"><HeartIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Instituto Diversidade</div>
+            <div className="supporter"><HeartIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Júlia Oliveira - Voluntária</div>
+            <div className="supporter"><HeartIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> E muitas outras pessoas incríveis!</div>
           </div>
         </div>
       </div>

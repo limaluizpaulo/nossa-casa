@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { NewsIcon } from './Icons';
 
 const Blog = () => {
   const [filtroCategoria, setFiltroCategoria] = useState('todas');
@@ -191,7 +192,11 @@ const Blog = () => {
         <div className="blog-destaque mt-48">
           <div className="destaque-container">
             <div className="destaque-conteudo">
-              <h3>📰 Quer receber nossas novidades?</h3>
+import { NewsIcon } from './Icons';
+
+// ... resto do código ...
+
+                            <h3><NewsIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Quer receber nossas novidades?</h3>
               <p>
                 Cadastre-se em nossa newsletter e seja o primeiro a saber sobre 
                 novos eventos, oficinas e histórias inspiradoras da nossa comunidade.

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { PaletteIcon, HeartIcon, DollarSignIcon, CalendarIcon, BagIcon, AccessibilityIcon, SeedlingIcon } from './Icons';
 
 const OficinasVivencias = () => {
   const [activeTab, setActiveTab] = useState('atuais');
@@ -119,13 +120,13 @@ const OficinasVivencias = () => {
             className={`tab-btn ${activeTab === 'atuais' ? 'active' : ''}`}
             onClick={() => setActiveTab('atuais')}
           >
-            🎨 Oficinas Culturais
+            <PaletteIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Oficinas Culturais
           </button>
           <button 
             className={`tab-btn ${activeTab === 'terapias' ? 'active' : ''}`}
             onClick={() => setActiveTab('terapias')}
           >
-            💜 Terapias Integrativas
+            <HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Terapias Integrativas
           </button>
         </div>
 
@@ -149,16 +150,16 @@ const OficinasVivencias = () => {
                       <strong>⏰ Duração:</strong> {oficina.duracao}
                     </div>
                     <div className="detalhe-item">
-                      <strong>💰 Valor:</strong> {oficina.valor}
+                      <strong><DollarSignIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Valor:</strong> {oficina.valor}
                     </div>
                     <div className="detalhe-item">
-                      <strong>🎒 Materiais:</strong> {oficina.materiais}
+                      <strong><BagIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Materiais:</strong> {oficina.materiais}
                     </div>
                   </div>
 
                   {oficina.proximasDatasets && (
                     <div className="proximas-datas">
-                      <strong>📅 Próximas datas:</strong>
+                      <strong><CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Próximas datas:</strong>
                       <div className="datas-lista">
                         {oficina.proximasDatasets.map((data, index) => (
                           <span key={index} className="data-chip">{data}</span>
@@ -214,7 +215,7 @@ const OficinasVivencias = () => {
                     <strong>⏰ Duração:</strong> {terapia.duracao}
                   </div>
                   <div className="info-item">
-                    <strong>💰 Valor:</strong> {terapia.valor}
+                    <strong><DollarSignIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Valor:</strong> {terapia.valor}
                   </div>
                 </div>
                 
@@ -266,15 +267,15 @@ const OficinasVivencias = () => {
         <div className="oficinas-info mt-32">
           <div className="info-cards">
             <div className="info-card">
-              <h4>💜 Bolsas sociais</h4>
+              <h4><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Bolsas sociais</h4>
               <p>Temos bolsas disponíveis para pessoas em vulnerabilidade social. Entre em contato conosco!</p>
             </div>
             <div className="info-card">
-              <h4>♿ Acessibilidade</h4>
+              <h4><AccessibilityIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Acessibilidade</h4>
               <p>Nosso espaço é acessível e nossas oficinas são adaptadas para todes os corpos.</p>
             </div>
             <div className="info-card">
-              <h4>🌱 Cuidado coletivo</h4>
+              <h4><SeedlingIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Cuidado coletivo</h4>
               <p>Priorizamos um ambiente seguro, acolhedor e livre de qualquer tipo de violência.</p>
             </div>
           </div>

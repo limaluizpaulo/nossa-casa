@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { ShoppingBagIcon, PaletteIcon, BookOpenIcon, ShirtIcon, BagIcon, PlantIcon, LaptopIcon, HandshakeIcon, CreditCardIcon, TruckIcon } from './Icons';
 
 const Loja = () => {
   const [categoria, setCategoria] = useState('todos');
@@ -95,13 +96,13 @@ const Loja = () => {
   ];
 
   const categorias = [
-    { key: 'todos', label: 'Todos os produtos', icon: '🛍️' },
-    { key: 'roupas', label: 'Roupas', icon: '👕' },
-    { key: 'acessorios', label: 'Acessórios', icon: '👜' },
-    { key: 'artesanato', label: 'Artesanato', icon: '🪴' },
-    { key: 'arte', label: 'Arte', icon: '🎨' },
-    { key: 'publicacoes', label: 'Publicações', icon: '📚' },
-    { key: 'digitais', label: 'Produtos Digitais', icon: '💻' }
+    { key: 'todos', label: 'Todos os produtos', icon: <ShoppingBagIcon size={20} /> },
+    { key: 'roupas', label: 'Roupas', icon: <ShirtIcon size={20} /> },
+    { key: 'acessorios', label: 'Acessórios', icon: <BagIcon size={20} /> },
+    { key: 'artesanato', label: 'Artesanato', icon: <PlantIcon size={20} /> },
+    { key: 'arte', label: 'Arte', icon: <PaletteIcon size={20} /> },
+    { key: 'publicacoes', label: 'Publicações', icon: <BookOpenIcon size={20} /> },
+    { key: 'digitais', label: 'Produtos Digitais', icon: <LaptopIcon size={20} /> }
   ];
 
   const produtosFiltrados = categoria === 'todos' 
@@ -220,15 +221,15 @@ const Loja = () => {
         <div className="loja-info mt-48">
           <div className="info-cards">
             <div className="info-card">
-              <h4>🚚 Entregas</h4>
+              <h4><TruckIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Entregas</h4>
               <p>Fazemos entregas em Guarulhos e região. Para outros locais, consulte o frete via Correios.</p>
             </div>
             <div className="info-card">
-              <h4>💳 Pagamento</h4>
+              <h4><CreditCardIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Pagamento</h4>
               <p>Aceitamos Pix (5% desconto), cartão de crédito e dinheiro (para retirada local).</p>
             </div>
             <div className="info-card">
-              <h4>🤝 Economia Solidária</h4>
+              <h4><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Economia Solidária</h4>
               <p>70% do valor vai direto para os artistas. 30% mantém a Nossa Casa funcionando.</p>
             </div>
           </div>

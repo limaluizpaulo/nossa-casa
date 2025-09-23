@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
+import { PaletteIcon, CalendarIcon, HomeIcon, ShoppingBagIcon, HeartIcon, HandshakeIcon } from '../components/Icons';
 
 const Home = () => {
   return (
@@ -66,7 +67,7 @@ const Home = () => {
           
           <div className="activities-grid">
             <div className="activity-card">
-              <div className="activity-icon">🎨</div>
+              <div className="activity-icon"><PaletteIcon size={32} /></div>
               <h3>Oficinas Culturais</h3>
               <p>Arte, música, dança, teatro e literatura para todas as idades</p>
               <Button variant="outline" size="small" as={Link} to="/oficinas">
@@ -75,7 +76,7 @@ const Home = () => {
             </div>
             
             <div className="activity-card">
-              <div className="activity-icon">📅</div>
+              <div className="activity-icon"><CalendarIcon size={32} /></div>
               <h3>Eventos Comunitários</h3>
               <p>Saraus, festivais, feiras e encontros que fortalecem nossa rede</p>
               <Button variant="outline" size="small" as={Link} to="/agenda">
@@ -84,7 +85,7 @@ const Home = () => {
             </div>
             
             <div className="activity-card">
-              <div className="activity-icon">🏠</div>
+              <div className="activity-icon"><HomeIcon size={32} /></div>
               <h3>Espaços para Alugar</h3>
               <p>Ambientes equipados para seus eventos, reuniões e celebrações</p>
               <Button variant="outline" size="small" as={Link} to="/aluguel">
@@ -93,7 +94,7 @@ const Home = () => {
             </div>
             
             <div className="activity-card">
-              <div className="activity-icon">🛍️</div>
+              <div className="activity-icon"><ShoppingBagIcon size={32} /></div>
               <h3>Loja Solidária</h3>
               <p>Produtos da economia criativa feitos por artistas locais</p>
               <Button variant="outline" size="small" as={Link} to="/loja">
@@ -108,8 +109,8 @@ const Home = () => {
       <section className="cta-section">
         <div className="wrap">
           <div className="cta-grid">
-            <div className="cta-card primary">
-              <h3>💜 Apoie nossa causa</h3>
+            <div className="cta-card secondary">
+              <h3><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Apoie nossa causa</h3>
               <p>Sua doação fortalece nossa comunidade e amplia nosso impacto social</p>
               <Button variant="fill" as={Link} to="/doe">
                 Fazer doação
@@ -117,7 +118,7 @@ const Home = () => {
             </div>
             
             <div className="cta-card secondary">
-              <h3>🤝 Seja voluntário</h3>
+              <h3><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Seja voluntário</h3>
               <p>Junte-se a nós e faça parte desta transformação</p>
               <Button variant="outline" as={Link} to="/voluntariado">
                 Quero participar

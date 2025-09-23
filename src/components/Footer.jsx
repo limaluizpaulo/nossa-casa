@@ -1,4 +1,5 @@
 import '../styles/footer.css';
+import { MailIcon, HeartIcon, CameraIcon, BookOpenIcon, SmartphoneIcon, MapPinIcon, InboxIcon } from './Icons';
 
 const Footer = () => {
   return (
@@ -21,13 +22,13 @@ const Footer = () => {
               
               <div className="social-links">
                 <a href="https://instagram.com/nossacasa_at" aria-label="Instagram da Nossa Casa" target="_blank" rel="noopener noreferrer">
-                  📷 @nossacasa_at
+                  <CameraIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> @nossacasa_at
                 </a>
                 <a href="https://facebook.com/nossacasaarteseterapias" aria-label="Facebook da Nossa Casa" target="_blank" rel="noopener noreferrer">
-                  📘 /nossacasaarteseterapias
+                  <BookOpenIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> /nossacasaarteseterapias
                 </a>
                 <a href="https://wa.me/5511999999999" aria-label="WhatsApp da Nossa Casa" target="_blank" rel="noopener noreferrer">
-                  💬 WhatsApp
+                  <SmartphoneIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> WhatsApp
                 </a>
               </div>
             </div>
@@ -68,15 +69,15 @@ const Footer = () => {
               <h4>Contato & Localização</h4>
               <div className="contact-info">
                 <div className="contact-item">
-                  <strong>📍 Endereço:</strong>
+                  <strong><MapPinIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Endereço:</strong>
                   <span>Av. Avelino Alves Machado, 367<br/>Jardim Pinhal<br/>Guarulhos - SP</span>
                 </div>
                 <div className="contact-item">
-                  <strong>📧 Email:</strong>
+                  <strong><MailIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Email:</strong>
                   <a href="mailto:nossacasaat@gmail.com">nossacasaat@gmail.com</a>
                 </div>
                 <div className="contact-item">
-                  <strong>📱 Telefone:</strong>
+                  <strong><SmartphoneIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Telefone:</strong>
                   <a href="tel:+5511999999999">(11) 99999-9999</a>
                 </div>
               </div>
@@ -84,7 +85,7 @@ const Footer = () => {
           </div>
           
           <div className="newsletter-section">
-            <h4>📬 Receba nossas novidades</h4>
+            <h4><InboxIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> Receba nossas novidades</h4>
             <p>Fique por dentro da nossa programação, novos projetos e chamadas para voluntariado</p>
             <form className="newsletter-form" aria-label="Formulário de inscrição na newsletter">
               <input 
@@ -111,7 +112,7 @@ const Footer = () => {
           
           <div className="footer__credits">
             <p>
-              💜 Feito com amor e resistência pela nossa comunidade<br/>
+              <HeartIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Feito com amor e resistência pela nossa comunidade<br/>
               <small>Site desenvolvido de forma colaborativa e código aberto</small>
             </p>
           </div>

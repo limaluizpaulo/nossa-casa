@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { PhoneIcon, MailIcon, FileTextIcon, SmartphoneIcon, MapPinIcon, ClockIcon, CheckIcon, HeartIcon, GlobeIcon, BusIcon, CarIcon, AccessibilityIcon, CameraIcon, VideoIcon, MusicIcon, BookOpenIcon } from './Icons';
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -14,25 +15,29 @@ const Contato = () => {
 
   const contatos = [
     {
-      tipo: "📍 Endereço",
+      tipo: "Endereço",
+      icone: "📍",
       info: "Rua das Artes, 123 - Planaltina, DF",
       complemento: "CEP: 73000-000",
       acao: "Como chegar"
     },
     {
-      tipo: "📞 Telefone",
+      tipo: "Telefone",
+      icone: "📞",
       info: "(61) 3333-4444",
       complemento: "Atendimento: Segunda a sexta, 8h às 18h",
       acao: "Ligar agora"
     },
     {
-      tipo: "📱 WhatsApp",
+      tipo: "WhatsApp",
+      icone: "📱",
       info: "(61) 99999-9999",
       complemento: "Resposta em até 2 horas",
       acao: "Enviar mensagem"
     },
     {
-      tipo: "📧 Email geral",
+      tipo: "Email geral",
+      icone: "📧",
       info: "nossacasaat@gmail.com",
       complemento: "Para informações gerais",
       acao: "Enviar email"
@@ -77,28 +82,28 @@ const Contato = () => {
       rede: "Instagram",
       usuario: "@nossacasa_at",
       url: "https://instagram.com/nossacasa_at",
-      icone: "📸",
+      icone: <CameraIcon size={20} />,
       seguidores: "2.5k"
     },
     {
       rede: "Facebook",
       usuario: "Nossa Casa ",
       url: "https://facebook.com/nossacasaplanaltina",
-      icone: "📘",
+      icone: <BookOpenIcon size={20} />,
       seguidores: "1.8k"
     },
     {
       rede: "YouTube",
       usuario: "Nossa Casa Cultural",
       url: "https://youtube.com/nossacasacultural",
-      icone: "🎥",
+      icone: <VideoIcon size={20} />,
       seguidores: "850"
     },
     {
       rede: "TikTok",
       usuario: "@nossacasa_df",
       url: "https://tiktok.com/@nossacasa_df",
-      icone: "🎵",
+      icone: <MusicIcon size={20} />,
       seguidores: "1.2k"
     }
   ];
@@ -160,7 +165,13 @@ const Contato = () => {
           <div className="contatos-grid">
             {contatos.map((contato, index) => (
               <div key={index} className="contato-card">
-                <h3>{contato.tipo}</h3>
+                <h3>
+                  {contato.icone === "📞" && <PhoneIcon size={24} style={{display: 'inline', marginRight: '8px'}} />}
+                  {contato.icone === "📱" && <SmartphoneIcon size={24} style={{display: 'inline', marginRight: '8px'}} />}
+                  {contato.icone === "📧" && <MailIcon size={24} style={{display: 'inline', marginRight: '8px'}} />}
+                  {contato.icone === "📍" && <MapPinIcon size={24} style={{display: 'inline', marginRight: '8px'}} />}
+                  {contato.tipo}
+                </h3>
                 <p className="contato-info">{contato.info}</p>
                 <p className="contato-complemento">{contato.complemento}</p>
                 <Button variant="outline" size="small">
@@ -173,7 +184,7 @@ const Contato = () => {
 
         {/* Horário de funcionamento */}
         <div className="horario-funcionamento mt-48">
-          <h3>🕐 Horário de funcionamento</h3>
+          <h3><ClockIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Horário de funcionamento</h3>
           <div className="horarios-container">
             <div className="horarios-lista">
               {horariosFuncionamento.map((horario, index) => (
@@ -185,7 +196,7 @@ const Contato = () => {
               ))}
             </div>
             <div className="horarios-observacoes">
-              <h4>📝 Observações importantes</h4>
+              <h4><FileTextIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Observações importantes</h4>
               <ul>
                 <li>Feriados: funcionamento especial (consulte agenda)</li>
                 <li>Férias coletivas: geralmente na última semana de dezembro</li>
@@ -198,11 +209,11 @@ const Contato = () => {
 
         {/* Formulário de contato */}
         <div className="formulario-contato mt-48">
-          <h3>📝 Envie sua mensagem</h3>
+          <h3><FileTextIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Envie sua mensagem</h3>
           <div className="form-container">
             {formularioEnviado ? (
               <div className="mensagem-sucesso">
-                <h4>✅ Mensagem enviada com sucesso!</h4>
+                <h4><CheckIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Mensagem enviada com sucesso!</h4>
                 <p>Obrigado pelo contato! Responderemos em breve.</p>
               </div>
             ) : (
@@ -286,7 +297,7 @@ const Contato = () => {
                     Enviar mensagem
                   </Button>
                   <p className="form-note">
-                    * Respondemos em até 48h úteis 💜
+                    * Respondemos em até 48h úteis
                   </p>
                 </div>
               </form>
@@ -296,7 +307,7 @@ const Contato = () => {
 
         {/* Contatos específicos por área */}
         <div className="contatos-especificos mt-48">
-          <h3>📧 Contatos por área</h3>
+          <h3><MailIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Contatos por área</h3>
           <div className="especificos-grid">
             {contatosEspecificos.map((contato, index) => (
               <div key={index} className="especifico-card">
@@ -315,7 +326,7 @@ const Contato = () => {
 
         {/* Redes sociais */}
         <div className="redes-sociais mt-48">
-          <h3>🌐 Siga-nos nas redes sociais</h3>
+          <h3><GlobeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Siga-nos nas redes sociais</h3>
           <div className="redes-grid">
             {redesSociais.map((rede, index) => (
               <div key={index} className="rede-card">
@@ -337,7 +348,7 @@ const Contato = () => {
 
         {/* Mapa e localização */}
         <div className="mapa-localizacao mt-48">
-          <h3>📍 Como chegar</h3>
+          <h3><MapPinIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Como chegar</h3>
           <div className="mapa-container">
             <div className="mapa-placeholder">
               {/* Aqui seria integrado um mapa real (Google Maps, OpenStreetMap, etc.) */}
@@ -352,21 +363,21 @@ const Contato = () => {
             </div>
             
             <div className="transporte-info">
-              <h4>🚌 Transporte público</h4>
+              <h4><BusIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Transporte público</h4>
               <ul>
                 <li><strong>Ônibus:</strong> Linhas 123, 456, 789</li>
                 <li><strong>Ponto mais próximo:</strong> Praça Central (200m)</li>
                 <li><strong>Metrô:</strong> Estação Planaltina (2km)</li>
               </ul>
 
-              <h4>🚗 De carro</h4>
+              <h4><CarIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> De carro</h4>
               <ul>
                 <li>Estacionamento gratuito na rua</li>
                 <li>Estacionamento do shopping (pago, 500m)</li>
                 <li>Vaga para pessoas com deficiência disponível</li>
               </ul>
 
-              <h4>♿ Acessibilidade</h4>
+              <h4><AccessibilityIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Acessibilidade</h4>
               <ul>
                 <li>Entrada principal com rampa</li>
                 <li>Banheiro adaptado</li>
@@ -380,7 +391,7 @@ const Contato = () => {
         {/* Call to action final */}
         <div className="contato-cta mt-48">
           <div className="cta-content">
-            <h3>💜 Venha nos conhecer!</h3>
+            <h3><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Venha nos conhecer!</h3>
             <p>
               A melhor forma de conhecer a Nossa Casa é visitando nosso espaço. 
               Que tal agendar uma visita ou participar de uma de nossas atividades?

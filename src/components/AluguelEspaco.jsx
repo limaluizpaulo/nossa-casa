@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { TheaterIcon, VolumeIcon, ProjectorIcon, ChefHatIcon, LeafIcon, CheckIcon, CreditCardIcon, HandshakeIcon, HeartIcon } from './Icons';
 
 const AluguelEspaco = () => {
   const [selectedPackage, setSelectedPackage] = useState('basico');
@@ -123,12 +124,12 @@ const AluguelEspaco = () => {
           <h3>Estrutura disponível</h3>
           <div className="estrutura-grid">
             <div className="estrutura-item">
-              <span className="estrutura-icon">🎭</span>
+              <span className="estrutura-icon"><TheaterIcon size={24} /></span>
               <h4>Palco</h4>
               <p>Espaço para apresentações e performances</p>
             </div>
             <div className="estrutura-item">
-              <span className="estrutura-icon">🔊</span>
+              <span className="estrutura-icon"><VolumeIcon size={24} /></span>
               <h4>Sistema de Som</h4>
               <p>Equipamento completo com microfones</p>
             </div>
@@ -138,17 +139,17 @@ const AluguelEspaco = () => {
               <p>Cadeiras, mesas e espaços flexíveis</p>
             </div>
             <div className="estrutura-item">
-              <span className="estrutura-icon">📽️</span>
+              <span className="estrutura-icon"><ProjectorIcon size={24} /></span>
               <h4>Projeção</h4>
               <p>Projetor e tela para apresentações</p>
             </div>
             <div className="estrutura-item">
-              <span className="estrutura-icon">🍳</span>
+              <span className="estrutura-icon"><ChefHatIcon size={24} /></span>
               <h4>Cozinha</h4>
               <p>Espaço equipado para preparo de alimentos</p>
             </div>
             <div className="estrutura-item">
-              <span className="estrutura-icon">🌿</span>
+              <span className="estrutura-icon"><LeafIcon size={24} /></span>
               <h4>Ambiente Acolhedor</h4>
               <p>Decoração que inspira criatividade e bem-estar</p>
             </div>
@@ -172,7 +173,7 @@ const AluguelEspaco = () => {
                 </div>
                 <ul className="pacote-inclusos">
                   {pacote.inclusos.map((item, index) => (
-                    <li key={index}>✓ {item}</li>
+                    <li key={index}><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> {item}</li>
                   ))}
                 </ul>
                 <Button 
@@ -314,21 +315,21 @@ const AluguelEspaco = () => {
           <h3>Formas de pagamento</h3>
           <div className="pagamento-opcoes">
             <div className="pagamento-opcao">
-              <span className="pagamento-icon">💳</span>
+              <span className="pagamento-icon"><CreditCardIcon size={24} /></span>
               <div>
                 <h4>Pix</h4>
                 <p>Desconto de 5% para pagamento à vista</p>
               </div>
             </div>
             <div className="pagamento-opcao">
-              <span className="pagamento-icon">💳</span>
+              <span className="pagamento-icon"><CreditCardIcon size={24} /></span>
               <div>
                 <h4>Cartão de Crédito</h4>
                 <p>Parcelamento em até 3x sem juros</p>
               </div>
             </div>
             <div className="pagamento-opcao">
-              <span className="pagamento-icon">🤝</span>
+              <span className="pagamento-icon"><HandshakeIcon size={24} /></span>
               <div>
                 <h4>Evento Colaborativo</h4>
                 <p>Para eventos comunitários, podemos conversar sobre parcerias</p>
@@ -340,7 +341,7 @@ const AluguelEspaco = () => {
         {/* Impacto social */}
         <div className="impacto-social mt-32">
           <div className="impacto-card">
-            <h3>💜 Ao alugar nosso espaço, você apoia a manutenção da Nossa Casa</h3>
+            <h3><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Ao alugar nosso espaço, você apoia a manutenção da Nossa Casa</h3>
             <p>
               Cada locação contribui para mantermos nossa programação de oficinas gratuitas, 
               atendimentos em saúde mental e eventos culturais para a comunidade.
