@@ -22,9 +22,9 @@ const Home = () => {
               <AnimateOnScroll animation="fade-up" delay={200}>
                 <div className="hero-text">
                   <h1 className="hero-title">
-                    Nossa Casa é <span className="highlight">resistência</span>,
+                    Nossa Casa é <span className="highlight">Resistência</span>,
                     <br />
-                    <span className="highlight">arte</span> e <span className="highlight">comunidade</span>
+                    <span className="highlight">Arte</span> e <span className="highlight">Comunidade</span>
                   </h1>
                   <p className="hero-description">
                     Um centro cultural independente no coração de Guarulhos, 

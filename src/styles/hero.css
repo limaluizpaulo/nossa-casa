@@ -300,3 +300,16 @@
     transform: translateY(-10%) scale(1.15);
   }
 }
+
+/* Home page: override .highlight inside the home hero to be white instead of yellow */
+.home-page .hero-title .highlight,
+.home-page .hero-text .highlight {
+  color: var(--ink); /* keep black/dark text */
+  font-weight: var(--font-bold);
+  /* white underline only (solid white) to contrast with the hero background */
+  background: linear-gradient(120deg, #ffffff 0%, #ffffff 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.28em;
+  background-position: 0 88%;
+  padding: 0 4px;
+}
