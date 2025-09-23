@@ -86,6 +86,20 @@
   background: var(--gray-50);
 }
 
+/* Home hero: invert default and hover for the outline button only inside hero-actions on home page
+   Default -> filled look (dark bg, light text), Hover -> transparent with border (inverted) */
+.home-page .hero-actions .btn--outline {
+  background: var(--branco-puro);
+  color: var(--ink); /* use pure white for readable contrast */
+  border-color: var(--ink);
+}
+.home-page .hero-actions .btn--outline:hover {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
 .btn--accent {
   background: var(--success);
   color: white;
