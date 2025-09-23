@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { AnimateOnScroll } from '../hooks/useAnimations';
 import { PaletteIcon, HeartIcon, DollarSignIcon, CalendarIcon, BagIcon, AccessibilityIcon, SeedlingIcon } from './Icons';
 
 const OficinasVivencias = () => {
@@ -102,96 +103,102 @@ const OficinasVivencias = () => {
   return (
     <section id="oficinas" className="section oficinas-section" aria-labelledby="oficinas-title">
       <div className="wrap">
-        <div className="kicker">
-          <span className="rule" aria-hidden="true"></span>
-          Oficinas & Vivências
-        </div>
-        <h2 id="oficinas-title" className="section__title">
-          Oficinas culturais, terapias integrativas e práticas de autocuidado
-        </h2>
-        
-        <p className="lead">
-          Nossos encontros são acessíveis e abertos à comunidade. Aqui você encontra espaços de arte, aprendizado, cura e fortalecimento coletivo.
-        </p>
+        <AnimateOnScroll animation="fade-up" delay={100}>
+          <div className="kicker">
+            <span className="rule" aria-hidden="true"></span>
+            Oficinas & Vivências
+          </div>
+          <h2 id="oficinas-title" className="section__title">
+            Oficinas culturais, terapias integrativas e práticas de autocuidado
+          </h2>
+          
+          <p className="lead">
+            Nossos encontros são acessíveis e abertos à comunidade. Aqui você encontra espaços de arte, aprendizado, cura e fortalecimento coletivo.
+          </p>
+        </AnimateOnScroll>
 
         {/* Navegação por abas */}
-        <div className="oficinas-tabs mt-32">
-          <button 
-            className={`tab-btn ${activeTab === 'atuais' ? 'active' : ''}`}
-            onClick={() => setActiveTab('atuais')}
-          >
-            <PaletteIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Oficinas Culturais
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'terapias' ? 'active' : ''}`}
-            onClick={() => setActiveTab('terapias')}
-          >
-            <HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Terapias Integrativas
-          </button>
-        </div>
+        <AnimateOnScroll animation="fade-up" delay={200}>
+          <div className="oficinas-tabs mt-32">
+            <button 
+              className={`tab-btn ${activeTab === 'atuais' ? 'active' : ''}`}
+              onClick={() => setActiveTab('atuais')}
+            >
+              <PaletteIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Oficinas Culturais
+            </button>
+            <button 
+              className={`tab-btn ${activeTab === 'terapias' ? 'active' : ''}`}
+              onClick={() => setActiveTab('terapias')}
+            >
+              <HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Terapias Integrativas
+            </button>
+          </div>
+        </AnimateOnScroll>
 
         {/* Oficinas Culturais */}
         {activeTab === 'atuais' && (
           <div className="oficinas-grid mt-32">
-            {oficinasAtuais.map(oficina => (
-              <article key={oficina.id} className="oficina-card">
-                <figure className="oficina-image">
-                  <img src={oficina.imagem} alt={oficina.titulo} loading="lazy" />
-                  <div className="oficina-categoria">{oficina.categoria}</div>
-                </figure>
-                
-                <div className="oficina-content">
-                  <h3>{oficina.titulo}</h3>
-                  <p className="oficina-facilitadora">com {oficina.facilitadora}</p>
-                  <p className="oficina-descricao">{oficina.descricao}</p>
+            {oficinasAtuais.map((oficina, index) => (
+              <AnimateOnScroll key={oficina.id} animation="fade-up" delay={300 + (index * 150)}>
+                <article className="oficina-card shimmer">
+                  <figure className="oficina-image">
+                    <img src={oficina.imagem} alt={oficina.titulo} loading="lazy" />
+                    <div className="oficina-categoria">{oficina.categoria}</div>
+                  </figure>
                   
-                  <div className="oficina-detalhes">
-                    <div className="detalhe-item">
-                      <strong>⏰ Duração:</strong> {oficina.duracao}
-                    </div>
-                    <div className="detalhe-item">
-                      <strong><DollarSignIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Valor:</strong> {oficina.valor}
-                    </div>
-                    <div className="detalhe-item">
-                      <strong><BagIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Materiais:</strong> {oficina.materiais}
-                    </div>
-                  </div>
-
-                  {oficina.proximasDatasets && (
-                    <div className="proximas-datas">
-                      <strong><CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Próximas datas:</strong>
-                      <div className="datas-lista">
-                        {oficina.proximasDatasets.map((data, index) => (
-                          <span key={index} className="data-chip">{data}</span>
-                        ))}
+                  <div className="oficina-content">
+                    <h3>{oficina.titulo}</h3>
+                    <p className="oficina-facilitadora">com {oficina.facilitadora}</p>
+                    <p className="oficina-descricao">{oficina.descricao}</p>
+                    
+                    <div className="oficina-detalhes">
+                      <div className="detalhe-item">
+                        <strong>⏰ Duração:</strong> {oficina.duracao}
+                      </div>
+                      <div className="detalhe-item">
+                        <strong><DollarSignIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Valor:</strong> {oficina.valor}
+                      </div>
+                      <div className="detalhe-item">
+                        <strong><BagIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Materiais:</strong> {oficina.materiais}
                       </div>
                     </div>
-                  )}
-                  
-                  <div className="oficina-actions">
-                    <Button 
-                      variant="fill" 
-                      onClick={() => handleInscricao(oficina)}
-                    >
-                      Inscreva-se
-                    </Button>
-                    <button 
-                      className="btn-detalhes"
-                      onClick={() => setSelectedOficina(selectedOficina === oficina.id ? null : oficina.id)}
-                      aria-expanded={selectedOficina === oficina.id}
-                    >
-                      {selectedOficina === oficina.id ? 'Ocultar' : 'Ver mais'} detalhes
-                    </button>
-                  </div>
 
-                  {selectedOficina === oficina.id && (
-                    <div className="oficina-detalhes-expandido">
-                      <h4>Sobre a oficina</h4>
-                      <p>{oficina.detalhes}</p>
+                    {oficina.proximasDatasets && (
+                      <div className="proximas-datas">
+                        <strong><CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Próximas datas:</strong>
+                        <div className="datas-lista">
+                          {oficina.proximasDatasets.map((data, index) => (
+                            <span key={index} className="data-chip">{data}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    <div className="oficina-actions">
+                      <Button 
+                        variant="fill" 
+                        onClick={() => handleInscricao(oficina)}
+                      >
+                        Inscreva-se
+                      </Button>
+                      <button 
+                        className="btn-detalhes"
+                        onClick={() => setSelectedOficina(selectedOficina === oficina.id ? null : oficina.id)}
+                        aria-expanded={selectedOficina === oficina.id}
+                      >
+                        {selectedOficina === oficina.id ? 'Ocultar' : 'Ver mais'} detalhes
+                      </button>
                     </div>
-                  )}
-                </div>
-              </article>
+
+                    {selectedOficina === oficina.id && (
+                      <div className="oficina-detalhes-expandido">
+                        <h4>Sobre a oficina</h4>
+                        <p>{oficina.detalhes}</p>
+                      </div>
+                    )}
+                  </div>
+                </article>
+              </AnimateOnScroll>
             ))}
           </div>
         )}
@@ -199,96 +206,104 @@ const OficinasVivencias = () => {
         {/* Terapias Integrativas */}
         {activeTab === 'terapias' && (
           <div className="terapias-grid mt-32">
-            {terapiasIntegrativas.map(terapia => (
-              <article key={terapia.id} className="terapia-card">
-                <div className="terapia-header">
-                  <div className="terapia-categoria">{terapia.categoria}</div>
-                  <div className="terapia-tipo">{terapia.tipo}</div>
-                </div>
-                
-                <h3>{terapia.titulo}</h3>
-                <p className="terapia-facilitadora">com {terapia.facilitadora}</p>
-                <p className="terapia-descricao">{terapia.descricao}</p>
-                
-                <div className="terapia-info">
-                  <div className="info-item">
-                    <strong>⏰ Duração:</strong> {terapia.duracao}
+            {terapiasIntegrativas.map((terapia, index) => (
+              <AnimateOnScroll key={terapia.id} animation="fade-up" delay={300 + (index * 150)}>
+                <article className="terapia-card shimmer">
+                  <div className="terapia-header">
+                    <div className="terapia-categoria">{terapia.categoria}</div>
+                    <div className="terapia-tipo">{terapia.tipo}</div>
                   </div>
-                  <div className="info-item">
-                    <strong><DollarSignIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Valor:</strong> {terapia.valor}
+                  
+                  <h3>{terapia.titulo}</h3>
+                  <p className="terapia-facilitadora">com {terapia.facilitadora}</p>
+                  <p className="terapia-descricao">{terapia.descricao}</p>
+                  
+                  <div className="terapia-info">
+                    <div className="info-item">
+                      <strong>⏰ Duração:</strong> {terapia.duracao}
+                    </div>
+                    <div className="info-item">
+                      <strong><DollarSignIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Valor:</strong> {terapia.valor}
+                    </div>
                   </div>
-                </div>
-                
-                <Button variant="accent" onClick={() => handleInscricao(terapia)}>
-                  Participar
-                </Button>
-              </article>
+                  
+                  <Button variant="accent" onClick={() => handleInscricao(terapia)}>
+                    Participar
+                  </Button>
+                </article>
+              </AnimateOnScroll>
             ))}
           </div>
         )}
 
         {/* Formulário de interesse */}
-        <div className="interesse-form mt-48">
-          <h3>Lista de interesse para oficinas futuras</h3>
-          <p>Deixe seu contato e preferências. Te avisaremos sobre novas oficinas que podem te interessar!</p>
-          
-          <form className="form-interesse">
-            <div className="form-row">
-              <input type="text" placeholder="Seu nome" required />
-              <input type="email" placeholder="Seu email" required />
-            </div>
-            <div className="form-row">
-              <select required>
-                <option value="">Áreas de interesse</option>
-                <option value="arte">Artes Visuais</option>
-                <option value="musica">Música</option>
-                <option value="literatura">Literatura</option>
-                <option value="teatro">Teatro</option>
-                <option value="sustentabilidade">Sustentabilidade</option>
-                <option value="terapia">Terapias</option>
-                <option value="tecnologia">Tecnologia</option>
-                <option value="empreendedorismo">Empreendedorismo</option>
-              </select>
-              <select>
-                <option value="">Disponibilidade</option>
-                <option value="manha">Manhã</option>
-                <option value="tarde">Tarde</option>
-                <option value="noite">Noite</option>
-                <option value="fds">Fins de semana</option>
-              </select>
-            </div>
-            <Button type="submit" variant="secondary">
-              Cadastrar interesse
-            </Button>
-          </form>
-        </div>
+        <AnimateOnScroll animation="fade-up" delay={400}>
+          <div className="interesse-form mt-48">
+            <h3>Lista de interesse para oficinas futuras</h3>
+            <p>Deixe seu contato e preferências. Te avisaremos sobre novas oficinas que podem te interessar!</p>
+            
+            <form className="form-interesse">
+              <div className="form-row">
+                <input type="text" placeholder="Seu nome" required />
+                <input type="email" placeholder="Seu email" required />
+              </div>
+              <div className="form-row">
+                <select required>
+                  <option value="">Áreas de interesse</option>
+                  <option value="arte">Artes Visuais</option>
+                  <option value="musica">Música</option>
+                  <option value="literatura">Literatura</option>
+                  <option value="teatro">Teatro</option>
+                  <option value="sustentabilidade">Sustentabilidade</option>
+                  <option value="terapia">Terapias</option>
+                  <option value="tecnologia">Tecnologia</option>
+                  <option value="empreendedorismo">Empreendedorismo</option>
+                </select>
+                <select>
+                  <option value="">Disponibilidade</option>
+                  <option value="manha">Manhã</option>
+                  <option value="tarde">Tarde</option>
+                  <option value="noite">Noite</option>
+                  <option value="fds">Fins de semana</option>
+                </select>
+              </div>
+              <Button type="submit" variant="secondary">
+                Cadastrar interesse
+              </Button>
+            </form>
+          </div>
+        </AnimateOnScroll>
 
         {/* Informações importantes */}
-        <div className="oficinas-info mt-32">
-          <div className="info-cards">
-            <div className="info-card">
-              <h4><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Bolsas sociais</h4>
-              <p>Temos bolsas disponíveis para pessoas em vulnerabilidade social. Entre em contato conosco!</p>
-            </div>
-            <div className="info-card">
-              <h4><AccessibilityIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Acessibilidade</h4>
-              <p>Nosso espaço é acessível e nossas oficinas são adaptadas para todes os corpos.</p>
-            </div>
-            <div className="info-card">
-              <h4><SeedlingIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Cuidado coletivo</h4>
-              <p>Priorizamos um ambiente seguro, acolhedor e livre de qualquer tipo de violência.</p>
+        <AnimateOnScroll animation="fade-up" delay={500}>
+          <div className="oficinas-info mt-32">
+            <div className="info-cards">
+              <div className="info-card">
+                <h4><HeartIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Bolsas sociais</h4>
+                <p>Temos bolsas disponíveis para pessoas em vulnerabilidade social. Entre em contato conosco!</p>
+              </div>
+              <div className="info-card">
+                <h4><AccessibilityIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Acessibilidade</h4>
+                <p>Nosso espaço é acessível e nossas oficinas são adaptadas para todes os corpos.</p>
+              </div>
+              <div className="info-card">
+                <h4><SeedlingIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Cuidado coletivo</h4>
+                <p>Priorizamos um ambiente seguro, acolhedor e livre de qualquer tipo de violência.</p>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* CTA para facilitadores */}
-        <div className="facilitadores-cta mt-48">
-          <h3>Quer facilitar uma oficina na Nossa Casa?</h3>
-          <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
-          <Button variant="accent" href="#facilite" className="mt-24">
-            Facilite uma oficina
-          </Button>
-        </div>
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="facilitadores-cta mt-48 glow-effect">
+            <h3>Quer facilitar uma oficina na Nossa Casa?</h3>
+            <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
+            <Button variant="accent" href="#facilite" className="mt-24">
+              Facilite uma oficina
+            </Button>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

@@ -2107,3 +2107,905 @@
     margin-right: auto;
   }
 }
+
+/* === PÁGINA OFICINAS === */
+.oficinas-page {
+  min-height: 100vh;
+}
+
+.oficinas-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #fefefe 0%, var(--paper-warm) 100%);
+  position: relative;
+}
+
+.oficinas-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 75%, rgba(252, 211, 77, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.oficinas-section .wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* === HEADER SECTION === */
+.oficinas-section .kicker {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-grotesk);
+  font-weight: var(--font-medium);
+  color: var(--brand-yellow-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: var(--text-sm);
+}
+
+.oficinas-section .kicker .rule {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-yellow), var(--brand-yellow-dark));
+  border-radius: 1px;
+}
+
+.oficinas-section .section__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 32px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  max-width: 900px;
+}
+
+.oficinas-section .lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  color: var(--ink-light);
+  max-width: 700px;
+  font-weight: 400;
+}
+
+/* === TABS === */
+.oficinas-tabs {
+  display: flex;
+  gap: 16px;
+  margin-top: 64px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: white;
+  border: 2px solid var(--stroke-light);
+  border-radius: var(--radius-lg);
+  color: var(--ink-light);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(252, 211, 77, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.tab-btn:hover::before {
+  left: 100%;
+}
+
+.tab-btn:hover {
+  border-color: var(--brand-yellow);
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.tab-btn.active {
+  background: var(--brand-yellow);
+  border-color: var(--brand-yellow-dark);
+  color: var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+/* === GRID DE OFICINAS === */
+.oficinas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.oficina-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--stroke-light);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.oficina-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--brand-yellow);
+}
+
+.oficina-image {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.oficina-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.oficina-card:hover .oficina-image img {
+  transform: scale(1.08);
+}
+
+.oficina-categoria {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(252, 211, 77, 0.95);
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.oficina-card:hover .oficina-categoria {
+  background: var(--brand-yellow-dark);
+  color: white;
+  transform: scale(1.05);
+}
+
+.oficina-content {
+  padding: 32px 28px;
+}
+
+.oficina-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ink);
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.oficina-card:hover .oficina-content h3 {
+  color: var(--brand-yellow-dark);
+}
+
+.oficina-facilitadora {
+  font-size: 1rem;
+  color: var(--brand-yellow-dark);
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.oficina-descricao {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-light);
+  margin-bottom: 24px;
+}
+
+.oficina-detalhes {
+  background: var(--paper-warm);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  transition: background 0.3s ease;
+}
+
+.oficina-card:hover .oficina-detalhes {
+  background: rgba(252, 211, 77, 0.1);
+}
+
+.detalhe-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--ink-light);
+}
+
+.detalhe-item:last-child {
+  margin-bottom: 0;
+}
+
+.detalhe-item strong {
+  color: var(--ink);
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.proximas-datas {
+  margin-bottom: 24px;
+}
+
+.proximas-datas strong {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.datas-lista {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.data-chip {
+  background: var(--brand-yellow);
+  color: var(--ink);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.data-chip:hover {
+  background: var(--brand-yellow-dark);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.oficina-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.btn-detalhes {
+  background: none;
+  border: 1px solid var(--stroke-light);
+  color: var(--ink-light);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-detalhes:hover {
+  border-color: var(--brand-yellow);
+  color: var(--ink);
+  background: var(--paper-warm);
+}
+
+.oficina-detalhes-expandido {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(252, 211, 77, 0.05);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--brand-yellow);
+  animation: fadeIn 0.4s ease;
+}
+
+.oficina-detalhes-expandido h4 {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+
+.oficina-detalhes-expandido p {
+  margin: 0;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+/* === GRID DE TERAPIAS === */
+.terapias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.terapia-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--stroke-light);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.terapia-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: var(--brand-yellow);
+}
+
+.terapia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.terapia-categoria {
+  background: var(--paper-warm);
+  color: var(--brand-yellow-dark);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.terapia-card:hover .terapia-categoria {
+  background: var(--brand-yellow);
+  color: var(--ink);
+}
+
+.terapia-tipo {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  padding: 4px 8px;
+  border-radius: var(--radius-base);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.terapia-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ink);
+  transition: color 0.3s ease;
+}
+
+.terapia-card:hover h3 {
+  color: var(--brand-yellow-dark);
+}
+
+.terapia-facilitadora {
+  font-size: 1rem;
+  color: var(--brand-yellow-dark);
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.terapia-descricao {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-light);
+  margin-bottom: 20px;
+}
+
+.terapia-info {
+  background: var(--paper-warm);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  transition: background 0.3s ease;
+}
+
+.terapia-card:hover .terapia-info {
+  background: rgba(252, 211, 77, 0.1);
+}
+
+/* === FORMULÁRIO DE INTERESSE === */
+.interesse-form {
+  background: white;
+  padding: 48px 40px;
+  border-radius: var(--radius-lg);
+  margin-top: 80px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke-light);
+  text-align: center;
+}
+
+.interesse-form h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+.interesse-form p {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-interesse {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-row input,
+.form-row select {
+  padding: 12px 16px;
+  border: 2px solid var(--stroke-light);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  border-color: var(--brand-yellow);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(252, 211, 77, 0.1);
+}
+
+/* === INFO CARDS === */
+.oficinas-info {
+  margin-top: 64px;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.info-card {
+  background: white;
+  padding: 32px 28px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--stroke-light);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(252, 211, 77, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.info-card:hover::before {
+  left: 100%;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--brand-yellow);
+}
+
+.info-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.info-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-light);
+  margin: 0;
+}
+
+/* === CTA FACILITADORES === */
+.facilitadores-cta {
+  text-align: center;
+  padding: 56px 48px;
+  background: linear-gradient(135deg, var(--brand-yellow) 0%, var(--brand-yellow-dark) 100%);
+  border-radius: var(--radius-lg);
+  margin-top: 80px;
+  box-shadow: var(--shadow);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.facilitadores-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.facilitadores-cta h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.facilitadores-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  opacity: 0.95;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+/* === RESPONSIVIDADE PÁGINA OFICINAS === */
+/* === MOBILE EXTRA SMALL (320px - 480px) === */
+@media (max-width: 480px) {
+  .oficinas-section {
+    padding: 60px 0;
+  }
+  
+  .oficinas-section .section__title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    margin-bottom: 24px;
+  }
+  
+  .oficinas-section .lead {
+    font-size: 1.1rem;
+  }
+  
+  .oficinas-tabs {
+    margin-top: 48px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .oficinas-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  
+  .oficina-card {
+    overflow: visible;
+  }
+  
+  .oficina-image {
+    height: 200px;
+  }
+  
+  .oficina-content {
+    padding: 24px 20px;
+  }
+  
+  .oficina-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .oficina-detalhes {
+    padding: 16px;
+  }
+  
+  .detalhe-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  
+  .detalhe-item strong {
+    min-width: auto;
+    margin-right: 0;
+  }
+  
+  .datas-lista {
+    gap: 6px;
+  }
+  
+  .data-chip {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+  }
+  
+  .oficina-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .terapias-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .terapia-card {
+    padding: 24px 20px;
+  }
+  
+  .terapia-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .interesse-form {
+    padding: 32px 24px;
+    margin-top: 60px;
+  }
+  
+  .interesse-form h3 {
+    font-size: 1.6rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .info-card {
+    padding: 24px 20px;
+  }
+  
+  .facilitadores-cta {
+    padding: 40px 24px;
+    margin-top: 60px;
+  }
+  
+  .facilitadores-cta h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* === MOBILE SMALL (481px - 640px) === */
+@media (min-width: 481px) and (max-width: 640px) {
+  .oficinas-section {
+    padding: 80px 0;
+  }
+  
+  .oficinas-tabs {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .tab-btn {
+    width: auto;
+  }
+  
+  .oficinas-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .oficina-image {
+    height: 220px;
+  }
+  
+  .oficina-content {
+    padding: 28px 24px;
+  }
+  
+  .detalhe-item {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .oficina-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .terapias-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* === TABLET PORTRAIT (641px - 768px) === */
+@media (min-width: 641px) and (max-width: 768px) {
+  .oficinas-section {
+    padding: 100px 0;
+  }
+  
+  .oficinas-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .oficina-image {
+    height: 260px;
+  }
+  
+  .terapias-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .info-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+/* === TABLET LANDSCAPE (769px - 1024px) === */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .oficinas-section {
+    padding: 120px 0;
+  }
+  
+  .oficinas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+  
+  .oficina-card {
+    max-width: none;
+  }
+  
+  .terapias-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* === DESKTOP SMALL (1025px - 1280px) === */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .oficinas-section .wrap {
+    max-width: 1200px;
+  }
+  
+  .oficinas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .terapias-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* === DESKTOP MEDIUM (1281px - 1440px) === */
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .oficinas-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+  
+  .terapias-grid {
+    max-width: 1200px;
+  }
+}
+
+/* === DESKTOP LARGE (1441px - 1600px) === */
+@media (min-width: 1441px) and (max-width: 1600px) {
+  .oficinas-section .wrap {
+    max-width: 1400px;
+  }
+  
+  .oficinas-grid {
+    max-width: 1300px;
+  }
+  
+  .terapias-grid {
+    max-width: 1300px;
+  }
+}
+
+/* === DESKTOP EXTRA LARGE (1601px+) === */
+@media (min-width: 1601px) {
+  .oficinas-section .wrap {
+    max-width: 1500px;
+  }
+  
+  .oficinas-grid {
+    max-width: 1400px;
+  }
+  
+  .terapias-grid {
+    max-width: 1400px;
+  }
+  
+  .oficinas-section .section__title {
+    max-width: 1000px;
+  }
+  
+  .oficinas-section .lead {
+    max-width: 800px;
+  }
+  
+  .interesse-form {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .facilitadores-cta {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
