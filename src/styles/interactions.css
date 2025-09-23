@@ -46,8 +46,8 @@ a:not(.btn):not(.card):not(.nav__link):not(.nav__dropdown-link):hover {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -150%; /* start further left so the sweep is larger */
+  width: 150%; /* wider shimmer band for a more visible effect */
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
   transition: left 0.6s ease;

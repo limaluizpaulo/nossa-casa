@@ -16,6 +16,12 @@
   align-items: center;
 }
 
+/* make the hero wrap wider on desktop so content uses available space */
+.hero-section .wrap {
+  max-width: 1700px;
+  padding: 0 32px;
+}
+
 .hero-section::before {
   content: '';
   position: absolute;
@@ -36,10 +42,11 @@
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 80px;
+  /* Give slightly more room to the visual column so the image fills the area better */
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 64px;
   align-items: center;
-  max-width: 1400px;
+  max-width: calc(100% - 80px); /* use more of the viewport width */
   margin: 0 auto;
 }
 
@@ -78,6 +85,14 @@
   position: relative;
 }
 
+/* Stack image and stats vertically and align stats to the image's start */
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
 .hero-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -85,6 +100,8 @@
   transform: rotate(2deg);
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
+  width: 100%;
+  align-self: stretch;
 }
 
 .hero-image::before {
@@ -110,9 +127,11 @@
 }
 
 .hero-image img {
+  display: block;
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  max-height: 520px; /* limit but allow full image to show */
+  height: auto;
+  object-fit: contain; /* show entire image without cropping */
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -121,15 +140,18 @@
 }
 
 .hero-stats {
-  position: absolute;
-  bottom: -20px;
-  left: -20px;
+  /* Move stats below the hero image instead of overlaying it */
+  position: relative;
+  margin-top: 8px;
   background: white;
-  padding: 24px;
+  padding: 16px 18px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
   display: grid;
-  gap: 16px;
+  gap: 8px;
+  width: min(420px, 100%);
+  max-width: 420px;
+  margin-left: 0; /* align to start of hero-visual */
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -476,16 +498,26 @@
   }
   
   .hero-image img {
-    height: 220px;
+    max-height: 220px;
+    height: auto;
+    object-fit: contain;
   }
   
+  /* On very small screens center the stats under the image */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
   .hero-stats {
     position: static;
-    margin-top: 20px;
+    margin-top: 12px;
     grid-template-columns: 1fr;
-    padding: 16px;
+    padding: 12px;
     gap: 12px;
-    max-width: 200px;
+    max-width: 260px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -580,16 +612,26 @@
   }
   
   .hero-image img {
-    height: 240px;
+    max-height: 240px;
+    height: auto;
+    object-fit: contain;
   }
   
+  /* center stats on small mobile/tablet widths */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
   .hero-stats {
     position: static;
-    margin-top: 24px;
+    margin-top: 18px;
     grid-template-columns: repeat(3, 1fr);
-    padding: 20px;
-    gap: 16px;
-    max-width: 300px;
+    padding: 14px;
+    gap: 12px;
+    max-width: 420px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -638,7 +680,9 @@
   }
   
   .hero-image img {
-    height: 300px;
+    max-height: 300px;
+    height: auto;
+    object-fit: contain;
   }
   
   .activities-grid {
@@ -710,6 +754,61 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     max-width: 1000px;
+  }
+}
+
+/* === DESKTOP ADJUSTMENTS: make hero visual use more space on larger screens === */
+@media (min-width: 1025px) {
+  .hero-visual {
+    align-items: center; /* center contents vertically in the visual column */
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 560px; /* increase image container width on desktop */
+  }
+
+  .hero-image img {
+    max-height: 640px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-stats {
+    margin-top: 24px;
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 1281px) {
+  .hero-image {
+    max-width: 720px;
+  }
+
+  .hero-image img {
+    max-height: 800px;
+  }
+
+  .hero-stats {
+    max-width: 560px;
+  }
+}
+
+@media (min-width: 1601px) {
+  .hero-grid {
+    gap: 100px; /* more breathing room on very large screens */
+  }
+
+  .hero-image {
+    max-width: 880px;
+  }
+
+  .hero-image img {
+    max-height: 960px;
+  }
+
+  .hero-stats {
+    max-width: 640px;
   }
 }
 
