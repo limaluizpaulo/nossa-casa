@@ -8286,3 +8286,823 @@
     margin-right: auto;
   }
 }
+
+/* ============================================================================
+   TRANSPARENCIA PAGE STYLES
+   ============================================================================ */
+
+/* === BASE TRANSPARENCIA STYLES === */
+.transparencia-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.transparencia-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(45deg, rgba(200, 88, 64, 0.03) 0%, rgba(80, 67, 173, 0.03) 100%);
+  z-index: 1;
+}
+
+.transparencia-section .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.transparencia-section .section__title {
+  color: #c85840;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.transparencia-section .lead {
+  color: #555;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* === PRINCÍPIOS DE GOVERNANÇA === */
+.principios-governanca h3 {
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 700;
+}
+
+.principios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.principio-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.principio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(200, 88, 64, 0.05), rgba(80, 67, 173, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.principio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.principio-card:hover::before {
+  opacity: 1;
+}
+
+.principio-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(45deg, #c85840, #5043ad);
+  border-radius: 50%;
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.principio-card h4 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.principio-card p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* === SELETOR DE ANO === */
+.ano-selector {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.ano-selector h3 {
+  color: #333;
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.selector-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.selector-container label {
+  color: #666;
+  font-weight: 500;
+}
+
+.ano-select {
+  padding: 12px 20px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  background: white;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.ano-select:hover,
+.ano-select:focus {
+  outline: none;
+  border-color: #c85840;
+  box-shadow: 0 4px 15px rgba(200, 88, 64, 0.2);
+}
+
+/* === DASHBOARD FINANCEIRO === */
+.dashboard-financeiro {
+  margin-bottom: 48px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(200, 88, 64, 0.03), rgba(80, 67, 173, 0.03));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-card:hover::before {
+  opacity: 1;
+}
+
+.dashboard-card h4 {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.valor-principal {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.receitas .valor-principal {
+  color: #22c55e;
+}
+
+.despesas .valor-principal {
+  color: #ef4444;
+}
+
+.resultado .valor-principal.positivo {
+  color: #22c55e;
+}
+
+.resultado .valor-principal.negativo {
+  color: #ef4444;
+}
+
+.impacto .valor-principal {
+  color: #c85840;
+}
+
+.detalhes-lista {
+  position: relative;
+  z-index: 2;
+}
+
+.detalhe-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+}
+
+.detalhe-item:last-child {
+  border-bottom: none;
+}
+
+.detalhe-item span:first-child {
+  color: #666;
+}
+
+.detalhe-item span:last-child {
+  color: #333;
+  font-weight: 600;
+}
+
+.resultado-info {
+  margin-top: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.resultado-info p {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+/* === ESTATÍSTICAS DE IMPACTO === */
+.impacto-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 16px;
+  background: rgba(200, 88, 64, 0.05);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+.stat-numero {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #c85840;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* === RELATÓRIOS === */
+.relatorios-download h3 {
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 700;
+}
+
+.relatorios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.relatorio-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.relatorio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.relatorio-info {
+  flex: 1;
+}
+
+.relatorio-info h4 {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.relatorio-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.relatorio-meta .tipo {
+  background: linear-gradient(45deg, #c85840, #5043ad);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.relatorio-meta .tamanho {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.relatorio-data {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* === AUDITORIA === */
+.auditoria-certificacoes h3 {
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 700;
+}
+
+.audit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.audit-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.audit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.audit-card h4 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.audit-card p {
+  color: #666;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* === POLÍTICA DE TRANSPARÊNCIA === */
+.politica-transparencia {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 32px;
+}
+
+.politica-transparencia h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.politica-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 1rem;
+}
+
+.politica-content h4 {
+  color: #c85840;
+  font-size: 1.2rem;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.politica-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.politica-content li {
+  color: #666;
+  margin-bottom: 8px;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.politica-content li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+/* === CANAL DE DENÚNCIAS === */
+.canal-denuncias {
+  margin-top: 32px;
+}
+
+.denuncias-card {
+  background: linear-gradient(135deg, #c85840 0%, #5043ad 100%);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.denuncias-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  z-index: 1;
+}
+
+.denuncias-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.denuncias-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+}
+
+.contatos-transparencia {
+  margin: 24px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.contatos-transparencia p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* === MOBILE EXTRA SMALL (320px - 480px) === */
+@media (max-width: 480px) {
+  .transparencia-section {
+    padding: 60px 0;
+  }
+  
+  .transparencia-section .section__title {
+    font-size: 2rem;
+  }
+  
+  .transparencia-section .lead {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+  
+  .principios-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .principio-card {
+    padding: 24px 20px;
+  }
+  
+  .principio-icone {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .selector-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .dashboard-card {
+    padding: 24px 20px;
+  }
+  
+  .valor-principal {
+    font-size: 1.8rem;
+  }
+  
+  .impacto-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .stat-numero {
+    font-size: 1.5rem;
+  }
+  
+  .relatorios-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .relatorio-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .audit-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .audit-card {
+    padding: 24px 20px;
+  }
+  
+  .politica-transparencia {
+    padding: 24px 20px;
+  }
+  
+  .denuncias-card {
+    padding: 32px 20px;
+  }
+  
+  .contatos-transparencia p {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+/* === MOBILE SMALL (481px - 640px) === */
+@media (min-width: 481px) and (max-width: 640px) {
+  .transparencia-section {
+    padding: 80px 0;
+  }
+  
+  .principios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .impacto-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === TABLET SMALL (641px - 768px) === */
+@media (min-width: 641px) and (max-width: 768px) {
+  .principios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .relatorios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .audit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === TABLET MEDIUM (769px - 1024px) === */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .principios-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  
+  .relatorios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .audit-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === DESKTOP SMALL (1025px - 1280px) === */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .principios-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .relatorios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .audit-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === DESKTOP MEDIUM (1281px - 1440px) === */
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .transparencia-section .wrap {
+    max-width: 1200px;
+  }
+  
+  .principios-grid {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dashboard-grid {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* === DESKTOP LARGE (1441px - 1600px) === */
+@media (min-width: 1441px) and (max-width: 1600px) {
+  .transparencia-section .wrap {
+    max-width: 1300px;
+  }
+  
+  .principios-grid {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dashboard-grid {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* === DESKTOP EXTRA LARGE (1601px+) === */
+@media (min-width: 1601px) {
+  .transparencia-section .wrap {
+    max-width: 1400px;
+  }
+  
+  .transparencia-section .section__title {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .transparencia-section .lead {
+    max-width: 800px;
+  }
+  
+  .principios-grid {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dashboard-grid {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .relatorios-grid {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .audit-grid {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .politica-transparencia {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .denuncias-card {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

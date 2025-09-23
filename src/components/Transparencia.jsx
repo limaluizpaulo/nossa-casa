@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { AnimateOnScroll } from '../hooks/useAnimations';
 import { 
   SearchIcon, 
   HandshakeIcon, 
@@ -140,240 +141,279 @@ const Transparencia = () => {
   return (
     <section id="transparencia" className="section transparencia-section" aria-labelledby="transparencia-title">
       <div className="wrap">
-        <div className="kicker">
-          <span className="rule" aria-hidden="true"></span>
-          Transparência
-        </div>
-        <h2 id="transparencia-title" className="section__title">
-          Prestação de Contas
-        </h2>
+        <AnimateOnScroll animation="fade-up" delay={0}>
+          <div className="kicker">
+            <span className="rule" aria-hidden="true"></span>
+            Transparência
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="fade-up" delay={200}>
+          <h2 id="transparencia-title" className="section__title">
+            Prestação de Contas
+          </h2>
+        </AnimateOnScroll>
         
-        <p className="lead">
-          Acreditamos que a transparência é fundamental para uma gestão responsável. 
-          Aqui você encontra todas as informações sobre nossos recursos, atividades e impacto na comunidade.
-        </p>
+        <AnimateOnScroll animation="fade-up" delay={400}>
+          <p className="lead">
+            Acreditamos que a transparência é fundamental para uma gestão responsável. 
+            Aqui você encontra todas as informações sobre nossos recursos, atividades e impacto na comunidade.
+          </p>
+        </AnimateOnScroll>
 
         {/* Princípios de governança */}
-        <div className="principios-governanca mt-32">
-          <h3>Nossos princípios de governança</h3>
-          <div className="principios-grid">
-            {principios.map((principio, index) => (
-              <div key={index} className="principio-card">
-                <div className="principio-icone">{principio.icone}</div>
-                <h4>{principio.titulo}</h4>
-                <p>{principio.descricao}</p>
-              </div>
-            ))}
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="principios-governanca mt-32">
+            <h3>Nossos princípios de governança</h3>
+            <div className="principios-grid">
+              {principios.map((principio, index) => (
+                <AnimateOnScroll key={index} animation="fade-up" delay={800 + (index * 100)}>
+                  <div className="principio-card">
+                    <div className="principio-icone">{principio.icone}</div>
+                    <h4>{principio.titulo}</h4>
+                    <p>{principio.descricao}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Seletor de ano */}
-        <div className="ano-selector mt-48">
-          <h3>Dados financeiros e de impacto</h3>
-          <div className="selector-container">
-            <label htmlFor="ano-select">Selecione o ano:</label>
-            <select 
-              id="ano-select"
-              value={anoSelecionado} 
-              onChange={(e) => setAnoSelecionado(e.target.value)}
-              className="ano-select"
-            >
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-            </select>
+        <AnimateOnScroll animation="fade-up" delay={400}>
+          <div className="ano-selector mt-48">
+            <h3>Dados financeiros e de impacto</h3>
+            <div className="selector-container">
+              <label htmlFor="ano-select">Selecione o ano:</label>
+              <select 
+                id="ano-select"
+                value={anoSelecionado} 
+                onChange={(e) => setAnoSelecionado(e.target.value)}
+                className="ano-select"
+              >
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+              </select>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Dashboard financeiro */}
-        <div className="dashboard-financeiro mt-32">
-          <div className="dashboard-grid">
-            {/* Receitas */}
-            <div className="dashboard-card receitas">
-              <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Receitas {anoSelecionado}</h4>
-              <div className="valor-principal">{formatarMoeda(dados.receitas.total)}</div>
-              <div className="detalhes-lista">
-                <div className="detalhe-item">
-                  <span>Doações</span>
-                  <span>{formatarMoeda(dados.receitas.doacoes)} ({calcularPercentual(dados.receitas.doacoes, dados.receitas.total)}%)</span>
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="dashboard-financeiro mt-32">
+            <div className="dashboard-grid">
+              {/* Receitas */}
+              <AnimateOnScroll animation="fade-up" delay={800}>
+                <div className="dashboard-card receitas">
+                  <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Receitas {anoSelecionado}</h4>
+                  <div className="valor-principal">{formatarMoeda(dados.receitas.total)}</div>
+                  <div className="detalhes-lista">
+                    <div className="detalhe-item">
+                      <span>Doações</span>
+                      <span>{formatarMoeda(dados.receitas.doacoes)} ({calcularPercentual(dados.receitas.doacoes, dados.receitas.total)}%)</span>
+                    </div>
+                    <div className="detalhe-item">
+                      <span>Eventos</span>
+                      <span>{formatarMoeda(dados.receitas.eventos)} ({calcularPercentual(dados.receitas.eventos, dados.receitas.total)}%)</span>
+                    </div>
+                    <div className="detalhe-item">
+                      <span>Oficinas</span>
+                      <span>{formatarMoeda(dados.receitas.oficinas)} ({calcularPercentual(dados.receitas.oficinas, dados.receitas.total)}%)</span>
+                    </div>
+                    <div className="detalhe-item">
+                      <span>Parcerias</span>
+                      <span>{formatarMoeda(dados.receitas.parcerias)} ({calcularPercentual(dados.receitas.parcerias, dados.receitas.total)}%)</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="detalhe-item">
-                  <span>Eventos</span>
-                  <span>{formatarMoeda(dados.receitas.eventos)} ({calcularPercentual(dados.receitas.eventos, dados.receitas.total)}%)</span>
-                </div>
-                <div className="detalhe-item">
-                  <span>Oficinas</span>
-                  <span>{formatarMoeda(dados.receitas.oficinas)} ({calcularPercentual(dados.receitas.oficinas, dados.receitas.total)}%)</span>
-                </div>
-                <div className="detalhe-item">
-                  <span>Parcerias</span>
-                  <span>{formatarMoeda(dados.receitas.parcerias)} ({calcularPercentual(dados.receitas.parcerias, dados.receitas.total)}%)</span>
-                </div>
-              </div>
-            </div>
+              </AnimateOnScroll>
 
-            {/* Despesas */}
-            <div className="dashboard-card despesas">
-              <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px', transform: 'rotate(180deg)'}} /> Despesas {anoSelecionado}</h4>
-              <div className="valor-principal">{formatarMoeda(dados.despesas.total)}</div>
-              <div className="detalhes-lista">
-                <div className="detalhe-item">
-                  <span>Pessoal</span>
-                  <span>{formatarMoeda(dados.despesas.pessoal)} ({calcularPercentual(dados.despesas.pessoal, dados.despesas.total)}%)</span>
+              {/* Despesas */}
+              <AnimateOnScroll animation="fade-up" delay={900}>
+                <div className="dashboard-card despesas">
+                  <h4><DollarSignIcon size={24} style={{display: 'inline', marginRight: '8px', transform: 'rotate(180deg)'}} /> Despesas {anoSelecionado}</h4>
+                  <div className="valor-principal">{formatarMoeda(dados.despesas.total)}</div>
+                  <div className="detalhes-lista">
+                    <div className="detalhe-item">
+                      <span>Pessoal</span>
+                      <span>{formatarMoeda(dados.despesas.pessoal)} ({calcularPercentual(dados.despesas.pessoal, dados.despesas.total)}%)</span>
+                    </div>
+                    <div className="detalhe-item">
+                      <span>Infraestrutura</span>
+                      <span>{formatarMoeda(dados.despesas.infraestrutura)} ({calcularPercentual(dados.despesas.infraestrutura, dados.despesas.total)}%)</span>
+                    </div>
+                    <div className="detalhe-item">
+                      <span>Materiais</span>
+                      <span>{formatarMoeda(dados.despesas.materiais)} ({calcularPercentual(dados.despesas.materiais, dados.despesas.total)}%)</span>
+                    </div>
+                    <div className="detalhe-item">
+                      <span>Eventos</span>
+                      <span>{formatarMoeda(dados.despesas.eventos)} ({calcularPercentual(dados.despesas.eventos, dados.despesas.total)}%)</span>
+                    </div>
+                    <div className="detalhe-item">
+                      <span>Administrativo</span>
+                      <span>{formatarMoeda(dados.despesas.administrativo)} ({calcularPercentual(dados.despesas.administrativo, dados.despesas.total)}%)</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="detalhe-item">
-                  <span>Infraestrutura</span>
-                  <span>{formatarMoeda(dados.despesas.infraestrutura)} ({calcularPercentual(dados.despesas.infraestrutura, dados.despesas.total)}%)</span>
-                </div>
-                <div className="detalhe-item">
-                  <span>Materiais</span>
-                  <span>{formatarMoeda(dados.despesas.materiais)} ({calcularPercentual(dados.despesas.materiais, dados.despesas.total)}%)</span>
-                </div>
-                <div className="detalhe-item">
-                  <span>Eventos</span>
-                  <span>{formatarMoeda(dados.despesas.eventos)} ({calcularPercentual(dados.despesas.eventos, dados.despesas.total)}%)</span>
-                </div>
-                <div className="detalhe-item">
-                  <span>Administrativo</span>
-                  <span>{formatarMoeda(dados.despesas.administrativo)} ({calcularPercentual(dados.despesas.administrativo, dados.despesas.total)}%)</span>
-                </div>
-              </div>
-            </div>
+              </AnimateOnScroll>
 
-            {/* Resultado */}
-            <div className="dashboard-card resultado">
-              <h4><TrendingUpIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Resultado {anoSelecionado}</h4>
-              <div className={`valor-principal ${dados.receitas.total - dados.despesas.total >= 0 ? 'positivo' : 'negativo'}`}>
-                {formatarMoeda(dados.receitas.total - dados.despesas.total)}
-              </div>
-              <div className="resultado-info">
-                {dados.receitas.total - dados.despesas.total >= 0 ? (
-                  <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Recursos disponíveis para novos projetos</p>
-                ) : (
-                  <p><AlertTriangleIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Déficit coberto por reservas</p>
-                )}
-              </div>
-            </div>
+              {/* Resultado */}
+              <AnimateOnScroll animation="fade-up" delay={1000}>
+                <div className="dashboard-card resultado">
+                  <h4><TrendingUpIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Resultado {anoSelecionado}</h4>
+                  <div className={`valor-principal ${dados.receitas.total - dados.despesas.total >= 0 ? 'positivo' : 'negativo'}`}>
+                    {formatarMoeda(dados.receitas.total - dados.despesas.total)}
+                  </div>
+                  <div className="resultado-info">
+                    {dados.receitas.total - dados.despesas.total >= 0 ? (
+                      <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Recursos disponíveis para novos projetos</p>
+                    ) : (
+                      <p><AlertTriangleIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Déficit coberto por reservas</p>
+                    )}
+                  </div>
+                </div>
+              </AnimateOnScroll>
 
-            {/* Impacto */}
-            <div className="dashboard-card impacto">
-              <h4><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Impacto {anoSelecionado}</h4>
-              <div className="impacto-stats">
-                <div className="stat-item">
-                  <span className="stat-numero">{dados.beneficiarios}</span>
-                  <span className="stat-label">Pessoas beneficiadas</span>
+              {/* Impacto */}
+              <AnimateOnScroll animation="fade-up" delay={1100}>
+                <div className="dashboard-card impacto">
+                  <h4><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Impacto {anoSelecionado}</h4>
+                  <div className="impacto-stats">
+                    <div className="stat-item">
+                      <span className="stat-numero">{dados.beneficiarios}</span>
+                      <span className="stat-label">Pessoas beneficiadas</span>
+                    </div>
+                    <div className="stat-item">
+                      <span className="stat-numero">{dados.oficinas}</span>
+                      <span className="stat-label">Oficinas realizadas</span>
+                    </div>
+                    <div className="stat-item">
+                      <span className="stat-numero">{dados.eventos}</span>
+                      <span className="stat-label">Eventos promovidos</span>
+                    </div>
+                    <div className="stat-item">
+                      <span className="stat-numero">{dados.voluntarios}</span>
+                      <span className="stat-label">Voluntários ativos</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="stat-item">
-                  <span className="stat-numero">{dados.oficinas}</span>
-                  <span className="stat-label">Oficinas realizadas</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-numero">{dados.eventos}</span>
-                  <span className="stat-label">Eventos promovidos</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-numero">{dados.voluntarios}</span>
-                  <span className="stat-label">Voluntários ativos</span>
-                </div>
-              </div>
+              </AnimateOnScroll>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Relatórios para download */}
-        <div className="relatorios-download mt-48">
-          <h3>Relatórios e documentos</h3>
-          <div className="relatorios-grid">
-            {relatorios.map((relatorio, index) => (
-              <div key={index} className="relatorio-card">
-                <div className="relatorio-info">
-                  <h4>{relatorio.titulo}</h4>
-                  <div className="relatorio-meta">
-                    <span className="tipo">{relatorio.tipo}</span>
-                    <span className="tamanho">{relatorio.tamanho}</span>
+        <AnimateOnScroll animation="fade-up" delay={400}>
+          <div className="relatorios-download mt-48">
+            <h3>Relatórios e documentos</h3>
+            <div className="relatorios-grid">
+              {relatorios.map((relatorio, index) => (
+                <AnimateOnScroll key={index} animation="fade-up" delay={600 + (index * 100)}>
+                  <div className="relatorio-card">
+                    <div className="relatorio-info">
+                      <h4>{relatorio.titulo}</h4>
+                      <div className="relatorio-meta">
+                        <span className="tipo">{relatorio.tipo}</span>
+                        <span className="tamanho">{relatorio.tamanho}</span>
+                      </div>
+                      <div className="relatorio-data">
+                        Publicado em {new Date(relatorio.data).toLocaleDateString('pt-BR')}
+                      </div>
+                    </div>
+                    <Button variant="outline" size="small">
+                      <DownloadIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Download
+                    </Button>
                   </div>
-                  <div className="relatorio-data">
-                    Publicado em {new Date(relatorio.data).toLocaleDateString('pt-BR')}
-                  </div>
-                </div>
-                <Button variant="outline" size="small">
-                  <DownloadIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Download
-                </Button>
-              </div>
-            ))}
+                </AnimateOnScroll>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Auditoria e certificações */}
-        <div className="auditoria-certificacoes mt-48">
-          <h3>Auditoria e certificações</h3>
-          <div className="audit-grid">
-            <div className="audit-card">
-              <h4><BuildingGovIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Registro no CNPJ</h4>
-              <p>CNPJ: 12.345.678/0001-90</p>
-              <p>Situação: Ativa</p>
-              <p>Natureza: Associação Privada</p>
-            </div>
-            
-            <div className="audit-card">
-              <h4><ClipboardIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Certificações</h4>
-              <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> OSCIP - Organização da Sociedade Civil de Interesse Público</p>
-              <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Utilidade Pública Municipal</p>
-              <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Cadastro Municipal de Entidades</p>
-            </div>
-            
-            <div className="audit-card">
-              <h4><SearchIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Auditoria Externa</h4>
-              <p>Empresa: Auditores Associados Ltda</p>
-              <p>Última auditoria: Janeiro 2024</p>
-              <p>Resultado: Aprovada sem ressalvas</p>
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="auditoria-certificacoes mt-48">
+            <h3>Auditoria e certificações</h3>
+            <div className="audit-grid">
+              <AnimateOnScroll animation="fade-up" delay={800}>
+                <div className="audit-card">
+                  <h4><BuildingGovIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Registro no CNPJ</h4>
+                  <p>CNPJ: 12.345.678/0001-90</p>
+                  <p>Situação: Ativa</p>
+                  <p>Natureza: Associação Privada</p>
+                </div>
+              </AnimateOnScroll>
+              
+              <AnimateOnScroll animation="fade-up" delay={900}>
+                <div className="audit-card">
+                  <h4><ClipboardIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Certificações</h4>
+                  <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> OSCIP - Organização da Sociedade Civil de Interesse Público</p>
+                  <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Utilidade Pública Municipal</p>
+                  <p><CheckIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Cadastro Municipal de Entidades</p>
+                </div>
+              </AnimateOnScroll>
+              
+              <AnimateOnScroll animation="fade-up" delay={1000}>
+                <div className="audit-card">
+                  <h4><SearchIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Auditoria Externa</h4>
+                  <p>Empresa: Auditores Associados Ltda</p>
+                  <p>Última auditoria: Janeiro 2024</p>
+                  <p>Resultado: Aprovada sem ressalvas</p>
+                </div>
+              </AnimateOnScroll>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Política de transparência */}
-        <div className="politica-transparencia mt-48">
-          <h3>Nossa política de transparência</h3>
-          <div className="politica-content">
-            <p>
-              A Nossa Casa adota os mais rigorosos padrões de transparência e prestação de contas. 
-              Entendemos que a confiança da comunidade é nosso maior patrimônio.
-            </p>
-            
-            <h4>Compromissos</h4>
-            <ul>
-              <li>Publicação trimestral de relatórios financeiros</li>
-              <li>Divulgação anual de impacto social detalhado</li>
-              <li>Assembleia geral anual aberta à comunidade</li>
-              <li>Canal permanente para denúncias e sugestões</li>
-              <li>Auditoria externa anual independente</li>
-            </ul>
+        <AnimateOnScroll animation="fade-up" delay={800}>
+          <div className="politica-transparencia mt-48">
+            <h3>Nossa política de transparência</h3>
+            <div className="politica-content">
+              <p>
+                A Nossa Casa adota os mais rigorosos padrões de transparência e prestação de contas. 
+                Entendemos que a confiança da comunidade é nosso maior patrimônio.
+              </p>
+              
+              <h4>Compromissos</h4>
+              <ul>
+                <li>Publicação trimestral de relatórios financeiros</li>
+                <li>Divulgação anual de impacto social detalhado</li>
+                <li>Assembleia geral anual aberta à comunidade</li>
+                <li>Canal permanente para denúncias e sugestões</li>
+                <li>Auditoria externa anual independente</li>
+              </ul>
 
-            <h4>Acesso à informação</h4>
-            <p>
-              Qualquer pessoa pode solicitar informações adicionais sobre nossas atividades e finanças. 
-              Respondemos a todas as solicitações em até 15 dias úteis.
-            </p>
+              <h4>Acesso à informação</h4>
+              <p>
+                Qualquer pessoa pode solicitar informações adicionais sobre nossas atividades e finanças. 
+                Respondemos a todas as solicitações em até 15 dias úteis.
+              </p>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Canal de denúncias */}
-        <div className="canal-denuncias mt-32">
-          <div className="denuncias-card">
-            <h3><MegaphoneIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Canal de Transparência</h3>
-            <p>
-              Tem alguma dúvida sobre nossos processos ou quer fazer uma denúncia? 
-              Entre em contato conosco de forma anônima ou identificada.
-            </p>
-            <div className="contatos-transparencia">
-              <p><MailIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> transparencia@nossacasaat.org.br</p>
-              <p><SmartphoneIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> WhatsApp: (61) 9999-9999</p>
-              <p><InboxIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Caixa de sugestões física no nosso espaço</p>
+        <AnimateOnScroll animation="fade-up" delay={1000}>
+          <div className="canal-denuncias mt-32">
+            <div className="denuncias-card">
+              <h3><MegaphoneIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Canal de Transparência</h3>
+              <p>
+                Tem alguma dúvida sobre nossos processos ou quer fazer uma denúncia? 
+                Entre em contato conosco de forma anônima ou identificada.
+              </p>
+              <div className="contatos-transparencia">
+                <p><MailIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> transparencia@nossacasaat.org.br</p>
+                <p><SmartphoneIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> WhatsApp: (61) 9999-9999</p>
+                <p><InboxIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Caixa de sugestões física no nosso espaço</p>
+              </div>
+              <Button variant="fill">
+                Enviar mensagem
+              </Button>
             </div>
-            <Button variant="fill">
-              Enviar mensagem
-            </Button>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
