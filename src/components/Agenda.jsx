@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { AnimateOnScroll } from '../hooks/useAnimations';
 import { RainbowIcon, PaletteIcon, HeartIcon, PartyIcon, BookOpenIcon, ShoppingBagIcon, CalendarIcon, ClipboardIcon, ClockIcon, UsersIcon, ShareIcon } from './Icons';
 
 const Agenda = () => {
@@ -100,131 +101,143 @@ const Agenda = () => {
   return (
     <section id="agenda" className="section agenda-section" aria-labelledby="agenda-title">
       <div className="wrap">
-        <div className="kicker">
-          <span className="rule" aria-hidden="true"></span>
-          Agenda de Atividades
-        </div>
-        <h2 id="agenda-title" className="section__title">
-          Confira nossa programação de arte, autocuidado e resistência
-        </h2>
-        
-        <p className="lead">
-          Nossa agenda é viva e diversa, feita para todes. Participe de oficinas, vivências, saraus, festivais e rodas de conversa que transformam nossa comunidade.
-        </p>
+        <AnimateOnScroll animation="fade-up" delay={100}>
+          <div className="kicker">
+            <span className="rule" aria-hidden="true"></span>
+            Agenda de Atividades
+          </div>
+          <h2 id="agenda-title" className="section__title">
+            Confira nossa programação de arte, autocuidado e resistência
+          </h2>
+          
+          <p className="lead">
+            Nossa agenda é viva e diversa, feita para todes. Participe de oficinas, vivências, saraus, festivais e rodas de conversa que transformam nossa comunidade.
+          </p>
+        </AnimateOnScroll>
 
         {/* Filtros por categoria */}
-        <div className="agenda-filters mt-32">
-          <h3>Filtrar por categoria:</h3>
-          <div className="filter-buttons">
-            {categorias.map(categoria => (
-              <button
-                key={categoria.key}
-                className={`filter-btn ${selectedFilter === categoria.key ? 'active' : ''}`}
-                onClick={() => setSelectedFilter(categoria.key)}
-                aria-pressed={selectedFilter === categoria.key}
-              >
-                <span className="filter-icon">{categoria.icon}</span>
-                {categoria.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Visualização da agenda */}
-        <div className="agenda-view mt-32">
-          <div className="view-controls">
-            <button 
-              className={`view-btn ${viewMode === 'month' ? 'active' : ''}`}
-              onClick={() => setViewMode('month')}
-            >
-              <CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Mês
-            </button>
-            <button 
-              className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
-              onClick={() => setViewMode('list')}
-            >
-              <ClipboardIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Lista
-            </button>
-          </div>
-
-          {viewMode === 'list' && (
-            <div className="atividades-grid mt-24">
-              {atividadesFiltradas.map(atividade => (
-                <article key={atividade.id} className="atividade-card">
-                  <div className="atividade-header">
-                    <div className="atividade-categoria">
-                      {categorias.find(cat => cat.key === atividade.categoria)?.icon}
-                      <span>{categorias.find(cat => cat.key === atividade.categoria)?.label}</span>
-                    </div>
-                    <div className="atividade-valor">{atividade.valor}</div>
-                  </div>
-                  
-                  <h3 className="atividade-titulo">{atividade.titulo}</h3>
-                  <p className="atividade-facilitador">com {atividade.facilitador}</p>
-                  
-                  <div className="atividade-info">
-                    <div className="info-item">
-                      <strong><CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Data:</strong> {formatarData(atividade.data)}
-                    </div>
-                    <div className="info-item">
-                      <strong><ClockIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Horário:</strong> {atividade.horario}
-                    </div>
-                    <div className="info-item">
-                      <strong><UsersIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Vagas:</strong> {atividade.vagas} pessoas
-                    </div>
-                  </div>
-                  
-                  <p className="atividade-descricao">{atividade.descricao}</p>
-                  
-                  <div className="atividade-actions">
-                    <Button variant="fill" href={`#inscricao-${atividade.id}`}>
-                      Inscreva-se
-                    </Button>
-                    <button className="btn-share" aria-label="Compartilhar atividade">
-                      <ShareIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Compartilhar
-                    </button>
-                  </div>
-                </article>
+        <AnimateOnScroll animation="fade-up" delay={200}>
+          <div className="agenda-filters mt-32">
+            <h3>Filtrar por categoria:</h3>
+            <div className="filter-buttons">
+              {categorias.map(categoria => (
+                <button
+                  key={categoria.key}
+                  className={`filter-btn ${selectedFilter === categoria.key ? 'active' : ''}`}
+                  onClick={() => setSelectedFilter(categoria.key)}
+                  aria-pressed={selectedFilter === categoria.key}
+                >
+                  <span className="filter-icon">{categoria.icon}</span>
+                  {categoria.label}
+                </button>
               ))}
             </div>
-          )}
+          </div>
+        </AnimateOnScroll>
 
-          {viewMode === 'month' && (
-            <div className="calendar-view mt-24">
-              <div className="calendar-placeholder">
-                <div className="calendar-header">
-                  <h3>Outubro 2024</h3>
-                  <div className="calendar-nav">
-                    <button>← Anterior</button>
-                    <button>Próximo →</button>
-                  </div>
-                </div>
-                <div className="calendar-grid">
-                  <div className="calendar-weekdays">
-                    <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-                  </div>
-                  <div className="calendar-days">
-                    {/* Aqui seria implementado um calendário real */}
-                    <div className="calendar-note">
-                      <CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Calendário interativo em desenvolvimento<br/>
-                      <small>Por enquanto, use a visualização em lista para ver todas as atividades</small>
+        {/* Visualização da agenda */}
+        <AnimateOnScroll animation="fade-up" delay={300}>
+          <div className="agenda-view mt-32">
+            <div className="view-controls">
+              <button 
+                className={`view-btn ${viewMode === 'month' ? 'active' : ''}`}
+                onClick={() => setViewMode('month')}
+              >
+                <CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Mês
+              </button>
+              <button 
+                className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
+                onClick={() => setViewMode('list')}
+              >
+                <ClipboardIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Lista
+              </button>
+            </div>
+
+            {viewMode === 'list' && (
+              <div className="atividades-grid mt-24">
+                {atividadesFiltradas.map((atividade, index) => (
+                  <AnimateOnScroll key={atividade.id} animation="fade-up" delay={400 + (index * 150)}>
+                    <article className="atividade-card shimmer">
+                      <div className="atividade-header">
+                        <div className="atividade-categoria">
+                          {categorias.find(cat => cat.key === atividade.categoria)?.icon}
+                          <span>{categorias.find(cat => cat.key === atividade.categoria)?.label}</span>
+                        </div>
+                        <div className="atividade-valor">{atividade.valor}</div>
+                      </div>
+                      
+                      <h3 className="atividade-titulo">{atividade.titulo}</h3>
+                      <p className="atividade-facilitador">com {atividade.facilitador}</p>
+                      
+                      <div className="atividade-info">
+                        <div className="info-item">
+                          <strong><CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Data:</strong> {formatarData(atividade.data)}
+                        </div>
+                        <div className="info-item">
+                          <strong><ClockIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Horário:</strong> {atividade.horario}
+                        </div>
+                        <div className="info-item">
+                          <strong><UsersIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Vagas:</strong> {atividade.vagas} pessoas
+                        </div>
+                      </div>
+                      
+                      <p className="atividade-descricao">{atividade.descricao}</p>
+                      
+                      <div className="atividade-actions">
+                        <Button variant="fill" href={`#inscricao-${atividade.id}`}>
+                          Inscreva-se
+                        </Button>
+                        <button className="btn-share" aria-label="Compartilhar atividade">
+                          <ShareIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Compartilhar
+                        </button>
+                      </div>
+                    </article>
+                  </AnimateOnScroll>
+                ))}
+              </div>
+            )}
+
+            {viewMode === 'month' && (
+              <AnimateOnScroll animation="fade-up" delay={400}>
+                <div className="calendar-view mt-24">
+                  <div className="calendar-placeholder">
+                    <div className="calendar-header">
+                      <h3>Outubro 2024</h3>
+                      <div className="calendar-nav">
+                        <button>← Anterior</button>
+                        <button>Próximo →</button>
+                      </div>
+                    </div>
+                    <div className="calendar-grid">
+                      <div className="calendar-weekdays">
+                        <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+                      </div>
+                      <div className="calendar-days">
+                        {/* Aqui seria implementado um calendário real */}
+                        <div className="calendar-note">
+                          <CalendarIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Calendário interativo em desenvolvimento<br/>
+                          <small>Por enquanto, use a visualização em lista para ver todas as atividades</small>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
-        </div>
+              </AnimateOnScroll>
+            )}
+          </div>
+        </AnimateOnScroll>
 
         {/* CTA final */}
-        <div className="agenda-cta mt-48">
-          <h3>Quer propor uma atividade?</h3>
-          <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
-          <div className="cta-buttons mt-24">
-            <Button variant="accent" href="/facilitar">Facilite uma oficina</Button>
-            <Button href="#contato">Entre em contato</Button>
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="agenda-cta mt-48 glow-effect">
+            <h3>Quer propor uma atividade?</h3>
+            <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
+            <div className="cta-buttons mt-24">
+              <Button variant="accent" href="/facilitar">Facilite uma oficina</Button>
+              <Button href="#contato">Entre em contato</Button>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
