@@ -12,8 +12,8 @@ const VoluntariadoPage = () => {
           Seja <span className="highlight">voluntárie</span>
         </>}
         description="Doe seu tempo e talento para fortalecer nossa rede de cuidado e cultura."
-        imageSrc="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600&auto=format&fit=crop"
-        imageAlt="Grupo de voluntários sorrindo após ação comunitária"
+  imageSrc="/images/heros/voluntariado.svg"
+        imageAlt="Grupo de voluntáries diversos sorrindo após ação comunitária"
         caption="Juntes fazemos mais"
       />
       <Voluntarie />

@@ -12,8 +12,8 @@ const FacilitarPage = () => {
           Facilite uma <span className="highlight">oficina</span>
         </>}
         description="Quer compartilhar seu conhecimento? Envie sua proposta e construa com a gente."
-        imageSrc="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&auto=format&fit=crop"
-        imageAlt="Pessoa facilitando oficina em espaço criativo"
+  imageSrc="/images/heros/facilitar.svg"
+        imageAlt="Pessoa facilitando oficina em espaço criativo com comunidade"
         caption="Conhecimento que circula"
       />
       <FaciliteOficina />

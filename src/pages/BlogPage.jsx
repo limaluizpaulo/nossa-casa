@@ -13,8 +13,8 @@ const BlogPage = () => {
           Nosso <span className="highlight">blog</span>
         </>}
         description="Acompanhe histórias, notícias e bastidores da Nossa Casa."
-        imageSrc="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=1600&auto=format&fit=crop"
-        imageAlt="Pessoa escrevendo em caderno em ambiente acolhedor"
+  imageSrc="/images/heros/blog.svg"
+        imageAlt="Pessoa escrevendo relatos comunitários em caderno"
         caption="Memórias e narrativas da comunidade"
       />
       <Blog />

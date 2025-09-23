@@ -12,8 +12,8 @@ const OficinasPage = () => {
           Oficinas e <span className="highlight">vivências</span>
         </>}
         description="Arte, terapias integrativas e processos criativos para todas as idades."
-        imageSrc="https://images.unsplash.com/photo-1529336953121-ad3a7f1e96d7?w=1600&auto=format&fit=crop"
-        imageAlt="Oficina de artes com pessoas pintando e criando juntas"
+  imageSrc="/images/heros/oficinas.svg"
+        imageAlt="Oficina de artes com pessoas diversas pintando e criando juntas"
         caption="Criar é um ato coletivo"
       />
       <OficinasVivencias />

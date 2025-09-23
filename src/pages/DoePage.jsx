@@ -12,8 +12,8 @@ const DoePage = () => {
           Faça uma <span className="highlight">doação</span>
         </>}
         description="Sua contribuição mantém nossas atividades gratuitas e acessíveis para quem mais precisa."
-        imageSrc="https://images.unsplash.com/photo-1515165562835-c3b8c6ae5f81?w=1600&auto=format&fit=crop"
-        imageAlt="Mãos se unindo em gesto de apoio e solidariedade"
+  imageSrc="/images/heros/doe.svg"
+        imageAlt="Mãos diversas unidas em gesto de apoio e solidariedade"
         caption="Toda ajuda faz a diferença"
       />
       <Doe />

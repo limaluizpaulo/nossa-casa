@@ -15,11 +15,7 @@ const Hero = () => {
               em Guarulhos
             </h1>
             <p className="lead">
-import { FlowerIcon } from './Icons';
-
-// ... resto do código ...
-
-                            <FlowerIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> <strong>Sejam bem-vindes à Nossa Casa</strong>, onde ancestralidade, diversidade e autocuidado se encontram para transformar vidas. Um coletivo independente que há 6 anos fortalece vínculos, celebra a diversidade e incentiva a arte, a saúde integrativa e os direitos humanos.
+              <FlowerIcon size={20} style={{display: 'inline', marginRight: '8px'}} /> <strong>Sejam bem-vindes à Nossa Casa</strong>, onde ancestralidade, diversidade e autocuidado se encontram para transformar vidas. Um coletivo independente que há 6 anos fortalece vínculos, celebra a diversidade e incentiva a arte, a saúde integrativa e os direitos humanos.
             </p>
             <div className="hero__cta">
               <Button variant="fill" href="#agenda" className="btn-cta">Confira nossa agenda</Button>
@@ -55,8 +51,8 @@ import { FlowerIcon } from './Icons';
           
           <figure className="hero__media">
             <img 
-              src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=1600&auto=format&fit=crop" 
-              alt="Mulheres negras e periféricas em roda de conversa, criando arte coletiva em espaço acolhedor e colorido"
+              src="/images/heros/home.svg"
+              alt="Nossa Casa: arte, terapias e resistência representadas em visual criativo"
               loading="eager"
             />
             <figcaption className="hero__caption">

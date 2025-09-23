@@ -12,8 +12,8 @@ const TransparenciaPage = () => {
           Nossa <span className="highlight">transparência</span>
         </>}
         description="Relatórios, prestações de contas e informações institucionais."
-        imageSrc="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1600&auto=format&fit=crop"
-        imageAlt="Documentos e planilhas organizadas sobre uma mesa"
+  imageSrc="/images/heros/transparencia.svg"
+        imageAlt="Documentos e planilhas organizadas sobre mesa de trabalho comunitário"
         caption="Gestão responsável e aberta"
       />
       <Transparencia />

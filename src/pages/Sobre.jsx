@@ -12,8 +12,8 @@ const Sobre = () => {
           Quem somos e nossa <span className="highlight">história</span>
         </>}
         description="Um centro cultural independente em Guarulhos-SP dedicado à arte, educação e transformação social comunitária."
-        imageSrc="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1600&auto=format&fit=crop"
-        imageAlt="Pessoas em roda de conversa em um espaço cultural acolhedor"
+  imageSrc="/images/heros/sobre.svg"
+        imageAlt="Encontro comunitário em espaço cultural com pessoas diversas"
         caption="Comunidade em encontro na Nossa Casa"
       />
       <QuemSomos />

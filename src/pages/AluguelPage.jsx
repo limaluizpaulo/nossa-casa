@@ -12,8 +12,8 @@ const AluguelPage = () => {
           Aluguel de <span className="highlight">espaços</span>
         </>}
         description="Ambientes equipados e acolhedores para encontros, oficinas, reuniões e celebrações."
-        imageSrc="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=1600&auto=format&fit=crop"
-        imageAlt="Espaço interno iluminado preparado para evento comunitário"
+  imageSrc="/images/heros/aluguel.svg"
+        imageAlt="Espaço interno acolhedor preparado para evento comunitário"
         caption="Seu evento com a energia da Nossa Casa"
       />
       <AluguelEspaco />

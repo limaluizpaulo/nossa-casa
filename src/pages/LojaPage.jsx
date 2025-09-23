@@ -12,8 +12,8 @@ const LojaPage = () => {
           Nossa <span className="highlight">loja</span> solidária
         </>}
         description="Produtos feitos por artistas e empreendedores locais que fortalecem a comunidade."
-        imageSrc="https://images.unsplash.com/photo-1549497538-303791108f95?w=1600&auto=format&fit=crop"
-        imageAlt="Produtos artesanais expostos em feira cultural"
+  imageSrc="/images/heros/loja.svg"
+        imageAlt="Produtos artesanais de artistas diversos expostos em feira cultural"
         caption="Consumo consciente que transforma"
       />
       <Loja />
