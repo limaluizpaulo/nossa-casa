@@ -244,11 +244,13 @@ img {
 
 /* Indicadores visuais para navegação por teclado */
 .nav__link:focus-visible,
-.nav__dropdown-toggle:focus-visible {
+.nav__dropdown-toggle:focus-visible,
+.nav__dropdown-link:focus-visible {
   background: var(--gray-50);
   text-decoration: underline;
   text-decoration-color: var(--brand-yellow-dark);
   text-underline-offset: 3px;
+  outline: none; /* remove qualquer contorno/borda visual no foco para nav */
 }
 
 /* === FEEDBACK VISUAL === */

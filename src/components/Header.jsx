@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/header.css';
 import '../styles/accessibility.css';
@@ -7,6 +7,7 @@ import logoImage from '../assets/file.jpeg';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -73,12 +74,35 @@ const Header = () => {
     }
   ];
 
+  // Detecta scroll para aplicar estilo reduzido/vidro
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Evita scroll do body quando o menu mobile está aberto
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+    return () => document.body.classList.remove('no-scroll');
+  }, [isMenuOpen]);
+
+  const headerClass = `site ${scrolled ? 'site--scrolled' : ''} ${isMenuOpen ? 'site--menu-open' : ''}`.trim();
+  const menuAriaLabel = isMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação';
+
   return (
     <>
       <a href="#main-content" className="skip-link">
         Pular para o conteúdo principal
       </a>
-      <header className="site">
+      <header className={headerClass}>
         <div className="wrap site__bar">
           <Link className="brand" to="/" aria-label="Nossa Casa Artes e Terapias — página inicial">
             <img 
@@ -96,7 +120,7 @@ const Header = () => {
             className="menu-toggle"
             aria-expanded={isMenuOpen}
             aria-controls="main-navigation"
-            aria-label="Abrir menu de navegação"
+            aria-label={menuAriaLabel}
             onClick={toggleMenu}
           >
             <span></span>
@@ -153,6 +177,14 @@ const Header = () => {
           </nav>
         </div>
       </header>
+      {/* Overlay para fechar o menu ao clicar fora no mobile */}
+      {isMenuOpen && (
+        <div 
+          className="nav-overlay" 
+          onClick={closeMenu}
+          aria-hidden="true"
+        ></div>
+      )}
     </>
   );
 };

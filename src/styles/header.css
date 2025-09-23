@@ -1,13 +1,20 @@
-/* === HEADER ESTILO NOSSA CASA === */
+/* === HEADER ESTILO NOSSA CASA — MODERNO === */
 
 /* Header sticky com borda inferior discreta */
 .site {
-  position: sticky; 
-  top: 0; 
+  position: sticky;
+  top: 0;
   z-index: var(--z-sticky);
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(8px);
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: none; /* remove linha de base para visual mais limpo */
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.site--scrolled {
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
 }
 
 .site__bar {
@@ -76,7 +83,7 @@
 }
 
 .menu-toggle:hover {
-  background: var(--yellow-accent);
+  background: color-mix(in oklab, var(--brand-yellow) 18%, transparent);
 }
 
 .menu-toggle span {
@@ -127,15 +134,29 @@
   font-size: 14px;
   color: var(--preto-resistencia);
   transition: all .3s ease;
-  border: 2px solid transparent;
+  /* sem borda; usaremos background sutil e sublinhado para estado ativo */
   white-space: nowrap;
+  position: relative;
 }
 
-.nav__link:hover,
-.nav__link--active {
-  background: var(--creme-quente);
-  border-color: var(--brand-yellow-dark);
+.nav__link:hover {
+  background: color-mix(in oklab, var(--brand-yellow) 14%, transparent);
   color: var(--preto-resistencia);
+}
+
+/* Destaque moderno: sublinhado curto no ativo */
+.nav__link--active {
+  color: var(--preto-resistencia);
+}
+.nav__link--active::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--brand-yellow-dark);
+  border-radius: 2px;
 }
 
 /* Dropdown Styles */
@@ -150,7 +171,6 @@
   padding: 10px 14px;
   border-radius: 12px;
   background: none;
-  border: 2px solid transparent;
   font-weight: 500;
   font-size: 14px;
   color: var(--preto-resistencia);
@@ -161,8 +181,7 @@
 
 .nav__dropdown-toggle:hover,
 .nav__dropdown-toggle.active {
-  background: var(--creme-quente);
-  border-color: var(--brand-yellow-dark);
+  background: color-mix(in oklab, var(--brand-yellow) 14%, transparent);
   color: var(--preto-resistencia);
 }
 
@@ -179,10 +198,10 @@
   top: calc(100% + 8px);
   left: 0;
   min-width: 200px;
-  background: white;
+  background: color-mix(in oklab, var(--bg) 96%, transparent);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
-  border: 1px solid var(--stroke);
+  border: none; /* sem borda, só sombra suave */
   list-style: none;
   margin: 0;
   padding: 8px 0;
@@ -211,12 +230,12 @@
 
 .nav__dropdown-link:hover,
 .nav__dropdown-link.active {
-  background: var(--creme-quente);
+  background: color-mix(in oklab, var(--brand-yellow) 10%, transparent);
   color: var(--preto-resistencia);
 }
 
 .nav__link:hover {
-  background: var(--yellow-accent);
+  background: color-mix(in oklab, var(--brand-yellow) 18%, transparent);
   color: var(--preto-resistencia);
   transform: translateY(-1px);
 }
@@ -231,9 +250,19 @@
   background: var(--brand-yellow-dark);
 }
 
-.nav__link:focus-visible {
-  border-color: var(--brand-yellow-dark);
-  outline: none;
+/* foco sem borda/outline pesado: mantemos feedback via interactions.css (bg + underline) */
+
+/* Overlay para menu mobile */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 998;
+}
+
+/* Evita scroll da página quando menu aberto */
+body.no-scroll {
+  overflow: hidden;
 }
 
 /* Responsive */
@@ -259,12 +288,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--creme-acolhedor);
+    background: color-mix(in oklab, var(--bg) 96%, transparent);
     flex-direction: column;
     align-items: stretch;
     padding: 20px 20px 40px;
     gap: 4px;
-    box-shadow: 0 8px 30px rgba(212, 196, 15, 0.15);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
@@ -285,7 +314,7 @@
     padding: 16px 20px;
     border-radius: 12px;
     font-size: 16px;
-    border-bottom: 1px solid var(--stroke-light);
+    /* sem separadores; deixamos o espaço e o hover destacarem */
   }
   
   .nav__list {
@@ -303,7 +332,6 @@
     text-align: left;
     padding: 16px 20px;
     font-size: 16px;
-    border-bottom: 1px solid var(--stroke-light);
     width: 100%;
     justify-content: space-between;
   }
@@ -330,6 +358,5 @@
   .nav__dropdown-link {
     padding: 14px 40px;
     font-size: 15px;
-    border-bottom: 1px solid rgba(212, 196, 15, 0.1);
   }
 }
