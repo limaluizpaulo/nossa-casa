@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from './Button';
 import { NewsIcon } from './Icons';
+import { AnimateOnScroll } from '../hooks/useAnimations';
 
 const Blog = () => {
   const [filtroCategoria, setFiltroCategoria] = useState('todas');
@@ -125,183 +126,200 @@ const Blog = () => {
   return (
     <section id="blog" className="section blog-section" aria-labelledby="blog-title">
       <div className="wrap">
-        <div className="kicker">
-          <span className="rule" aria-hidden="true"></span>
-          Blog
-        </div>
-        <h2 id="blog-title" className="section__title">
-          Notícias da Comunidade
-        </h2>
+        <AnimateOnScroll animation="fade-up" delay={0}>
+          <div className="kicker">
+            <span className="rule" aria-hidden="true"></span>
+            Blog
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="fade-up" delay={200}>
+          <h2 id="blog-title" className="section__title">
+            Notícias da Comunidade
+          </h2>
+        </AnimateOnScroll>
         
-        <p className="lead">
-          Acompanhe as últimas novidades, eventos, oficinas e histórias da nossa comunidade. 
-          Aqui você encontra relatos de transformação, agenda cultural e tudo que acontece na Nossa Casa.
-        </p>
+        <AnimateOnScroll animation="fade-up" delay={400}>
+          <p className="lead">
+            Acompanhe as últimas novidades, eventos, oficinas e histórias da nossa comunidade. 
+            Aqui você encontra relatos de transformação, agenda cultural e tudo que acontece na Nossa Casa.
+          </p>
+        </AnimateOnScroll>
 
         {/* Filtros de categoria */}
-        <div className="blog-filtros mt-32">
-          <h3>Filtrar por categoria</h3>
-          <div className="filtros-container">
-            {categorias.map((categoria) => (
-              <button
-                key={categoria}
-                className={`filtro-btn ${filtroCategoria === categoria ? 'ativo' : ''}`}
-                onClick={() => setFiltroCategoria(categoria)}
-              >
-                {categoria === 'todas' ? 'Todas' : getCategoriaLabel(categoria)}
-              </button>
-            ))}
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="blog-filtros mt-32">
+            <h3>Filtrar por categoria</h3>
+            <div className="filtros-container">
+              {categorias.map((categoria) => (
+                <button
+                  key={categoria}
+                  className={`filtro-btn ${filtroCategoria === categoria ? 'ativo' : ''}`}
+                  onClick={() => setFiltroCategoria(categoria)}
+                >
+                  {categoria === 'todas' ? 'Todas' : getCategoriaLabel(categoria)}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Grid de posts */}
-        <div className="blog-posts mt-32">
-          <div className="posts-grid">
-            {postsFiltrados.map((post) => (
-              <article key={post.id} className="post-card">
-                <div className="post-imagem">
-                  <img src={post.imagem} alt={post.titulo} />
-                  <div className="post-categoria">
-                    {getCategoriaLabel(post.categoria)}
-                  </div>
-                </div>
-                
-                <div className="post-conteudo">
-                  <div className="post-meta">
-                    <time dateTime={post.data}>
-                      {formatarData(post.data)}
-                    </time>
-                    <span className="post-autor">por {post.autor}</span>
-                  </div>
-                  
-                  <h3 className="post-titulo">{post.titulo}</h3>
-                  <p className="post-resumo">{post.resumo}</p>
-                  
-                  <div className="post-actions">
-                    <Button variant="outline" size="small">
-                      Ler mais
-                    </Button>
-                  </div>
-                </div>
-              </article>
-            ))}
+        <AnimateOnScroll animation="fade-up" delay={800}>
+          <div className="blog-posts mt-32">
+            <div className="posts-grid">
+              {postsFiltrados.map((post, index) => (
+                <AnimateOnScroll key={post.id} animation="fade-up" delay={1000 + (index * 100)}>
+                  <article className="post-card">
+                    <div className="post-imagem">
+                      <img src={post.imagem} alt={post.titulo} />
+                      <div className="post-categoria">
+                        {getCategoriaLabel(post.categoria)}
+                      </div>
+                    </div>
+                    
+                    <div className="post-conteudo">
+                      <div className="post-meta">
+                        <time dateTime={post.data}>
+                          {formatarData(post.data)}
+                        </time>
+                        <span className="post-autor">por {post.autor}</span>
+                      </div>
+                      
+                      <h3 className="post-titulo">{post.titulo}</h3>
+                      <p className="post-resumo">{post.resumo}</p>
+                      
+                      <div className="post-actions">
+                        <Button variant="outline" size="small">
+                          Ler mais
+                        </Button>
+                      </div>
+                    </div>
+                  </article>
+                </AnimateOnScroll>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Seção de destaque */}
-        <div className="blog-destaque mt-48">
-          <div className="destaque-container">
-            <div className="destaque-conteudo">
-import { NewsIcon } from './Icons';
-
-// ... resto do código ...
-
-                            <h3><NewsIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Quer receber nossas novidades?</h3>
-              <p>
-                Cadastre-se em nossa newsletter e seja o primeiro a saber sobre 
-                novos eventos, oficinas e histórias inspiradoras da nossa comunidade.
-              </p>
+        <AnimateOnScroll animation="fade-up" delay={1200}>
+          <div className="blog-destaque mt-48">
+            <div className="destaque-container">
+              <div className="destaque-conteudo">
+                <h3><NewsIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Quer receber nossas novidades?</h3>
+                <p>
+                  Cadastre-se em nossa newsletter e seja o primeiro a saber sobre 
+                  novos eventos, oficinas e histórias inspiradoras da nossa comunidade.
+                </p>
+                
+                <form className="newsletter-form">
+                  <div className="form-row">
+                    <input 
+                      type="email" 
+                      placeholder="Seu email" 
+                      className="newsletter-input"
+                      required
+                    />
+                    <Button type="submit" variant="fill">
+                      Inscrever-se
+                    </Button>
+                  </div>
+                </form>
+              </div>
               
-              <form className="newsletter-form">
-                <div className="form-row">
-                  <input 
-                    type="email" 
-                    placeholder="Seu email" 
-                    className="newsletter-input"
-                    required
-                  />
-                  <Button type="submit" variant="fill">
-                    Inscrever-se
-                  </Button>
+              <div className="destaque-stats">
+                <div className="stat-item">
+                  <span className="stat-numero">200+</span>
+                  <span className="stat-label">Pessoas impactadas</span>
                 </div>
-              </form>
-            </div>
-            
-            <div className="destaque-stats">
-              <div className="stat-item">
-                <span className="stat-numero">200+</span>
-                <span className="stat-label">Pessoas impactadas</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-numero">15</span>
-                <span className="stat-label">Oficinas ativas</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-numero">50</span>
-                <span className="stat-label">Eventos realizados</span>
+                <div className="stat-item">
+                  <span className="stat-numero">15</span>
+                  <span className="stat-label">Oficinas ativas</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-numero">50</span>
+                  <span className="stat-label">Eventos realizados</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Arquivo do blog */}
-        <div className="blog-arquivo mt-48">
-          <h3>Arquivo do Blog</h3>
-          <div className="arquivo-lista">
-            <div className="arquivo-item">
-              <h4>Janeiro 2024</h4>
-              <ul>
-                <li><a href="#post1">Festival de Arte Urbana foi um sucesso!</a></li>
-                <li><a href="#post2">Nova turma de Cerâmica inicia em fevereiro</a></li>
-                <li><a href="#post3">Como a Nossa Casa transformou o bairro</a></li>
-              </ul>
-            </div>
-            
-            <div className="arquivo-item">
-              <h4>Dezembro 2023</h4>
-              <ul>
-                <li><a href="#post7">Festa Junina Quilombola aqueceu o inverno</a></li>
-                <li><a href="#post8">Teatro infantil: imaginação sem limites</a></li>
-                <li><a href="#post9">Balanço de 2023: um ano de conquistas</a></li>
-              </ul>
-            </div>
-            
-            <div className="arquivo-item">
-              <h4>Novembro 2023</h4>
-              <ul>
-                <li><a href="#post10">Novembro Negro: celebrando nossa ancestralidade</a></li>
-                <li><a href="#post11">Mutirão de limpeza mobiliza 100 voluntários</a></li>
-                <li><a href="#post12">Feira de economia solidária bate recorde</a></li>
-              </ul>
+        <AnimateOnScroll animation="fade-up" delay={400}>
+          <div className="blog-arquivo mt-48">
+            <h3>Arquivo do Blog</h3>
+            <div className="arquivo-lista">
+              <div className="arquivo-item">
+                <h4>Janeiro 2024</h4>
+                <ul>
+                  <li><a href="#post1">Festival de Arte Urbana foi um sucesso!</a></li>
+                  <li><a href="#post2">Nova turma de Cerâmica inicia em fevereiro</a></li>
+                  <li><a href="#post3">Como a Nossa Casa transformou o bairro</a></li>
+                </ul>
+              </div>
+              
+              <div className="arquivo-item">
+                <h4>Dezembro 2023</h4>
+                <ul>
+                  <li><a href="#post7">Festa Junina Quilombola aqueceu o inverno</a></li>
+                  <li><a href="#post8">Teatro infantil: imaginação sem limites</a></li>
+                  <li><a href="#post9">Balanço de 2023: um ano de conquistas</a></li>
+                </ul>
+              </div>
+              
+              <div className="arquivo-item">
+                <h4>Novembro 2023</h4>
+                <ul>
+                  <li><a href="#post10">Novembro Negro: celebrando nossa ancestralidade</a></li>
+                  <li><a href="#post11">Mutirão de limpeza mobiliza 100 voluntários</a></li>
+                  <li><a href="#post12">Feira de economia solidária bate recorde</a></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Tags populares */}
-        <div className="blog-tags mt-32">
-          <h3>Tags populares</h3>
-          <div className="tags-container">
-            <span className="tag">#resistencia</span>
-            <span className="tag">#arte</span>
-            <span className="tag">#comunidade</span>
-            <span className="tag">#educacao</span>
-            <span className="tag">#sustentabilidade</span>
-            <span className="tag">#cultura</span>
-            <span className="tag">#juventude</span>
-            <span className="tag">#transformacao</span>
-            <span className="tag">#solidariedade</span>
-            <span className="tag">#periferiaresiste</span>
-          </div>
-        </div>
-
-        {/* Call to action */}
-        <div className="blog-cta mt-48">
-          <div className="cta-content">
-            <h3>Tem uma história para contar?</h3>
-            <p>
-              Sua experiência na Nossa Casa pode inspirar outras pessoas! 
-              Compartilhe sua história conosco e ajude a fortalecer nossa rede de transformação.
-            </p>
-            <div className="cta-actions">
-              <Button variant="fill">
-                Compartilhar história
-              </Button>
-              <Button variant="outline">
-                Seguir no Instagram
-              </Button>
+        <AnimateOnScroll animation="fade-up" delay={600}>
+          <div className="blog-tags mt-32">
+            <h3>Tags populares</h3>
+            <div className="tags-container">
+              <span className="tag">#resistencia</span>
+              <span className="tag">#arte</span>
+              <span className="tag">#comunidade</span>
+              <span className="tag">#educacao</span>
+              <span className="tag">#sustentabilidade</span>
+              <span className="tag">#cultura</span>
+              <span className="tag">#juventude</span>
+              <span className="tag">#transformacao</span>
+              <span className="tag">#solidariedade</span>
+              <span className="tag">#periferiaresiste</span>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
+
+        {/* Call to action */}
+        <AnimateOnScroll animation="fade-up" delay={800}>
+          <div className="blog-cta mt-48">
+            <div className="cta-content">
+              <h3>Tem uma história para contar?</h3>
+              <p>
+                Sua experiência na Nossa Casa pode inspirar outras pessoas! 
+                Compartilhe sua história conosco e ajude a fortalecer nossa rede de transformação.
+              </p>
+              <div className="cta-actions">
+                <Button variant="fill">
+                  Compartilhar história
+                </Button>
+                <Button variant="outline">
+                  Seguir no Instagram
+                </Button>
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
