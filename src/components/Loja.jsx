@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from './Button';
 import { ShoppingBagIcon, PaletteIcon, BookOpenIcon, ShirtIcon, BagIcon, PlantIcon, LaptopIcon, HandshakeIcon, CreditCardIcon, TruckIcon } from './Icons';
+import { AnimateOnScroll } from '../hooks/useAnimations';
 
 const Loja = () => {
   const [categoria, setCategoria] = useState('todos');
@@ -124,144 +125,154 @@ const Loja = () => {
   return (
     <section id="loja" className="section loja-section" aria-labelledby="loja-title">
       <div className="wrap">
-        <div className="kicker">
-          <span className="rule" aria-hidden="true"></span>
-          Loja da Nossa Casa
-        </div>
-        <h2 id="loja-title" className="section__title">
-          Produtos que fortalecem a economia criativa e solidária da periferia
-        </h2>
-        
-        <p className="lead">
-          Ao comprar em nossa loja, você apoia artistas independentes e mantém viva a Nossa Casa. 
-          Cada produto carrega história, resistência e a potência criativa da nossa comunidade.
-        </p>
+        <AnimateOnScroll>
+          <div className="kicker">
+            <span className="rule" aria-hidden="true"></span>
+            Loja da Nossa Casa
+          </div>
+          <h2 id="loja-title" className="section__title">
+            Produtos que fortalecem a economia criativa e solidária da periferia
+          </h2>
+          
+          <p className="lead">
+            Ao comprar em nossa loja, você apoia artistas independentes e mantém viva a Nossa Casa. 
+            Cada produto carrega história, resistência e a potência criativa da nossa comunidade.
+          </p>
+        </AnimateOnScroll>
 
         {/* Filtros por categoria */}
-        <div className="loja-filtros mt-32">
-          <h3>Categorias:</h3>
-          <div className="categoria-buttons">
-            {categorias.map(cat => (
-              <button
-                key={cat.key}
-                className={`categoria-btn ${categoria === cat.key ? 'active' : ''}`}
-                onClick={() => setCategoria(cat.key)}
-                aria-pressed={categoria === cat.key}
-              >
-                <span className="categoria-icon">{cat.icon}</span>
-                {cat.label}
-              </button>
-            ))}
+        <AnimateOnScroll delay={200}>
+          <div className="loja-filtros mt-32">
+            <h3>Categorias:</h3>
+            <div className="categoria-buttons">
+              {categorias.map(cat => (
+                <button
+                  key={cat.key}
+                  className={`categoria-btn ${categoria === cat.key ? 'active' : ''}`}
+                  onClick={() => setCategoria(cat.key)}
+                  aria-pressed={categoria === cat.key}
+                >
+                  <span className="categoria-icon">{cat.icon}</span>
+                  {cat.label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Grid de produtos */}
-        <div className="produtos-grid mt-32">
-          {produtosFiltrados.map(produto => (
-            <article key={produto.id} className="produto-card">
-              <figure className="produto-imagem">
-                <img src={produto.imagem} alt={produto.nome} loading="lazy" />
-                <div className="produto-categoria-tag">
-                  {categorias.find(cat => cat.key === produto.categoria)?.icon}
-                </div>
-              </figure>
-              
-              <div className="produto-info">
-                <h3 className="produto-nome">{produto.nome}</h3>
-                <p className="produto-artista">por {produto.artista}</p>
-                <p className="produto-descricao">{produto.descricao}</p>
-                
-                {/* Detalhes específicos por tipo de produto */}
-                <div className="produto-detalhes">
-                  {produto.tamanhos && (
-                    <div className="detalhe-item">
-                      <strong>Tamanhos:</strong> {produto.tamanhos.join(', ')}
-                    </div>
-                  )}
-                  {produto.cores && (
-                    <div className="detalhe-item">
-                      <strong>Cores:</strong> {produto.cores.join(', ')}
-                    </div>
-                  )}
-                  {produto.duracao && (
-                    <div className="detalhe-item">
-                      <strong>Duração:</strong> {produto.duracao}
-                    </div>
-                  )}
-                  {produto.paginas && (
-                    <div className="detalhe-item">
-                      <strong>Páginas:</strong> {produto.paginas}
-                    </div>
-                  )}
-                  {produto.formato && (
-                    <div className="detalhe-item">
-                      <strong>Formato:</strong> {produto.formato}
-                    </div>
-                  )}
-                </div>
-                
-                <div className="produto-footer">
-                  <div className="produto-preco">
-                    {formatarPreco(produto.preco)}
+        <AnimateOnScroll delay={400}>
+          <div className="produtos-grid mt-32">
+            {produtosFiltrados.map(produto => (
+              <article key={produto.id} className="produto-card">
+                <figure className="produto-imagem">
+                  <img src={produto.imagem} alt={produto.nome} loading="lazy" />
+                  <div className="produto-categoria-tag">
+                    {categorias.find(cat => cat.key === produto.categoria)?.icon}
                   </div>
-                  <Button 
-                    variant="fill" 
-                    onClick={() => adicionarAoCarrinho(produto)}
-                    className="btn-comprar"
-                  >
-                    Comprar
-                  </Button>
+                </figure>
+                
+                <div className="produto-info">
+                  <h3 className="produto-nome">{produto.nome}</h3>
+                  <p className="produto-artista">por {produto.artista}</p>
+                  <p className="produto-descricao">{produto.descricao}</p>
+                  
+                  {/* Detalhes específicos por tipo de produto */}
+                  <div className="produto-detalhes">
+                    {produto.tamanhos && (
+                      <div className="detalhe-item">
+                        <strong>Tamanhos:</strong> {produto.tamanhos.join(', ')}
+                      </div>
+                    )}
+                    {produto.cores && (
+                      <div className="detalhe-item">
+                        <strong>Cores:</strong> {produto.cores.join(', ')}
+                      </div>
+                    )}
+                    {produto.duracao && (
+                      <div className="detalhe-item">
+                        <strong>Duração:</strong> {produto.duracao}
+                      </div>
+                    )}
+                    {produto.paginas && (
+                      <div className="detalhe-item">
+                        <strong>Páginas:</strong> {produto.paginas}
+                      </div>
+                    )}
+                    {produto.formato && (
+                      <div className="detalhe-item">
+                        <strong>Formato:</strong> {produto.formato}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="produto-footer">
+                    <div className="produto-preco">
+                      {formatarPreco(produto.preco)}
+                    </div>
+                    <Button 
+                      variant="fill" 
+                      onClick={() => adicionarAoCarrinho(produto)}
+                      className="btn-comprar"
+                    >
+                      Comprar
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        </AnimateOnScroll>
 
         {/* Informações sobre a loja */}
-        <div className="loja-info mt-48">
-          <div className="info-cards">
-            <div className="info-card">
-              <h4><TruckIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Entregas</h4>
-              <p>Fazemos entregas em Guarulhos e região. Para outros locais, consulte o frete via Correios.</p>
-            </div>
-            <div className="info-card">
-              <h4><CreditCardIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Pagamento</h4>
-              <p>Aceitamos Pix (5% desconto), cartão de crédito e dinheiro (para retirada local).</p>
-            </div>
-            <div className="info-card">
-              <h4><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Economia Solidária</h4>
-              <p>70% do valor vai direto para os artistas. 30% mantém a Nossa Casa funcionando.</p>
+        <AnimateOnScroll delay={600}>
+          <div className="loja-info mt-48">
+            <div className="info-cards">
+              <div className="info-card">
+                <h4><TruckIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Entregas</h4>
+                <p>Fazemos entregas em Guarulhos e região. Para outros locais, consulte o frete via Correios.</p>
+              </div>
+              <div className="info-card">
+                <h4><CreditCardIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Pagamento</h4>
+                <p>Aceitamos Pix (5% desconto), cartão de crédito e dinheiro (para retirada local).</p>
+              </div>
+              <div className="info-card">
+                <h4><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Economia Solidária</h4>
+                <p>70% do valor vai direto para os artistas. 30% mantém a Nossa Casa funcionando.</p>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Como comprar */}
-        <div className="como-comprar mt-32">
-          <h3>Como comprar</h3>
-          <div className="passos-compra">
-            <div className="passo">
-              <div className="passo-numero">1</div>
-              <div className="passo-info">
-                <h4>Escolha seu produto</h4>
-                <p>Navegue por nossa seleção e encontre o que fala com você</p>
+        <AnimateOnScroll delay={800}>
+          <div className="como-comprar mt-32">
+            <h3>Como comprar</h3>
+            <div className="passos-compra">
+              <div className="passo">
+                <div className="passo-numero">1</div>
+                <div className="passo-info">
+                  <h4>Escolha seu produto</h4>
+                  <p>Navegue por nossa seleção e encontre o que fala com você</p>
+                </div>
               </div>
-            </div>
-            <div className="passo">
-              <div className="passo-numero">2</div>
-              <div className="passo-info">
-                <h4>Entre em contato</h4>
-                <p>WhatsApp ou email para confirmar disponibilidade e detalhes</p>
+              <div className="passo">
+                <div className="passo-numero">2</div>
+                <div className="passo-info">
+                  <h4>Entre em contato</h4>
+                  <p>WhatsApp ou email para confirmar disponibilidade e detalhes</p>
+                </div>
               </div>
-            </div>
-            <div className="passo">
-              <div className="passo-numero">3</div>
-              <div className="passo-info">
-                <h4>Finalize a compra</h4>
-                <p>Escolha forma de pagamento e entrega</p>
+              <div className="passo">
+                <div className="passo-numero">3</div>
+                <div className="passo-info">
+                  <h4>Finalize a compra</h4>
+                  <p>Escolha forma de pagamento e entrega</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Carrinho de compras simples */}
         {carrinho.length > 0 && (
@@ -277,33 +288,37 @@ const Loja = () => {
         )}
 
         {/* CTA para artistas */}
-        <div className="artistas-cta mt-48">
-          <h3>Quer vender seus produtos na nossa loja?</h3>
-          <p>Se você é artista ou artesã e tem produtos alinhados com nossos valores, vamos conversar!</p>
-          <div className="cta-buttons mt-24">
-            <Button variant="accent" href="#contato">Seja um fornecedor</Button>
-            <Button href="#facilite">Saiba mais</Button>
+        <AnimateOnScroll delay={1000}>
+          <div className="artistas-cta mt-48">
+            <h3>Quer vender seus produtos na nossa loja?</h3>
+            <p>Se você é artista ou artesã e tem produtos alinhados com nossos valores, vamos conversar!</p>
+            <div className="cta-buttons mt-24">
+              <Button variant="accent" href="#contato">Seja um fornecedor</Button>
+              <Button href="#facilite">Saiba mais</Button>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Destaques dos artistas */}
-        <div className="artistas-destaque mt-32">
-          <h3>Conheça nossos artistas</h3>
-          <div className="artistas-grid">
-            <div className="artista-card">
-              <h4>Val Araújo</h4>
-              <p>Cantora e artista visual, cria obras que celebram a ancestralidade afro-brasileira.</p>
-            </div>
-            <div className="artista-card">
-              <h4>Coletivo Mulheres Criadoras</h4>
-              <p>Grupo de mulheres periféricas que trabalham com sustentabilidade e economia criativa.</p>
-            </div>
-            <div className="artista-card">
-              <h4>Cooperativa Mãos Criativas</h4>
-              <p>Cooperativa local especializada em produtos naturais e artesanato tradicional.</p>
+        <AnimateOnScroll delay={1200}>
+          <div className="artistas-destaque mt-32">
+            <h3>Conheça nossos artistas</h3>
+            <div className="artistas-grid">
+              <div className="artista-card">
+                <h4>Val Araújo</h4>
+                <p>Cantora e artista visual, cria obras que celebram a ancestralidade afro-brasileira.</p>
+              </div>
+              <div className="artista-card">
+                <h4>Coletivo Mulheres Criadoras</h4>
+                <p>Grupo de mulheres periféricas que trabalham com sustentabilidade e economia criativa.</p>
+              </div>
+              <div className="artista-card">
+                <h4>Cooperativa Mãos Criativas</h4>
+                <p>Cooperativa local especializada em produtos naturais e artesanato tradicional.</p>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
