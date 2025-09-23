@@ -6606,3 +6606,875 @@
     margin-right: auto;
   }
 }
+
+/* === PÁGINA VOLUNTARIADO === */
+.voluntarie-section {
+  padding: 120px 0;
+  background: linear-gradient(180deg, var(--surface-light) 0%, var(--surface) 50%, var(--surface-light) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.voluntarie-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, var(--brand-blue-light) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, var(--brand-cyan-light) 0%, transparent 50%);
+  opacity: 0.03;
+  z-index: 0;
+}
+
+.voluntarie-section .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.voluntarie-section .section__title {
+  color: var(--brand-blue-dark);
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+  line-height: 1.2;
+}
+
+.voluntarie-section .lead {
+  font-size: 1.25rem;
+  color: var(--ink-light);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* === ÁREAS DE VOLUNTARIADO === */
+.areas-voluntariado h3 {
+  font-size: 2rem;
+  color: var(--brand-blue-dark);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.area-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.area-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--brand-blue-light), var(--brand-cyan-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.area-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.area-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--brand-blue-light);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.1),
+    0 8px 32px rgba(37, 99, 235, 0.15);
+}
+
+.area-card:hover::before {
+  opacity: 0.05;
+}
+
+.area-icone {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 0 auto 20px;
+  transition: all 0.3s ease;
+}
+
+.area-card:hover .area-icone {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+}
+
+.area-card h4 {
+  font-size: 1.4rem;
+  color: var(--brand-blue-dark);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.area-card p {
+  color: var(--ink-light);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* === BENEFÍCIOS VOLUNTÁRIO === */
+.beneficios-voluntario h3 {
+  font-size: 2rem;
+  color: var(--brand-blue-dark);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.beneficio-item {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.beneficio-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--brand-blue-light), var(--brand-cyan-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.beneficio-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.beneficio-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-blue-light);
+  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.1);
+}
+
+.beneficio-item:hover::before {
+  opacity: 0.05;
+}
+
+.beneficio-icone {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.beneficio-item:hover .beneficio-icone {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.beneficio-item h4 {
+  font-size: 1.3rem;
+  color: var(--brand-blue-dark);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.beneficio-item p {
+  color: var(--ink-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* === DEPOIMENTOS === */
+.depoimentos-voluntarios h3 {
+  font-size: 2rem;
+  color: var(--brand-blue-dark);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.depoimento-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 32px;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.depoimento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--brand-blue-light), var(--brand-cyan-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.depoimento-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.depoimento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-blue-light);
+  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.1);
+}
+
+.depoimento-card:hover::before {
+  opacity: 0.05;
+}
+
+.depoimento-card blockquote {
+  font-size: 1.1rem;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  font-style: italic;
+  position: relative;
+}
+
+.depoimento-card blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--brand-blue-light);
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-family: Georgia, serif;
+  opacity: 0.3;
+}
+
+.depoimento-autor strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--brand-blue-dark);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.depoimento-autor span {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+}
+
+/* === FORMULÁRIO VOLUNTÁRIO === */
+.voluntario-form {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 48px;
+  border: 2px solid var(--brand-blue-light);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(37, 99, 235, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.voluntario-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--brand-blue-light), var(--brand-cyan-light));
+  opacity: 0.03;
+  z-index: 0;
+}
+
+.voluntario-form > * {
+  position: relative;
+  z-index: 1;
+}
+
+.voluntario-form h3 {
+  font-size: 2rem;
+  color: var(--brand-blue-dark);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.form-voluntario {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-section {
+  border-bottom: 1px solid var(--surface-light);
+  padding-bottom: 32px;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.form-section h4 {
+  font-size: 1.4rem;
+  color: var(--brand-blue-dark);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 16px;
+  border: 2px solid var(--surface-light);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: var(--surface-light);
+  color: var(--ink);
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.submit-btn {
+  min-width: 250px;
+  padding: 18px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+}
+
+.form-note {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+/* === INFO VOLUNTÁRIO === */
+.info-voluntario h3 {
+  font-size: 1.8rem;
+  color: var(--brand-blue-dark);
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.info-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--brand-blue-light), var(--brand-cyan-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.info-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.info-card:hover {
+  border-color: var(--brand-blue-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+}
+
+.info-card:hover::before {
+  opacity: 0.05;
+}
+
+.info-card h4 {
+  font-size: 1.2rem;
+  color: var(--brand-blue-dark);
+  margin-bottom: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.info-card p {
+  color: var(--ink-light);
+  line-height: 1.5;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* === RESPONSIVIDADE PÁGINA VOLUNTARIADO === */
+/* === MOBILE EXTRA SMALL (320px - 480px) === */
+@media (max-width: 480px) {
+  .voluntarie-section {
+    padding: 60px 0;
+  }
+  
+  .voluntarie-section .section__title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    margin-bottom: 24px;
+  }
+  
+  .voluntarie-section .lead {
+    font-size: 1.1rem;
+  }
+  
+  .areas-voluntariado {
+    margin-top: 48px;
+  }
+  
+  .areas-voluntariado h3 {
+    font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+  
+  .areas-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .area-card {
+    padding: 24px 20px;
+  }
+  
+  .area-icone {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+  }
+  
+  .area-card h4 {
+    font-size: 1.2rem;
+  }
+  
+  .beneficios-voluntario {
+    margin-top: 48px;
+  }
+  
+  .beneficios-voluntario h3 {
+    font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+  
+  .beneficios-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .beneficio-item {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .beneficio-icone {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .beneficio-item h4 {
+    font-size: 1.2rem;
+  }
+  
+  .depoimentos-voluntarios {
+    margin-top: 48px;
+  }
+  
+  .depoimentos-voluntarios h3 {
+    font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+  
+  .depoimentos-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .depoimento-card {
+    padding: 24px 20px;
+  }
+  
+  .voluntario-form {
+    margin-top: 48px;
+    padding: 32px 24px;
+  }
+  
+  .voluntario-form h3 {
+    font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+  
+  .form-section {
+    gap: 32px;
+    padding-bottom: 24px;
+  }
+  
+  .form-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    padding: 14px;
+    font-size: 16px; /* Previne zoom no iOS */
+  }
+  
+  .submit-btn {
+    width: 100%;
+    min-width: auto;
+    padding: 16px;
+  }
+  
+  .info-voluntario {
+    margin-top: 32px;
+  }
+  
+  .info-voluntario h3 {
+    font-size: 1.4rem;
+  }
+  
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .info-card {
+    padding: 20px;
+  }
+  
+  .info-card h4 {
+    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* === MOBILE SMALL (481px - 640px) === */
+@media (min-width: 481px) and (max-width: 640px) {
+  .voluntarie-section {
+    padding: 80px 0;
+  }
+  
+  .areas-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .beneficios-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .beneficio-item {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .depoimentos-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .info-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .info-card h4 {
+    flex-direction: row;
+  }
+}
+
+/* === TABLET PORTRAIT (641px - 768px) === */
+@media (min-width: 641px) and (max-width: 768px) {
+  .voluntarie-section {
+    padding: 100px 0;
+  }
+  
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .beneficios-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .depoimentos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .info-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === TABLET LANDSCAPE (769px - 1024px) === */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .voluntarie-section {
+    padding: 120px 0;
+  }
+  
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .beneficios-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
+  .depoimentos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* === DESKTOP SMALL (1025px - 1280px) === */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .voluntarie-section .wrap {
+    max-width: 1200px;
+  }
+  
+  .areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .beneficios-grid {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .depoimentos-grid {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .voluntario-form {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .info-cards {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* === DESKTOP MEDIUM (1281px - 1440px) === */
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .areas-grid {
+    max-width: 1200px;
+  }
+  
+  .beneficios-grid {
+    max-width: 1200px;
+  }
+  
+  .depoimentos-grid {
+    max-width: 1200px;
+  }
+}
+
+/* === DESKTOP LARGE (1441px - 1600px) === */
+@media (min-width: 1441px) and (max-width: 1600px) {
+  .voluntarie-section .wrap {
+    max-width: 1400px;
+  }
+  
+  .areas-grid {
+    max-width: 1300px;
+  }
+  
+  .beneficios-grid {
+    max-width: 1300px;
+  }
+  
+  .depoimentos-grid {
+    max-width: 1300px;
+  }
+}
+
+/* === DESKTOP EXTRA LARGE (1601px+) === */
+@media (min-width: 1601px) {
+  .voluntarie-section .wrap {
+    max-width: 1500px;
+  }
+  
+  .areas-grid {
+    max-width: 1400px;
+  }
+  
+  .beneficios-grid {
+    max-width: 1400px;
+  }
+  
+  .depoimentos-grid {
+    max-width: 1400px;
+  }
+  
+  .voluntarie-section .section__title {
+    max-width: 700px;
+  }
+  
+  .voluntarie-section .lead {
+    max-width: 900px;
+  }
+  
+  .voluntario-form {
+    max-width: 900px;
+  }
+  
+  .info-cards {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
