@@ -11,7 +11,7 @@ const Home = () => {
       <ScrollProgress />
       
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section" role="banner" aria-label="Hero: Nossa Casa apresentação">
         {/* Overlay image placed above the yellow background but behind content */}
         <div className="hero-overlay" aria-hidden="true">
           <img src={bgImage} alt="" />
@@ -44,10 +44,12 @@ const Home = () => {
               
               <AnimateOnScroll animation="fade-left" delay={400}>
                 <div className="hero-visual">
-                  <div className="hero-image shimmer">
-                    <img 
-                      src={ncImage} 
+                  <div className="hero-image shimmer" aria-hidden={false}>
+                    <img
+                      src={ncImage}
                       alt="Atividade comunitária na Nossa Casa"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="hero-stats">
