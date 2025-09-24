@@ -8,25 +8,25 @@ const QuemSomos = () => {
       nome: "Camila Bitencourt",
       papel: "Psicóloga e Idealizadora",
       descricao: "Atua como produtora executiva, lidera com gestão horizontal, com foco em pessoas negras, periféricas e LGBTQIAPN+. Realiza atendimentos clínicos com enfoque em raça, gênero e questões sociais.",
-      imagem: "https://images.unsplsh.com/photo-1594736797933-d0cc3b5c5c62?q=80&w=400&auto=format&fit=crop"
+      imagem: "/images/heros/cami.png"
     },
     {
       nome: "Val Araújo",
       papel: "Cantora e Produtora Cultural",
       descricao: "Coordena a gestão contábil e a produção de eventos. Idealizadora do Projeto Espiral, já atuou em produções como TEDx Guarulhos e SESC Guarulhos.",
-      imagem: "https://images.unsplah.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+      imagem: "/images/heros/val.png"
     },
     {
       nome: "Dico de Brito (A Dico)",
       papel: "Arte-educadora e Produtora Cultural",
       descricao: "Pessoa trans não binária, idealizou projetos como Queermessy e Trans.Lados, e coorganizou o I Festival LGBTQIAPN+ de Guarulhos.",
-      imagem: "https://images..com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+      imagem: "/images/heros/dico.png"
     },
     {
       nome: "Taty Sayllon",
       papel: "Apresentadora e Ativista Cultural",
       descricao: "Hostess e ativista cultural. Rainha Gay Plus Size SP 2024 e apresentadora oficial da Parada do Orgulho LGBTQIAPN+ de Guarulhos.",
-      imagem: "https://images.unsplah.com/photo-1494790108755-2616b612b77c?q=80&w=400&auto=format&fit=crop"
+      imagem: "/images/heros/taty.png"
     }
   ];
 
