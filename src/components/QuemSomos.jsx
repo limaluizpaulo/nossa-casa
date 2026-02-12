@@ -21,12 +21,6 @@ const QuemSomos = () => {
       papel: "Arte-educadora e Produtora Cultural",
       descricao: "Pessoa trans não binária, idealizou projetos como Queermessy e Trans.Lados, e coorganizou o I Festival LGBTQIAPN+ de Guarulhos.",
       imagem: "/images/heros/dico.png"
-    },
-    {
-      nome: "Taty Sayllon",
-      papel: "Apresentadora e Ativista Cultural",
-      descricao: "Hostess e ativista cultural. Rainha Gay Plus Size SP 2024 e apresentadora oficial da Parada do Orgulho LGBTQIAPN+ de Guarulhos.",
-      imagem: "/images/heros/taty.png"
     }
   ];
 

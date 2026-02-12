@@ -380,13 +380,27 @@ const Contato = () => {
             <h3><MapPinIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Como chegar</h3>
             <div className="mapa-container">
               <AnimateOnScroll animation="fade-up" delay={1000}>
-                <div className="mapa-placeholder">
-                  {/* Aqui seria integrado um mapa real (Google Maps, OpenStreetMap, etc.) */}
-                  <div className="mapa-info">
+                <div className="mapa-embed">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58488.84964344934!2d-46.533287!3d-23.462215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef50d8f0e6e15%3A0x86c0814e845c7b6a!2sGuarulhos%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                    width="100%"
+                    height="450"
+                    style={{ border: 0, borderRadius: 'var(--radius-lg)' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Localização da Nossa Casa em Guarulhos"
+                  ></iframe>
+                  <div className="mapa-info-overlay">
                     <h4>Nossa Casa - Centro Cultural</h4>
                     <p>Rua das Artes, 123 - Guarulhos, SP</p>
                     <p>CEP: 73000-000</p>
-                    <Button variant="fill">
+                    <Button 
+                      variant="fill"
+                      href="https://www.google.com/maps/search/?api=1&query=Guarulhos+SP"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Abrir no Google Maps
                     </Button>
                   </div>
