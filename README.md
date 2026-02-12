@@ -30,17 +30,30 @@ A Nossa Casa é um centro cultural independente localizado em Guarulhos-SP, dedi
 
 ```bash
 # Instalar dependências
-npm install
+yarn install
 
 # Executar em modo de desenvolvimento
-npm run dev
+yarn dev
 
 # Build para produção
-npm run build
+yarn build
 
 # Preview da build de produção
-npm run preview
+yarn preview
 ```
+
+## 📦 Deploy
+
+Para fazer deploy do site em produção, consulte o arquivo [DEPLOY.md](./DEPLOY.md) que contém instruções detalhadas para:
+- Netlify
+- Vercel
+- GitHub Pages
+- Hospedagem própria (cPanel, FTP, Apache, Nginx)
+
+**Importante:** O projeto já inclui arquivos de configuração para diferentes plataformas:
+- `public/_redirects` - Para Netlify
+- `vercel.json` - Para Vercel
+- `public/.htaccess` - Para servidores Apache
 
 ## 📁 Estrutura do projeto
 
