@@ -11,7 +11,7 @@
  */
 
 import sharp from 'sharp';
-import { readdir, stat, mkdir } from 'fs/promises';
+import { readdir, stat, mkdir, copyFile } from 'fs/promises';
 import { join, extname, dirname, basename } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -28,9 +28,33 @@ const CONFIG = {
   pngQuality: 85,
   // Qualidade WebP (0-100)
   webpQuality: 80,
-  // Tipos de arquivo suportados
+  // Tipos de arquivo suportados para otimização
   supportedFormats: ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG'],
+  // Tipos de arquivo para copiar sem modificação
+  copyFormats: ['.svg', '.gif', '.webp'],
 };
+
+/**
+ * Copia um arquivo sem modificação
+ */
+async function copyFilePreserved(inputPath, outputPath) {
+  console.log(`\n📋 Copiando: ${basename(inputPath)}`);
+  
+  try {
+    // Garantir que o diretório de saída existe
+    await mkdir(dirname(outputPath), { recursive: true });
+    
+    // Copiar o arquivo
+    await copyFile(inputPath, outputPath);
+    
+    const stats = await stat(inputPath);
+    const size = (stats.size / 1024).toFixed(2);
+    console.log(`   ✅ Copiado: ${size}KB`);
+    
+  } catch (error) {
+    console.error(`   ❌ Erro ao copiar: ${error.message}`);
+  }
+}
 
 /**
  * Processa um arquivo de imagem
@@ -127,6 +151,8 @@ async function processDirectory(inputDir, outputDir) {
         const ext = extname(entry.name).toLowerCase();
         if (CONFIG.supportedFormats.includes(ext)) {
           await processImage(inputPath, outputPath);
+        } else if (CONFIG.copyFormats.includes(ext)) {
+          await copyFilePreserved(inputPath, outputPath);
         }
       }
     }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-label="Solidariedade e apoio">
+  <defs>
+    <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#g6)"/>
+  <path d="M800 540c60-120 260-120 260 40 0 120-160 200-260 280-100-80-260-160-260-280 0-160 200-160 260-40z" fill="#111827" fill-opacity="0.1"/>
+  <text x="50%" y="88%" text-anchor="middle" font-family="Inter, system-ui, Arial" font-size="64" fill="#111827" fill-opacity="0.75">DOE — Solidariedade</text>
+</svg>
