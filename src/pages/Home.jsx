@@ -54,16 +54,16 @@ const Home = () => {
                   </div>
                   <div className="hero-stats">
                     <div className="stat-item">
-                      <span className="stat-number">1200+</span>
+                      <span className="stat-number">+ 12.000</span>
                       <span className="stat-label">Pessoas impactadas</span>
                     </div>
                     <div className="stat-item">
-                      <span className="stat-number">48</span>
+                      <span className="stat-number">+200</span>
                       <span className="stat-label">Oficinas oferecidas</span>
                     </div>
                     <div className="stat-item">
-                      <span className="stat-number">3</span>
-                      <span className="stat-label">Anos transformando vidas</span>
+                      <span className="stat-number">7 anos</span>
+                      <span className="stat-label">Construindo novas possibilidades</span>
                     </div>
                   </div>
                 </div>
