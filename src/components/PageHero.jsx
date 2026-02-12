@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import OptimizedImage from './OptimizedImage';
 import '../styles/hero.css';
 
 /*
@@ -44,7 +45,7 @@ const PageHero = ({
         </div>
 
         <figure className="hero__media">
-          <img src={imageSrc} alt={imageAlt} loading="eager" />
+          <OptimizedImage src={imageSrc} alt={imageAlt} loading="eager" />
           {caption && (
             <figcaption className="hero__caption">{caption}</figcaption>
           )}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
+import OptimizedImage from '../components/OptimizedImage';
 import { HeartIcon, HandshakeIcon } from '../components/Icons';
 import { AnimateOnScroll, ScrollProgress } from '../hooks/useAnimations';
 import bgImage from '../assets/bg.png';
@@ -47,11 +48,10 @@ const Home = () => {
               <AnimateOnScroll animation="fade-left" delay={400}>
                 <div className="hero-visual">
                   <div className="hero-image shimmer" aria-hidden={false}>
-                    <img
+                    <OptimizedImage
                       src={ncImage}
                       alt="Atividade comunitária na Nossa Casa"
                       loading="lazy"
-                      decoding="async"
                     />
                   </div>
                   <div className="hero-stats">
@@ -89,7 +89,7 @@ const Home = () => {
             <AnimateOnScroll animation="fade-up" delay={200}>
               <div 
                 className="activity-card shimmer"
-                style={{ backgroundImage: 'url(/images/heros/oficinas.svg)' }}
+                style={{ backgroundImage: 'url(/images/heros/music.webp), url(/images/heros/music.jpg)' }}
               >
                 <h3>Oficinas Culturais</h3>
                 <p>Arte, música, dança, teatro e literatura para todas as idades</p>
@@ -102,7 +102,7 @@ const Home = () => {
             <AnimateOnScroll animation="fade-up" delay={300}>
               <div 
                 className="activity-card shimmer"
-                style={{ backgroundImage: 'url(/images/heros/agenda.jpeg)' }}
+                style={{ backgroundImage: 'url(/images/heros/agenda.webp), url(/images/heros/agenda.jpeg)' }}
               >
                 <h3>Eventos Comunitários</h3>
                 <p>Saraus, festivais, feiras e encontros que fortalecem nossa rede</p>
@@ -115,7 +115,7 @@ const Home = () => {
             <AnimateOnScroll animation="fade-up" delay={400}>
               <div 
                 className="activity-card shimmer"
-                style={{ backgroundImage: 'url(/images/heros/aluguel.svg)' }}
+                style={{ backgroundImage: 'url(/images/heros/porta.webp), url(/images/heros/porta.JPG)' }}
               >
                 <h3>Espaços para Alugar</h3>
                 <p>Ambientes equipados para seus eventos, reuniões e celebrações</p>
@@ -128,7 +128,7 @@ const Home = () => {
             <AnimateOnScroll animation="fade-up" delay={500}>
               <div 
                 className="activity-card shimmer"
-                style={{ backgroundImage: 'url(/images/heros/loja.svg)' }}
+                style={{ backgroundImage: 'url(/images/heros/loja.webp), url(/images/heros/loja.JPG)' }}
               >
                 <h3>Nossa Loja</h3>
                 <p>Produtos da economia criativa feitos por artistas locais</p>
@@ -141,7 +141,7 @@ const Home = () => {
             <AnimateOnScroll animation="fade-up" delay={600}>
               <div 
                 className="activity-card shimmer"
-                style={{ backgroundImage: `url(${ncImage})` }}
+                style={{ backgroundImage: 'url(/images/heros/terapias.webp), url(/images/heros/terapias.png)' }}
               >
                 <h3>Terapias Integrativas</h3>
                 <p>Cuidado integral com diversas abordagens terapêuticas</p>
@@ -154,7 +154,7 @@ const Home = () => {
             <AnimateOnScroll animation="fade-up" delay={700}>
               <div 
                 className="activity-card shimmer"
-                style={{ backgroundImage: 'url(/images/heros/agenda.jpeg)' }}
+                style={{ backgroundImage: 'url(/images/heros/clinica.webp), url(/images/heros/clinica.jpg)' }}
               >
                 <h3>Clínica Social</h3>
                 <p>Atendimento acessível e acolhedor para a comunidade</p>
@@ -167,7 +167,7 @@ const Home = () => {
             <AnimateOnScroll animation="fade-up" delay={800}>
               <div 
                 className="activity-card shimmer"
-                style={{ backgroundImage: `url(${bgImage})` }}
+                style={{ backgroundImage: 'url(/images/heros/ocupa.webp), url(/images/heros/ocupa.jpg)' }}
               >
                 <h3>Nossa Casa Ocupa</h3>
                 <p>Ações de ocupação cultural e artística pela cidade</p>

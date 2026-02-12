@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Image optimization temporary directories
+public/images-optimized
+src/assets-optimized
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
