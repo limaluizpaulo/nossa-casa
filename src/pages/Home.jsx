@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import { PaletteIcon, CalendarIcon, HomeIcon, ShoppingBagIcon, HeartIcon, HandshakeIcon } from '../components/Icons';
+import { HeartIcon, HandshakeIcon } from '../components/Icons';
 import { AnimateOnScroll, ScrollProgress } from '../hooks/useAnimations';
 import bgImage from '../assets/bg.png';
 import ncImage from '../assets/nc.jpg';
 
 const Home = () => {
+  const whatsappUrl = "https://wa.me/5511999999999";
+
   return (
     <div className="home-page">
       <ScrollProgress />
@@ -85,45 +87,92 @@ const Home = () => {
           
           <div className="activities-grid">
             <AnimateOnScroll animation="fade-up" delay={200}>
-              <div className="activity-card shimmer">
-                <div className="activity-icon"><PaletteIcon size={32} /></div>
+              <div 
+                className="activity-card shimmer"
+                style={{ backgroundImage: 'url(/images/heros/oficinas.svg)' }}
+              >
                 <h3>Oficinas Culturais</h3>
                 <p>Arte, música, dança, teatro e literatura para todas as idades</p>
-                <Button variant="outline" size="small" as={Link} to="/oficinas">
+                <Button variant="fill" size="small" as={Link} to="/oficinas">
                   Ver oficinas
                 </Button>
               </div>
             </AnimateOnScroll>
             
             <AnimateOnScroll animation="fade-up" delay={300}>
-              <div className="activity-card shimmer">
-                <div className="activity-icon"><CalendarIcon size={32} /></div>
+              <div 
+                className="activity-card shimmer"
+                style={{ backgroundImage: 'url(/images/heros/agenda.jpeg)' }}
+              >
                 <h3>Eventos Comunitários</h3>
                 <p>Saraus, festivais, feiras e encontros que fortalecem nossa rede</p>
-                <Button variant="outline" size="small" as={Link} to="/agenda">
+                <Button variant="fill" size="small" as={Link} to="/agenda">
                   Ver agenda
                 </Button>
               </div>
             </AnimateOnScroll>
             
             <AnimateOnScroll animation="fade-up" delay={400}>
-              <div className="activity-card shimmer">
-                <div className="activity-icon"><HomeIcon size={32} /></div>
+              <div 
+                className="activity-card shimmer"
+                style={{ backgroundImage: 'url(/images/heros/aluguel.svg)' }}
+              >
                 <h3>Espaços para Alugar</h3>
                 <p>Ambientes equipados para seus eventos, reuniões e celebrações</p>
-                <Button variant="outline" size="small" as={Link} to="/aluguel">
+                <Button variant="fill" size="small" as={Link} to="/aluguel">
                   Conhecer espaços
                 </Button>
               </div>
             </AnimateOnScroll>
             
             <AnimateOnScroll animation="fade-up" delay={500}>
-              <div className="activity-card shimmer">
-                <div className="activity-icon"><ShoppingBagIcon size={32} /></div>
-                <h3>Loja Solidária</h3>
+              <div 
+                className="activity-card shimmer"
+                style={{ backgroundImage: 'url(/images/heros/loja.svg)' }}
+              >
+                <h3>Nossa Loja</h3>
                 <p>Produtos da economia criativa feitos por artistas locais</p>
-                <Button variant="outline" size="small" as={Link} to="/loja">
+                <Button variant="fill" size="small" as={Link} to="/loja">
                   Visitar loja
+                </Button>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fade-up" delay={600}>
+              <div 
+                className="activity-card shimmer"
+                style={{ backgroundImage: `url(${ncImage})` }}
+              >
+                <h3>Terapias Integrativas</h3>
+                <p>Cuidado integral com diversas abordagens terapêuticas</p>
+                <Button variant="fill" size="small" href={whatsappUrl} target="_blank">
+                  Ver terapias
+                </Button>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fade-up" delay={700}>
+              <div 
+                className="activity-card shimmer"
+                style={{ backgroundImage: 'url(/images/heros/agenda.jpeg)' }}
+              >
+                <h3>Clínica Social</h3>
+                <p>Atendimento acessível e acolhedor para a comunidade</p>
+                <Button variant="fill" size="small" href={whatsappUrl} target="_blank">
+                  Ver clínica
+                </Button>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fade-up" delay={800}>
+              <div 
+                className="activity-card shimmer"
+                style={{ backgroundImage: `url(${bgImage})` }}
+              >
+                <h3>Nossa Casa Ocupa</h3>
+                <p>Ações de ocupação cultural e artística pela cidade</p>
+                <Button variant="fill" size="small" href={whatsappUrl} target="_blank">
+                  Ver ocupação
                 </Button>
               </div>
             </AnimateOnScroll>
