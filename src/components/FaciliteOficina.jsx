@@ -4,6 +4,7 @@ import { TargetIcon, BookOpenIcon, AccessibilityIcon, BuildingIcon, SeedlingIcon
 
 const FaciliteOficina = () => {
 
+  /* DADOS TEMPORARIAMENTE COMENTADOS - Voltar no futuro
   const criteriosSelecao = [
     {
       titulo: "Alinhamento com nossa missão",
@@ -36,27 +37,24 @@ const FaciliteOficina = () => {
       icone: <LightbulbIcon size={24} />
     }
   ];
+  */
 
   const processoProposta = [
     {
       etapa: "1. Envie sua proposta",
-      descricao: "Preencha o formulário com todos os detalhes da sua oficina",
-      prazo: "Sempre aberto"
+      descricao: "Preencha o formulário com todos os detalhes da sua oficina"
     },
     {
       etapa: "2. Análise inicial",
-      descricao: "Nossa equipe avalia a proposta e alinhamento com nossos valores",
-      prazo: "7 dias úteis"
+      descricao: "Nossa equipe avalia a proposta e alinhamento com nossos valores"
     },
     {
       etapa: "3. Conversa presencial",
-      descricao: "Agendamos um encontro para conhecer você e detalhar a proposta",
-      prazo: "15 dias"
+      descricao: "Agendamos um encontro para conhecer você e detalhar a proposta"
     },
     {
       etapa: "4. Definição de parceria",
-      descricao: "Alinhamos logística, cronograma e condições da oficina",
-      prazo: "30 dias"
+      descricao: "Alinhamos logística, cronograma e condições da oficina"
     }
   ];
 
@@ -79,7 +77,7 @@ const FaciliteOficina = () => {
           </p>
         </AnimateOnScroll>
 
-        {/* Porque facilitar na Nossa Casa */}
+        {/* Por que facilitar na Nossa Casa - COMENTADO TEMPORARIAMENTE
         <AnimateOnScroll animation="fade-up" delay={200}>
           <div className="porque-facilitar mt-32">
             <h3>Por que facilitar na Nossa Casa?</h3>
@@ -129,8 +127,9 @@ const FaciliteOficina = () => {
             </div>
           </div>
         </AnimateOnScroll>
+        */}
 
-        {/* Critérios de seleção */}
+        {/* O que buscamos nas propostas - COMENTADO TEMPORARIAMENTE
         <AnimateOnScroll animation="fade-up" delay={300}>
           <div className="criterios-selecao mt-48">
             <h3>O que buscamos nas propostas</h3>
@@ -145,8 +144,9 @@ const FaciliteOficina = () => {
             </div>
           </div>
         </AnimateOnScroll>
+        */}
 
-        {/* Processo de seleção */}
+        {/* Como funciona o processo */}
         <AnimateOnScroll animation="fade-up" delay={400}>
           <div className="processo-selecao mt-48">
             <h3>Como funciona o processo</h3>
@@ -157,7 +157,6 @@ const FaciliteOficina = () => {
                   <div className="step-content">
                     <h4>{etapa.etapa}</h4>
                     <p>{etapa.descricao}</p>
-                    <span className="step-prazo">{etapa.prazo}</span>
                   </div>
                 </div>
               ))}
@@ -200,7 +199,7 @@ const FaciliteOficina = () => {
               </div>
               <div className="info-card">
                 <h4><HandshakeIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Parceria</h4>
-                <p>Apoiamos na divulgação, gestão de inscrições e oferecemos suporte durante toda a oficina.</p>
+                <p>Apoiamos na divulgação, gestão de inscrições e oferecemos suporte necessário durante toda a oficina.</p>
               </div>
               <div className="info-card">
                 <h4><TargetIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Inclusão</h4>
