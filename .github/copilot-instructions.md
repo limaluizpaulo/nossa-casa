@@ -6,17 +6,17 @@ React 19 SPA for Nossa Casa cultural center (Guarulhos, Brazil). Built with Vite
 ## Architecture & Key Patterns
 
 ### Component Structure
-- **Pages** ([src/pages/](src/pages/)): Full page components with Hero sections, each maps to a route in [App.jsx](src/App.jsx)
-- **Components** ([src/components/](src/components/)): Reusable UI (Button, Card, Header, Footer, Icons)
-- **Hooks** ([src/hooks/](src/hooks/)): Custom hooks for animations and scroll behaviors
+- **Pages** (`src/pages/`): Full page components with Hero sections, each maps to a route in `App.jsx`
+- **Components** (`src/components/`): Reusable UI (Button, Card, Header, Footer, Icons)
+- **Hooks** (`src/hooks/`): Custom hooks for animations and scroll behaviors
 
 ### Routing Pattern
-All routes defined in [App.jsx](src/App.jsx) using React Router v7. The app uses:
+All routes defined in `App.jsx` using React Router v7. The app uses:
 - `<ScrollToTop />` to reset scroll position on navigation
 - `<ScrollToTopButton />` for accessibility
 - Consistent Header/Footer wrapper around all pages
 
-### Button Component ([src/components/Button.jsx](src/components/Button.jsx))
+### Button Component (`src/components/Button.jsx`)
 Polymorphic component supporting multiple rendering modes:
 ```jsx
 // As React Router Link
@@ -32,7 +32,7 @@ Polymorphic component supporting multiple rendering modes:
 **Variants:** `fill`, `outline`, `secondary`, `accent`, `text`  
 **Sizes:** `small`, `default`, `large`
 
-### Animation System ([src/hooks/useAnimations.jsx](src/hooks/useAnimations.jsx))
+### Animation System (`src/hooks/useAnimations.jsx`)
 Scroll-triggered animations using IntersectionObserver:
 ```jsx
 <AnimateOnScroll animation="fade-up" delay={200}>
@@ -48,14 +48,14 @@ Scroll-triggered animations using IntersectionObserver:
 
 ## Styling Architecture
 
-### Design System ([src/styles/tokens.css](src/styles/tokens.css))
+### Design System (`src/styles/tokens.css`)
 CSS custom properties define the entire design system:
 - **Brand color:** `--brand-yellow: #f8ee13` (primary CTA color)
 - **Spacing:** 8pt grid system (`--space-1` through `--space-32`)
 - **Typography:** Inter + DM Sans at standardized sizes (`--text-xs` → `--text-7xl`)
 - **Breakpoints:** `--bp-sm: 640px` through `--bp-2xl: 1536px`
 
-### CSS Organization ([src/index.css](src/index.css))
+### CSS Organization (`src/index.css`)
 Imports are layered:
 1. `tokens.css` - design system variables
 2. `utilities.css` - helper classes
@@ -77,15 +77,15 @@ yarn lint      # ESLint check
 
 ### Adding New Pages
 1. Create component in `src/pages/[PageName].jsx`
-2. Add route in [App.jsx](src/App.jsx) `<Routes>` section
-3. Add navigation link in [Header.jsx](src/components/Header.jsx) `menuItems` array
+2. Add route in `App.jsx` `<Routes>` section
+3. Add navigation link in `Header.jsx` `menuItems` array
 4. Use `<AnimateOnScroll>` wrapper for scroll animations
 5. Include `PageHero` or custom hero section at top
 
 ### Creating Components
 - Use `forwardRef` when component may be wrapped or needs ref forwarding
 - Export as default for single-export files
-- Import icons from [components/Icons.jsx](src/components/Icons.jsx)
+- Import icons from `components/Icons.jsx`
 - Add prop validation in future (currently no PropTypes)
 
 ## Project-Specific Conventions
@@ -93,7 +93,7 @@ yarn lint      # ESLint check
 ### Accessibility Requirements
 **Critical:** This project prioritizes WCAG AA/AAA compliance
 - Always include `aria-label` on icons and icon buttons
-- Maintain skip-link in [Header.jsx](src/Header.jsx) (`#main-content`)
+- Maintain skip-link in `Header.jsx` (`#main-content`)
 - Use semantic HTML (`<section>`, `<article>`, `<nav>` with `aria-label`)
 - Test with `prefers-reduced-motion` - animations respect user settings
 - Ensure proper heading hierarchy (h1 → h2 → h3, no skips)
@@ -105,7 +105,7 @@ All UI text, comments, and content must be in **Portuguese (pt-BR)**. Examples:
 - Component names may be English, but props/content are Portuguese
 
 ### Visual Design Principles
-Documented in [README.md](README.md):
+Documented in `README.md`:
 - **Airy spacing** - generous whitespace between sections
 - **Warm + institutional** - balance trust with approachability  
 - **No visual clutter** - clean, focused layouts without heavy borders
@@ -119,11 +119,11 @@ Documented in [README.md](README.md):
 
 ## Key Files Reference
 
-- [App.jsx](src/App.jsx) - Router configuration, all routes
-- [Header.jsx](src/components/Header.jsx) - Main navigation with dropdowns, mobile menu
-- [useAnimations.jsx](src/hooks/useAnimations.jsx) - Scroll animation hooks and components
-- [tokens.css](src/styles/tokens.css) - Complete design system (spacing, colors, type scale)
-- [Home.jsx](src/pages/Home.jsx) - Homepage pattern example with hero, sections, CTAs
+- `App.jsx` - Router configuration, all routes
+- `Header.jsx` - Main navigation with dropdowns, mobile menu
+- `useAnimations.jsx` - Scroll animation hooks and components
+- `tokens.css` - Complete design system (spacing, colors, type scale)
+- `Home.jsx` - Homepage pattern example with hero, sections, CTAs
 
 ## Common Tasks
 
