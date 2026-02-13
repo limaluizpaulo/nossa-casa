@@ -284,10 +284,6 @@ const OficinasVivencias = () => {
                 <p>Temos bolsas disponíveis para pessoas em vulnerabilidade social. Entre em contato conosco!</p>
               </div>
               <div className="info-card">
-                <h4><AccessibilityIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Acessibilidade</h4>
-                <p>Nosso espaço é acessível e nossas oficinas são adaptadas para todes os corpos.</p>
-              </div>
-              <div className="info-card">
                 <h4><SeedlingIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Cuidado coletivo</h4>
                 <p>Priorizamos um ambiente seguro, acolhedor e livre de qualquer tipo de violência.</p>
               </div>

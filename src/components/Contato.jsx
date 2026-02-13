@@ -422,14 +422,6 @@ const Contato = () => {
                     <li>Estacionamento do shopping (pago, 500m)</li>
                     <li>Vaga para pessoas com deficiência disponível</li>
                   </ul>
-
-                  <h4><AccessibilityIcon size={24} style={{display: 'inline', marginRight: '8px'}} /> Acessibilidade</h4>
-                  <ul>
-                    <li>Entrada principal com rampa</li>
-                    <li>Banheiro adaptado</li>
-                    <li>Elevador para o segundo andar</li>
-                    <li>Vagas preferenciais</li>
-                  </ul>
                 </div>
               </AnimateOnScroll>
             </div>
