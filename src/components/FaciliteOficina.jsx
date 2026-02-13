@@ -1,46 +1,8 @@
-import { useState } from 'react';
 import Button from './Button';
 import { AnimateOnScroll } from '../hooks/useAnimations';
 import { TargetIcon, BookOpenIcon, AccessibilityIcon, BuildingIcon, SeedlingIcon, LightbulbIcon, StarIcon, HandshakeIcon, TrendingUpIcon, HeartIcon, HomeIcon, CalendarIcon, DollarSignIcon } from './Icons';
 
 const FaciliteOficina = () => {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
-    profissao: '',
-    formacao: '',
-    tituloOficina: '',
-    tipoOficina: '',
-    duracao: '',
-    publicoAlvo: '',
-    descricao: '',
-    objetivos: '',
-    metodologia: '',
-    materiais: '',
-    experiencia: '',
-    portfolio: '',
-    motivacao: '',
-    disponibilidade: '',
-    investimento: ''
-  });
-
-  const tiposOficina = [
-    "Artes Plásticas e Visuais",
-    "Música e Sonoridades", 
-    "Dança e Movimento",
-    "Teatro e Performance",
-    "Literatura e Escrita",
-    "Artesanato e Manualidades",
-    "Tecnologia e Inovação",
-    "Bem-estar e Autocuidado",
-    "Gastronomia",
-    "Jardinagem e Sustentabilidade",
-    "Empreendedorismo",
-    "Educação Popular",
-    "Terapias Integrativas",
-    "Outro"
-  ];
 
   const criteriosSelecao = [
     {
@@ -97,20 +59,6 @@ const FaciliteOficina = () => {
       prazo: "30 dias"
     }
   ];
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Proposta de oficina:', formData);
-    alert('Proposta enviada com sucesso! Análisaremos sua proposta e entraremos em contato em breve. Obrigado por querer fazer parte da Nossa Casa!');
-  };
 
   return (
     <section id="facilite-oficina" className="section facilite-section" aria-labelledby="facilite-title">
@@ -221,265 +169,19 @@ const FaciliteOficina = () => {
         <AnimateOnScroll animation="fade-up" delay={500}>
           <div className="proposta-form mt-48">
             <h3>Envie sua proposta de oficina</h3>
-            <form onSubmit={handleSubmit} className="form-proposta">
-            <div className="form-section">
-              <h4>Sobre você</h4>
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="nome">Nome completo *</label>
-                  <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    value={formData.nome}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="email">Email *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="telefone">Telefone/WhatsApp *</label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    value={formData.telefone}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="profissao">Profissão/Área de atuação</label>
-                  <input
-                    type="text"
-                    id="profissao"
-                    name="profissao"
-                    value={formData.profissao}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="formacao">Formação e qualificações</label>
-                <textarea
-                  id="formacao"
-                  name="formacao"
-                  value={formData.formacao}
-                  onChange={handleInputChange}
-                  rows="3"
-                  placeholder="Conte sobre sua formação acadêmica, cursos, certificações..."
-                ></textarea>
-              </div>
+            <div className="google-form-container">
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSet6B1jAfzxlviFRHGhJn7AlPKI1srPkYGkBWgHNpFIjN_ZUw/viewform?embedded=true" 
+                width="100%" 
+                height="1800" 
+                frameBorder="0" 
+                marginHeight="0" 
+                marginWidth="0"
+                title="Formulário de proposta de oficina"
+              >
+                Carregando…
+              </iframe>
             </div>
-
-            <div className="form-section">
-              <h4>Sobre a oficina</h4>
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="tituloOficina">Título da oficina *</label>
-                  <input
-                    type="text"
-                    id="tituloOficina"
-                    name="tituloOficina"
-                    value={formData.tituloOficina}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Ex: Introdução à Cerâmica Artística"
-                  />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="tipoOficina">Categoria *</label>
-                  <select
-                    id="tipoOficina"
-                    name="tipoOficina"
-                    value={formData.tipoOficina}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">Selecione uma categoria</option>
-                    {tiposOficina.map((tipo, index) => (
-                      <option key={index} value={tipo}>{tipo}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="duracao">Duração *</label>
-                  <select
-                    id="duracao"
-                    name="duracao"
-                    value={formData.duracao}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">Selecione a duração</option>
-                    <option value="pontual">Oficina pontual (1 encontro)</option>
-                    <option value="curta">Curso curto (2-4 encontros)</option>
-                    <option value="media">Curso médio (1-2 meses)</option>
-                    <option value="longa">Curso longo (3+ meses)</option>
-                    <option value="flexivel">Flexível</option>
-                  </select>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="publicoAlvo">Público-alvo *</label>
-                  <input
-                    type="text"
-                    id="publicoAlvo"
-                    name="publicoAlvo"
-                    value={formData.publicoAlvo}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Ex: Jovens de 16-25 anos, Iniciantes, Livre para todos..."
-                  />
-                </div>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="descricao">Descrição da oficina *</label>
-                <textarea
-                  id="descricao"
-                  name="descricao"
-                  value={formData.descricao}
-                  onChange={handleInputChange}
-                  rows="4"
-                  placeholder="Descreva o que será ensinado, o formato das aulas e o que os participantes podem esperar"
-                  required
-                ></textarea>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="objetivos">Objetivos de aprendizagem *</label>
-                <textarea
-                  id="objetivos"
-                  name="objetivos"
-                  value={formData.objetivos}
-                  onChange={handleInputChange}
-                  rows="3"
-                  placeholder="Quais conhecimentos e habilidades os participantes irão desenvolver?"
-                  required
-                ></textarea>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="metodologia">Metodologia *</label>
-                <textarea
-                  id="metodologia"
-                  name="metodologia"
-                  value={formData.metodologia}
-                  onChange={handleInputChange}
-                  rows="3"
-                  placeholder="Como será a dinâmica das aulas? Que métodos pedagógicos você utilizará?"
-                  required
-                ></textarea>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="materiais">Materiais necessários</label>
-                <textarea
-                  id="materiais"
-                  name="materiais"
-                  value={formData.materiais}
-                  onChange={handleInputChange}
-                  rows="3"
-                  placeholder="Liste os materiais que serão necessários e quem ficará responsável por providenciar"
-                ></textarea>
-              </div>
-            </div>
-
-            <div className="form-section">
-              <h4>Sua experiência</h4>
-              <div className="form-field">
-                <label htmlFor="experiencia">Experiência como facilitador/educador *</label>
-                <textarea
-                  id="experiencia"
-                  name="experiencia"
-                  value={formData.experiencia}
-                  onChange={handleInputChange}
-                  rows="4"
-                  placeholder="Conte sobre sua experiência dando aulas, oficinas ou cursos"
-                  required
-                ></textarea>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="portfolio">Portfolio ou referências</label>
-                <textarea
-                  id="portfolio"
-                  name="portfolio"
-                  value={formData.portfolio}
-                  onChange={handleInputChange}
-                  rows="3"
-                  placeholder="Links para seu trabalho, site, redes sociais ou referências de pessoas que podem falar sobre você"
-                ></textarea>
-              </div>
-            </div>
-
-            <div className="form-section">
-              <h4>Logística</h4>
-              <div className="form-field">
-                <label htmlFor="disponibilidade">Disponibilidade *</label>
-                <textarea
-                  id="disponibilidade"
-                  name="disponibilidade"
-                  value={formData.disponibilidade}
-                  onChange={handleInputChange}
-                  rows="2"
-                  placeholder="Que dias da semana e horários você tem disponível?"
-                  required
-                ></textarea>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="investimento">Proposta de investimento</label>
-                <textarea
-                  id="investimento"
-                  name="investimento"
-                  value={formData.investimento}
-                  onChange={handleInputChange}
-                  rows="3"
-                  placeholder="Qual sua proposta de remuneração? Lembre-se que valorizamos a acessibilidade"
-                ></textarea>
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="motivacao">Por que quer facilitar na Nossa Casa? *</label>
-                <textarea
-                  id="motivacao"
-                  name="motivacao"
-                  value={formData.motivacao}
-                  onChange={handleInputChange}
-                  rows="4"
-                  placeholder="Conte sobre sua motivação e como sua oficina se alinha com nossos valores"
-                  required
-                ></textarea>
-              </div>
-            </div>
-
-            <div className="form-actions">
-              <Button type="submit" variant="fill" className="submit-btn">
-                Enviar proposta
-              </Button>
-              <p className="form-note">
-                * Analisaremos sua proposta e entraremos em contato em até 7 dias úteis
-              </p>
-            </div>
-          </form>
           </div>
         </AnimateOnScroll>
 
