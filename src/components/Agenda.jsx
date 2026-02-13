@@ -227,18 +227,6 @@ const Agenda = () => {
             )}
           </div>
         </AnimateOnScroll>
-
-        {/* CTA final */}
-        <AnimateOnScroll animation="fade-up" delay={600}>
-          <div className="agenda-cta mt-48 glow-effect">
-            <h3>Quer propor uma atividade?</h3>
-            <p>Se você tem saberes para compartilhar, venha fazer parte da nossa programação!</p>
-            <div className="cta-buttons mt-24">
-              <Button variant="accent" as={Link} to="/facilitar">Facilite uma oficina</Button>
-              <Button as={Link} to="/contato">Entre em contato</Button>
-            </div>
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );

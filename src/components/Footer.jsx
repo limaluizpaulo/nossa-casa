@@ -77,10 +77,6 @@ const Footer = () => {
                   <strong><MailIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Email:</strong>
                   <a href="mailto:nossacasaat@gmail.com">nossacasaat@gmail.com</a>
                 </div>
-                <div className="contact-item">
-                  <strong><SmartphoneIcon size={16} style={{display: 'inline', marginRight: '4px'}} /> Telefone:</strong>
-                  <a href="tel:+5511999999999">(11) 99999-9999</a>
-                </div>
               </div>
             </div>
           </div>
